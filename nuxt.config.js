@@ -24,11 +24,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['view-design/dist/styles/iview.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/iview'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -62,6 +62,29 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) {
+      // add iview-loader
+      const rules = config.module.rules.map(rule => {
+        if (/vue/.test(rule.test.toString())) {
+          return {
+            test: rule.test,
+            use: [
+              {
+                loader: rule.loader,
+                options: rule.options,
+              },
+              {
+                loader: 'iview-loader',
+                options: {
+                  prefix: true,
+                },
+              },
+            ],
+          }
+        }
+        return rule
+      })
+      config.module.rules = rules
+    },
   },
 }
