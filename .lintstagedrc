@@ -1,4 +1,0 @@
-{
-  "*.{js,vue}": "npm run lint",
-  "*.{css,vue}": "stylelint"
-}
