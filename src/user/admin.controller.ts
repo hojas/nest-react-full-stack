@@ -7,14 +7,17 @@ import {
   Query,
   ParseIntPipe,
   DefaultValuePipe,
+  UseGuards,
 } from '@nestjs/common';
 import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
 import { Pagination } from 'src/types/pagination';
 import { PAGE_SIZE } from 'src/constants';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('admin/users')
+@UseGuards(JwtAuthGuard)
 export class AdminUserController {
   constructor(private userService: UserService) {}
 
