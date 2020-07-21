@@ -3,4 +3,5 @@ export class UserDto {
   id?: number;
   githubId: number;
   raw: string;
+  roles?: string;
 }

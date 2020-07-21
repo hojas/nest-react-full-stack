@@ -7,18 +7,17 @@ import {
   Query,
   ParseIntPipe,
   DefaultValuePipe,
-  UseGuards,
 } from '@nestjs/common';
+import { Roles } from 'src/decorators/role.decorator';
 import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
 import { Pagination } from 'src/types/pagination';
-import { PAGE_SIZE } from 'src/constants';
-import { UserService } from './user.service';
+import { PAGE_SIZE } from 'src/constants/pagination';
 import { User } from './user.entity';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { UserService } from './user.service';
 
 @Controller('admin/users')
-@UseGuards(JwtAuthGuard)
-export class AdminUserController {
+@Roles('admin')
+export class AdminController {
   constructor(private userService: UserService) {}
 
   @Get()
@@ -33,12 +32,12 @@ export class AdminUserController {
 
   @Get(':id')
   @UseFilters(HttpExceptionFilter)
-  async findById(@Param('id') id: string): Promise<User> {
+  async findById(@Param('id') id: number): Promise<User> {
     const user = await this.userService.findById(id);
-
     if (user) {
       return user;
     }
+
     throw new NotFoundException();
   }
 }

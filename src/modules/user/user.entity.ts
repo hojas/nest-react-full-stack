@@ -11,4 +11,7 @@ export class User {
   // github profile JSON data
   @Column()
   raw: string;
+
+  @Column({ default: '' })
+  roles: string;
 }

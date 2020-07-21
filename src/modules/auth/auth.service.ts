@@ -4,8 +4,8 @@ import { JwtService } from '@nestjs/jwt';
 
 import { UserService } from '../user/user.service';
 import { AuthReq } from 'src/types/auth-req';
-import { UserDto } from 'src/user/user.dto';
-import { User } from 'src/user/user.entity';
+import { UserDto } from 'src/modules/user/user.dto';
+import { User } from 'src/modules/user/user.entity';
 
 type Token = {
   token: string;
@@ -40,6 +40,7 @@ export class AuthService {
   login(user: User): Token {
     const token = this.jwtService.sign({
       sub: user.id,
+      roles: user.roles,
     });
 
     return { token };

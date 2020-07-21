@@ -15,7 +15,7 @@ export class UserController {
 
   @Get(':id')
   @UseFilters(HttpExceptionFilter)
-  async findById(@Param('id') id: string): Promise<User> {
+  async findById(@Param('id') id: number): Promise<User> {
     const user = await this.userService.findById(id);
 
     if (user) {

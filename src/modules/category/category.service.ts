@@ -23,7 +23,7 @@ export class CategoryService {
     return this.categoryRepository.save(category);
   }
 
-  async update(id: number, category: CategoryDto): Promise<Category | null> {
+  async update(id: number, category: CategoryDto): Promise<Category> {
     const c = await this.findById(id);
     if (c) {
       return this.categoryRepository.save(category);
@@ -33,6 +33,11 @@ export class CategoryService {
   }
 
   remove(id: number): Promise<DeleteResult> {
-    return this.categoryRepository.delete(id);
+    const c = this.findById(id);
+    if (c) {
+      return this.categoryRepository.delete(id);
+    }
+
+    return null;
   }
 }

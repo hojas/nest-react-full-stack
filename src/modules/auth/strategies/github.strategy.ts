@@ -12,10 +12,10 @@ export class GithubStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async validate(
     accessToken: string,
     refreshToken: string,
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     profile: any,
   ): Promise<any> {
     if (profile && profile.id) {

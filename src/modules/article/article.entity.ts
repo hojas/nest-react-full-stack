@@ -8,11 +8,8 @@ export class Article {
   @Column()
   title: string;
 
-  @Column()
+  @Column('text')
   content: string;
-
-  @Column()
-  tags: string;
 
   @Column()
   categoryId: number;
@@ -20,12 +17,15 @@ export class Article {
   @Column()
   authorId: number;
 
-  @Column()
+  @Column({ default: '' })
+  tags: string;
+
+  @Column({ default: 0 })
   viewCount: number;
 
-  @Column()
+  @Column({ default: 0 })
   likeCount: number;
 
-  @Column()
+  @Column({ default: 0 })
   collectCount: number;
 }

@@ -1,22 +1,24 @@
 import {
   Controller,
   Get,
-  UseGuards,
   Post,
   Body,
   Param,
   Delete,
   HttpCode,
+  NotFoundException,
+  UseFilters,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { Roles } from 'src/decorators/role.decorator';
+import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
 import { Category } from './category.entity';
-import { CategoryService } from './category.service';
 import { CategoryDto } from './category.dto';
+import { CategoryService } from './category.service';
 
 @Controller('categories')
-@UseGuards(JwtAuthGuard)
-export class CategoryController {
+@Roles('admin')
+export class AdminController {
   constructor(private categoryService: CategoryService) {}
 
   @Get()
@@ -30,16 +32,27 @@ export class CategoryController {
   }
 
   @Post(':id')
-  update(
+  @UseFilters(HttpExceptionFilter)
+  async update(
     @Param('id') id: number,
     @Body('category') category: CategoryDto,
   ): Promise<Category | null> {
-    return this.categoryService.update(id, category);
+    const res = await this.categoryService.update(id, category);
+    if (res) {
+      return res;
+    }
+    throw new NotFoundException();
   }
 
   @Delete(':id')
   @HttpCode(204)
-  delete(@Param('id') id: number): Promise<DeleteResult> {
-    return this.categoryService.remove(id);
+  @UseFilters(HttpExceptionFilter)
+  async delete(@Param('id') id: number): Promise<DeleteResult> {
+    const res = await this.categoryService.remove(id);
+    if (res) {
+      return res;
+    }
+
+    throw new NotFoundException();
   }
 }
