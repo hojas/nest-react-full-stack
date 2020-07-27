@@ -7,14 +7,13 @@ import { GithubStrategy } from './strategies/github.strategy';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './jwt-constants';
 
 @Module({
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '600s' },
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: process.env.JWT_EXPIRES },
     }),
     UserModule,
   ],

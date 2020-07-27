@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: nest-postgres
+    image: postgres:12.3-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: blog
+    volumes:
+      - ~/docker_volumes/postgresql:/var/lib/postgresql/data
+  app:
+    container_name: nest-blog
+    build: .
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    command: npm run start:prod

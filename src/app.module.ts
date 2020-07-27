@@ -8,7 +8,6 @@ import { CategoryModule } from './modules/category/category.module';
 import { ArticleModule } from './modules/article/article.module';
 import { RoleModule } from './modules/role/role.module';
 import { RolesGuard } from './modules/role/roles.guard';
-import { UserRoleModule } from './modules/user-role/user-role.module';
 
 @Module({
   imports: [
@@ -18,7 +17,6 @@ import { UserRoleModule } from './modules/user-role/user-role.module';
     CategoryModule,
     ArticleModule,
     RoleModule,
-    UserRoleModule,
   ],
   providers: [
     {

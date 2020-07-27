@@ -17,7 +17,7 @@ export class UserService {
   async initAdmin(): Promise<void> {
     const user = await this.findById(1);
 
-    if (JSON.parse(user.raw).username == 'hojas') {
+    if (JSON.parse(user.raw).username === 'hojas') {
       this.addRole(user.id, 'admin');
     }
   }
