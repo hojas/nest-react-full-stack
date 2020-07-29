@@ -16,7 +16,7 @@ import { Category } from './category.entity';
 import { CategoryDto } from './category.dto';
 import { CategoryService } from './category.service';
 
-@Controller('categories')
+@Controller('admin/categories')
 @Roles('admin')
 export class AdminController {
   constructor(private categoryService: CategoryService) {}

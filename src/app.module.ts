@@ -6,6 +6,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 import { CategoryModule } from './modules/category/category.module';
 import { ArticleModule } from './modules/article/article.module';
+import { CommentModule } from './modules/comment/comment.module';
 import { RoleModule } from './modules/role/role.module';
 import { RolesGuard } from './modules/role/roles.guard';
 
@@ -16,6 +17,7 @@ import { RolesGuard } from './modules/role/roles.guard';
     UserModule,
     CategoryModule,
     ArticleModule,
+    CommentModule,
     RoleModule,
   ],
   providers: [

@@ -69,8 +69,8 @@ export class ArticleController {
   }
 
   @Delete(':id')
-  @HttpCode(204)
   @UseGuards(JwtAuthGuard)
+  @HttpCode(204)
   @UseFilters(HttpExceptionFilter)
   async remove(@Param('id') id: number): Promise<string> {
     const res = await this.articleService.remove(id);

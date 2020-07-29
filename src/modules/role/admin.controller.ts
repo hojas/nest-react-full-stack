@@ -16,7 +16,7 @@ import { RoleService } from './role.service';
 
 @Controller('admin/role')
 @Roles('admin')
-export class RoleController {
+export class AdminController {
   constructor(private roleService: RoleService) {}
 
   @Get()
