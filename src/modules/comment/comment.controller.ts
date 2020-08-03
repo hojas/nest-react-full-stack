@@ -59,8 +59,7 @@ export class CommentController {
   }
 
   @Post()
-  @UseFilters(JwtAuthGuard)
-  @HttpCode(201)
+  @UseGuards(JwtAuthGuard)
   create(@Body('comment') comment: CommentDto): Promise<Comment> {
     return this.commentService.create(comment);
   }
