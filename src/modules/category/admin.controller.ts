@@ -8,6 +8,7 @@ import {
   HttpCode,
   NotFoundException,
   UseFilters,
+  Put,
 } from '@nestjs/common';
 import { DeleteResult } from 'typeorm';
 import { Roles } from 'src/decorators/role.decorator';
@@ -31,7 +32,7 @@ export class AdminController {
     return this.categoryService.create(category);
   }
 
-  @Post(':id')
+  @Put(':id')
   @UseFilters(HttpExceptionFilter)
   async update(
     @Param('id') id: number,
