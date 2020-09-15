@@ -42,6 +42,7 @@ export class AdminController {
     if (res) {
       return res;
     }
+
     throw new NotFoundException();
   }
 

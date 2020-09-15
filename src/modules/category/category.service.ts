@@ -26,7 +26,8 @@ export class CategoryService {
   async update(id: number, category: CategoryDto): Promise<Category> {
     const c = await this.findById(id);
     if (c) {
-      return this.categoryRepository.save(category);
+      await this.categoryRepository.update(c.id, category);
+      return { ...c, ...category };
     }
 
     return null;
