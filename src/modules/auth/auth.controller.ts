@@ -32,10 +32,13 @@ export class AuthController {
   @Get('github/callback')
   @UseGuards(GithubAuthGuard)
   async callback(@Req() req: AuthReq, @Res() res: Response): Promise<any> {
-    const token = await this.authService.validate(req);
-    this.authService.setToken(res, token.token);
-
-    return res.json({ ok: true });
+    try {
+      const token = await this.authService.validate(req);
+      this.authService.setToken(res, token.token);
+      return res.json({ ok: true });
+    } catch {
+      return res.json({ ok: false });
+    }
   }
 
   @Get('user')

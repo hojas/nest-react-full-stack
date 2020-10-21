@@ -6,9 +6,9 @@ export class User {
   id: number;
 
   @Column()
-  githubId: number;
+  github_id: number;
 
-  // github profile JSON data
+  // github profile JSON string
   @Column()
   raw: string;
 

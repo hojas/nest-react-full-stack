@@ -1,12 +1,11 @@
-// Category Data Transfer Object
 export class ArticleDto {
-  id?: number;
+  id: number;
   title: string;
   content: string;
-  categoryId: number;
-  authorId: number;
-  tags?: string;
-  viewCount?: number;
-  likeCount?: number;
-  collectCount?: number;
+  category_id: number;
+  author_id: number;
+  tags: string;
+  view_count: number;
+  like_count: number;
+  collect_count: number;
 }

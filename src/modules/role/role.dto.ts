@@ -1,5 +1,5 @@
 export class RoleDto {
-  id?: number;
+  id: number;
   name: string;
   code: string;
 }

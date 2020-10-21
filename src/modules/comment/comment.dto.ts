@@ -1,6 +1,6 @@
 export class CommentDto {
-  id?: number;
+  id: number;
   content: string;
-  authorId: number;
-  articleId: number;
+  author_id: number;
+  article_id: number;
 }

@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: blog
     volumes:
-      - ~/docker_volumes/postgresql:/var/lib/postgresql/data
+      - ~/docker_volumes/nest-blog/postgresql:/var/lib/postgresql/data
   app:
     container_name: nest-blog
     build: .

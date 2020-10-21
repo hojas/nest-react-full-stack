@@ -9,8 +9,8 @@ export class Comment {
   content: string;
 
   @Column()
-  authorId: number;
+  author_id: number;
 
   @Column()
-  articleId: number;
+  article_id: number;
 }

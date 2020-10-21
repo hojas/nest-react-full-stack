@@ -26,11 +26,11 @@ export class AuthService {
         return this.login(user);
       } else {
         const newUser: UserDto = new UserDto();
-        newUser.githubId = +req.user.id;
+        newUser.github_id = +req.user.id;
         newUser.raw = req.user._raw;
 
         const u: User = await this.userService.create(newUser);
-        this.login(u);
+        return this.login(u);
       }
     }
 

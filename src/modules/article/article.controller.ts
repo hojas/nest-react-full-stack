@@ -13,6 +13,7 @@ import {
   DefaultValuePipe,
   ParseIntPipe,
   UseFilters,
+  Req,
 } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { Article } from './article.entity';
@@ -21,6 +22,7 @@ import { ArticleDto } from './article.dto';
 import { PAGE_SIZE } from 'src/constants/pagination';
 import { Pagination } from 'src/types/pagination';
 import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
+import { AuthReq } from 'src/types/auth-req';
 
 @Controller('articles')
 export class ArticleController {
@@ -28,12 +30,17 @@ export class ArticleController {
 
   @Get()
   findAll(
+    @Query('category_id')
+    category_id: number,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    pageSize: number,
+    page_size: number,
   ): Promise<Pagination<Article>> {
-    return this.articleService.findAll({ page, pageSize });
+    if (category_id) {
+      return this.articleService.findByCategoryId(category_id, { page, page_size })
+    }
+    return this.articleService.findAll({ page, page_size });
   }
 
   @Get(':id')
@@ -49,7 +56,11 @@ export class ArticleController {
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Body('article') article: ArticleDto): Promise<Article> {
+  create(
+    @Req() req: AuthReq,
+    @Body('article') article: ArticleDto,
+  ): Promise<Article> {
+    article.author_id = req.user.id;
     return this.articleService.create(article);
   }
 

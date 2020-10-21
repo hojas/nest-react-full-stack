@@ -14,16 +14,34 @@ export class ArticleService {
 
   async findAll({
     page,
-    pageSize,
+    page_size,
   }: Pagination<Article>): Promise<Pagination<Article>> {
     const [results, count] = await this.articleRepository.findAndCount({
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      skip: (page - 1) * page_size,
+      take: page_size,
     });
 
     return {
       page,
-      pageSize,
+      page_size,
+      count,
+      results,
+    };
+  }
+
+  async findByCategoryId(
+    category_id: number,
+    { page, page_size }: Pagination<Article>,
+  ): Promise<Pagination<Article>> {
+    const [results, count] = await this.articleRepository.findAndCount({
+      where: { category_id },
+      skip: (page - 1) * page_size,
+      take: page_size,
+    });
+
+    return {
+      page,
+      page_size,
       count,
       results,
     };

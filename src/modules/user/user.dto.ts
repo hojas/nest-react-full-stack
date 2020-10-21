@@ -1,7 +1,7 @@
 // User Data Transfer Object
 export class UserDto {
   id?: number;
-  githubId: number;
+  github_id: number;
   raw: string;
-  roles?: string;
+  roles: string;
 }

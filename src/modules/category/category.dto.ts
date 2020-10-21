@@ -1,6 +1,6 @@
 // Category Data Transfer Object
 export class CategoryDto {
-  id?: number;
+  id: number;
   name: string;
   code: string;
 }

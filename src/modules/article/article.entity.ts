@@ -12,20 +12,20 @@ export class Article {
   content: string;
 
   @Column()
-  categoryId: number;
+  category_id: number;
 
   @Column()
-  authorId: number;
+  author_id: number;
 
   @Column({ default: '' })
   tags: string;
 
   @Column({ default: 0 })
-  viewCount: number;
+  view_count: number;
 
   @Column({ default: 0 })
-  likeCount: number;
+  like_count: number;
 
   @Column({ default: 0 })
-  collectCount: number;
+  collect_count: number;
 }

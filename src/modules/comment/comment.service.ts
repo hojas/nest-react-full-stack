@@ -14,34 +14,34 @@ export class CommentService {
 
   async findAll({
     page,
-    pageSize,
+    page_size,
   }: Pagination<Comment>): Promise<Pagination<Comment>> {
     const [results, count] = await this.commentRepository.findAndCount({
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      skip: (page - 1) * page_size,
+      take: page_size,
     });
 
     return {
       page,
-      pageSize,
+      page_size,
       count,
       results,
     };
   }
 
   async findByArticleId(
-    articleId: number,
-    { page, pageSize }: Pagination<Comment>,
+    article_id: number,
+    { page, page_size }: Pagination<Comment>,
   ): Promise<Pagination<Comment>> {
     const [results, count] = await this.commentRepository.findAndCount({
-      where: { articleId },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      where: { article_id },
+      skip: (page - 1) * page_size,
+      take: page_size,
     });
 
     return {
       page,
-      pageSize,
+      page_size,
       count,
       results,
     };

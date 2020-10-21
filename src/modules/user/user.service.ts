@@ -24,16 +24,16 @@ export class UserService {
 
   async findAll({
     page,
-    pageSize,
+    page_size,
   }: Pagination<User>): Promise<Pagination<User>> {
     const [results, count] = await this.userRepository.findAndCount({
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      skip: (page - 1) * page_size,
+      take: page_size,
     });
 
     return {
       page,
-      pageSize,
+      page_size,
       count,
       results,
     };
@@ -43,8 +43,8 @@ export class UserService {
     return this.userRepository.findOne(id);
   }
 
-  findByGithubId(githubId: number): Promise<User> {
-    return this.userRepository.findOne({ where: { githubId } });
+  findByGithubId(github_id: number): Promise<User> {
+    return this.userRepository.findOne({ where: { github_id } });
   }
 
   create(user: UserDto): Promise<User> {

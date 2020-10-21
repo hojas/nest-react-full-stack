@@ -27,9 +27,9 @@ export class AdminController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    pageSize: number,
+    page_size: number,
   ): Promise<Pagination<Comment>> {
-    return this.commentService.findAll({ page, pageSize });
+    return this.commentService.findAll({ page, page_size });
   }
 
   @Get(':article_id')
@@ -38,9 +38,9 @@ export class AdminController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    pageSize: number,
+    page_size: number,
   ): Promise<Pagination<Comment>> {
-    return this.commentService.findByArticleId(id, { page, pageSize });
+    return this.commentService.findByArticleId(id, { page, page_size });
   }
 
   @Get(':id')

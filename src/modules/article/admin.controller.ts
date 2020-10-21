@@ -30,9 +30,9 @@ export class AdminController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    pageSize: number,
+    page_size: number,
   ): Promise<Pagination<Article>> {
-    return this.articleService.findAll({ page, pageSize });
+    return this.articleService.findAll({ page, page_size });
   }
 
   @Get(':id')
