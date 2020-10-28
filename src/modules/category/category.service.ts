@@ -19,6 +19,10 @@ export class CategoryService {
     return this.categoryRepository.findOne(id);
   }
 
+  findByCode(code: string): Promise<Category> {
+    return this.categoryRepository.findOne({ code });
+  }
+
   create(category: CategoryDto): Promise<Category> {
     return this.categoryRepository.save(category);
   }

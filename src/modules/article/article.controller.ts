@@ -29,17 +29,28 @@ export class ArticleController {
   constructor(private articleService: ArticleService) {}
 
   @Get()
-  findAll(
-    @Query('category_id')
-    category_id: number,
+  @UseFilters(HttpExceptionFilter)
+  async findAll(
+    @Query('category_code')
+    category_code: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
     page_size: number,
   ): Promise<Pagination<Article>> {
-    if (category_id) {
-      return this.articleService.findByCategoryId(category_id, { page, page_size })
+    if (category_code) {
+      const res = await this.articleService.findByCategoryCode(category_code, {
+        page,
+        page_size,
+      });
+
+      if (res) {
+        return res
+      }
+
+      throw new NotFoundException()
     }
+
     return this.articleService.findAll({ page, page_size });
   }
 
