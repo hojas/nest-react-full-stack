@@ -45,10 +45,10 @@ export class ArticleController {
       });
 
       if (res) {
-        return res
+        return res;
       }
 
-      throw new NotFoundException()
+      throw new NotFoundException();
     }
 
     return this.articleService.findAll({ page, page_size });

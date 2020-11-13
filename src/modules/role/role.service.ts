@@ -10,7 +10,7 @@ export class RoleService {
     @InjectRepository(Role)
     private roleRepository: Repository<Role>,
   ) {
-    this.initAdminRole()
+    this.initAdminRole();
   }
 
   async initAdminRole(): Promise<void> {
