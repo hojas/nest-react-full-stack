@@ -1,5 +1,3 @@
-
-
 # NestBlog
 
 This project was generated using [Nx](https://nx.dev).
@@ -45,7 +43,7 @@ Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
-Libraries are shareable across libraries and applications. They can be imported from `@nest-blog/mylib`.
+Libraries are shareable across libraries and applications. They can be imported from `@nx-blog/mylib`.
 
 ## Development server
 
@@ -78,8 +76,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 

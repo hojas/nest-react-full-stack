@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nest-blog",
+  "npmScope": "nx-blog",
   "affected": {
     "defaultBase": "main"
   },
