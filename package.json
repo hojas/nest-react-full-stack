@@ -1,0 +1,42 @@
+{
+  "name": "nest-blog",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test"
+  },
+  "private": true,
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@nrwl/cli": "14.1.7",
+    "@nrwl/eslint-plugin-nx": "14.1.7",
+    "@nrwl/jest": "14.1.7",
+    "@nrwl/linter": "14.1.7",
+    "@nrwl/nest": "14.1.7",
+    "@nrwl/node": "14.1.7",
+    "@nrwl/workspace": "14.1.7",
+    "@types/jest": "27.4.1",
+    "@types/node": "16.11.7",
+    "@typescript-eslint/eslint-plugin": "~5.18.0",
+    "@typescript-eslint/parser": "~5.18.0",
+    "eslint": "~8.12.0",
+    "eslint-config-prettier": "8.1.0",
+    "jest": "27.5.1",
+    "nx": "14.1.7",
+    "prettier": "^2.5.1",
+    "ts-jest": "27.1.4",
+    "ts-node": "9.1.1",
+    "typescript": "~4.6.2"
+  }
+}
