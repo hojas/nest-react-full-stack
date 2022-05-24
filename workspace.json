@@ -2,6 +2,19 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "api-server": "apps/api-server"
+    "api-server": "apps/api-server",
+    "api-server-decorators": "libs/api-server/decorators",
+    "api-server-filters": "libs/api-server/filters",
+    "api-server-modules-article": "libs/api-server/modules/article",
+    "api-server-modules-auth": "libs/api-server/modules/auth",
+    "api-server-modules-category": "libs/api-server/modules/category",
+    "api-server-modules-comment": "libs/api-server/modules/comment",
+    "api-server-modules-prisma": "libs/api-server/modules/prisma",
+    "api-server-modules-role": "libs/api-server/modules/role",
+    "api-server-modules-shared": "libs/api-server/modules/shared",
+    "api-server-modules-tag": "libs/api-server/modules/tag",
+    "api-server-modules-user": "libs/api-server/modules/user",
+    "api-server-types": "libs/api-server/types",
+    "api-server-utils": "libs/api-server/utils"
   }
 }

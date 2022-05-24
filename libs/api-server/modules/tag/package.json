@@ -1,0 +1,5 @@
+{
+  "name": "@nx-blog/api-server/modules/tag",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

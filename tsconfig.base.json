@@ -14,7 +14,41 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-blog/api-server/decorators": [
+        "libs/api-server/decorators/src/index.ts"
+      ],
+      "@nx-blog/api-server/filters": ["libs/api-server/filters/src/index.ts"],
+      "@nx-blog/api-server/modules/article": [
+        "libs/api-server/modules/article/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/auth": [
+        "libs/api-server/modules/auth/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/category": [
+        "libs/api-server/modules/category/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/comment": [
+        "libs/api-server/modules/comment/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/prisma": [
+        "libs/api-server/modules/prisma/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/role": [
+        "libs/api-server/modules/role/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/shared": [
+        "libs/api-server/modules/shared/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/tag": [
+        "libs/api-server/modules/tag/src/index.ts"
+      ],
+      "@nx-blog/api-server/modules/user": [
+        "libs/api-server/modules/user/src/index.ts"
+      ],
+      "@nx-blog/api-server/types": ["libs/api-server/types/src/index.ts"],
+      "@nx-blog/api-server/utils": ["libs/api-server/utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
