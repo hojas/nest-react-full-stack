@@ -47,7 +47,20 @@
         "libs/api-server/modules/user/src/index.ts"
       ],
       "@nx-blog/api-server/types": ["libs/api-server/types/src/index.ts"],
-      "@nx-blog/api-server/utils": ["libs/api-server/utils/src/index.ts"]
+      "@nx-blog/api-server/utils": ["libs/api-server/utils/src/index.ts"],
+      "@nx-blog/frontend/layout": ["libs/frontend/layout/src/index.ts"],
+      "@nx-blog/frontend/modules/article": [
+        "libs/frontend/modules/article/src/index.ts"
+      ],
+      "@nx-blog/frontend/modules/category": [
+        "libs/frontend/modules/category/src/index.ts"
+      ],
+      "@nx-blog/frontend/modules/home": [
+        "libs/frontend/modules/home/src/index.ts"
+      ],
+      "@nx-blog/frontend/ui": ["libs/frontend/ui/src/index.ts"],
+      "@nx-blog/shared/axios": ["libs/shared/axios/src/index.ts"],
+      "@nx-blog/shared/pagination": ["libs/shared/pagination/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

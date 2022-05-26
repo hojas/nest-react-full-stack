@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "admin": "apps/admin",
+    "admin-e2e": "apps/admin-e2e",
     "api-server": "apps/api-server",
     "api-server-decorators": "libs/api-server/decorators",
     "api-server-filters": "libs/api-server/filters",
@@ -15,6 +17,15 @@
     "api-server-modules-tag": "libs/api-server/modules/tag",
     "api-server-modules-user": "libs/api-server/modules/user",
     "api-server-types": "libs/api-server/types",
-    "api-server-utils": "libs/api-server/utils"
+    "api-server-utils": "libs/api-server/utils",
+    "frontend": "apps/frontend",
+    "frontend-e2e": "apps/frontend-e2e",
+    "frontend-layout": "libs/frontend/layout",
+    "frontend-modules-article": "libs/frontend/modules/article",
+    "frontend-modules-category": "libs/frontend/modules/category",
+    "frontend-modules-home": "libs/frontend/modules/home",
+    "frontend-ui": "libs/frontend/ui",
+    "shared-axios": "libs/shared/axios",
+    "shared-pagination": "libs/shared/pagination"
   }
 }

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../assets/fonts/Merriweather/Merriweather-Regular.ttf');
+}
+
+html,
+body {
+  background-color: #f7f7f7;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
