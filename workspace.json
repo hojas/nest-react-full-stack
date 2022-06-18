@@ -4,6 +4,8 @@
   "projects": {
     "admin": "apps/admin",
     "admin-e2e": "apps/admin-e2e",
+    "admin-layout": "libs/admin/layout",
+    "admin-modules-user": "libs/admin/modules/user",
     "api-server": "apps/api-server",
     "api-server-decorators": "libs/api-server/decorators",
     "api-server-filters": "libs/api-server/filters",
@@ -24,6 +26,8 @@
     "frontend-modules-article": "libs/frontend/modules/article",
     "frontend-modules-category": "libs/frontend/modules/category",
     "frontend-modules-home": "libs/frontend/modules/home",
+    "frontend-services-article": "libs/frontend/services/article",
+    "frontend-services-category": "libs/frontend/services/category",
     "frontend-ui": "libs/frontend/ui",
     "shared-axios": "libs/shared/axios",
     "shared-pagination": "libs/shared/pagination"

@@ -2,7 +2,7 @@ import type { NextPage, NextPageContext } from 'next'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { format } from 'date-fns'
-import { Article, ArticleService } from './article.service'
+import { Article, ArticleService } from '@nx-blog/frontend/services/article'
 import { MarkdownViewer } from '@nx-blog/frontend/ui'
 
 export async function getServerSideProps({ req, query }: NextPageContext) {

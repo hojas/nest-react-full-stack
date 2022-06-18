@@ -1,1 +1,1 @@
-export { instance as $axios } from './lib/axios'
+export { $axios } from './lib/axios'

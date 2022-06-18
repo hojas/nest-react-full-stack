@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "admin:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/admin/proxy.conf.json"
       },
       "configurations": {
         "development": {

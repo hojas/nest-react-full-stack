@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios'
+import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
 import { format } from 'date-fns'
 
 interface TransformFn {
@@ -48,27 +48,12 @@ const modelToObj = (src: any): any =>
     key.replace(/_([a-z])/, (_match, p1) => p1.toUpperCase())
   )
 
-declare module 'axios' {
-  export interface AxiosRequestConfig {
-    showError?: boolean
-  }
-
-  export interface AxiosResponse {
-    ok: boolean
-  }
-
-  export interface AxiosError {
-    ok: boolean
-  }
-}
-
-export const instance = axios.create({
+const instance = axios.create({
   baseURL: process.env['NEXT_PUBLIC_BASE_URL'],
   timeout: 3000,
-  showError: true,
 })
 
-instance.interceptors.request.use(config => {
+instance.interceptors.request.use((config: AxiosRequestConfig) => {
   const { data } = config
 
   if (data) {
@@ -101,3 +86,43 @@ instance.interceptors.response.use(
     return response
   }
 )
+
+export interface MyRequestConfig<D = any> extends AxiosRequestConfig<D> {
+  showError?: boolean
+}
+
+export interface MyResponse<T = any, D = any> extends AxiosResponse<T, D> {
+  ok: boolean
+}
+
+export const $axios = {
+  get: <T = any, R = MyResponse<T>, D = any>(
+    url: string,
+    config?: MyRequestConfig<D>
+  ): Promise<R> => {
+    return instance.get(url, config)
+  },
+
+  post: <T = any, R = MyResponse<T>, D = any>(
+    url: string,
+    data?: D,
+    config?: MyRequestConfig<D>
+  ): Promise<R> => {
+    return instance.post(url, data, config)
+  },
+
+  put: <T = any, R = MyResponse<T>, D = any>(
+    url: string,
+    data?: D,
+    config?: MyRequestConfig<D>
+  ): Promise<R> => {
+    return instance.put(url, data, config)
+  },
+
+  delete: <T = any, R = MyResponse<T>, D = any>(
+    url: string,
+    config?: MyRequestConfig<D>
+  ): Promise<R> => {
+    return instance.delete(url, config)
+  },
+}

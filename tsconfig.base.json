@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-blog/admin/layout": ["libs/admin/layout/src/index.ts"],
+      "@nx-blog/admin/modules/user": ["libs/admin/modules/user/src/index.ts"],
       "@nx-blog/api-server/decorators": [
         "libs/api-server/decorators/src/index.ts"
       ],
@@ -57,6 +59,12 @@
       ],
       "@nx-blog/frontend/modules/home": [
         "libs/frontend/modules/home/src/index.ts"
+      ],
+      "@nx-blog/frontend/services/article": [
+        "libs/frontend/services/article/src/index.ts"
+      ],
+      "@nx-blog/frontend/services/category": [
+        "libs/frontend/services/category/src/index.ts"
       ],
       "@nx-blog/frontend/ui": ["libs/frontend/ui/src/index.ts"],
       "@nx-blog/shared/axios": ["libs/shared/axios/src/index.ts"],

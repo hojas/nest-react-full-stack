@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Pagination } from '@nx-blog/shared/pagination'
-import { Article, ArticleService } from './article.service'
+import { Article, ArticleService } from '@nx-blog/frontend/services/article'
 
 export const useArticleList = (page = 1) => {
   const [articleList, setArticleList] = useState<Pagination<Article>>({
