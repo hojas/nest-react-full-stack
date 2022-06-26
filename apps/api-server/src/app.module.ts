@@ -32,11 +32,11 @@ import { TagModule } from '@nx-blog/api-server/modules/tag'
     },
     {
       provide: APP_GUARD,
-      useClass: RolesGuard,
+      useClass: JwtAuthGuard,
     },
     {
       provide: APP_GUARD,
-      useClass: JwtAuthGuard,
+      useClass: RolesGuard,
     },
   ],
 })

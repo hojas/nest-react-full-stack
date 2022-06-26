@@ -88,20 +88,20 @@ services:
     network_mode: bridge
     networks:
       - nx_blog
-  # acme-companion:
-  #   container_name: nginx-proxy-acme
-  #   image: nginxproxy/acme-companion
-  #   environment:
-  #     - DEFAULT_EMAIL=cyxhuan9@163.com
-  #   volumes_from:
-  #     - nginx-proxy
-  #   volumes:
-  #     - certs:/etc/nginx/certs:rw
-  #     - acme:/etc/acme.sh
-  #     - /var/run/docker.sock:/var/run/docker.sock:ro
-  #   network_mode: bridge
-  #   networks:
-  #     - nx_blog
+  acme-companion:
+    container_name: nginx-proxy-acme
+    image: nginxproxy/acme-companion
+    environment:
+      - DEFAULT_EMAIL=cyxhuan9@163.com
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    network_mode: bridge
+    networks:
+      - nx_blog
 
 volumes:
   postgres-data:

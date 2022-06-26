@@ -2,7 +2,7 @@ import { $axios } from '@nx-blog/shared/axios'
 import { Pagination } from '@nx-blog/shared/pagination'
 
 const api = {
-  user: '/api/admin/user/',
+  user: '/admin/user/',
 }
 
 export interface User {

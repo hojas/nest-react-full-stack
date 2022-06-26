@@ -26,5 +26,11 @@ export const AdminUser = () => {
     })
   }, [page])
 
-  return <Table columns={columns} dataSource={dataSource} />
+  return (
+    <Table
+      columns={columns}
+      dataSource={dataSource}
+      rowKey={(record: User) => record.id}
+    />
+  )
 }

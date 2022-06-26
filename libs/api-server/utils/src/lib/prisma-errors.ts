@@ -3,4 +3,4 @@ const ERRORS = {
 }
 
 export const getCustomErrorMessage = (code: string, title: string) =>
-  title + ERRORS[code]
+  title + (ERRORS[code] || '')

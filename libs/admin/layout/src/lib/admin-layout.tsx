@@ -1,21 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
+import { ItemType } from 'antd/lib/menu/hooks/useItems'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  DashboardOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  UnorderedListOutlined,
+  FileTextOutlined,
+  CommentOutlined,
+  UserSwitchOutlined,
 } from '@ant-design/icons'
 
 const { Header, Sider, Content } = Layout
+
+const menuItems: ItemType[] = [
+  {
+    label: 'Dashboard',
+    icon: <DashboardOutlined />,
+    key: '/',
+  },
+  {
+    label: '用户管理',
+    icon: <UserOutlined />,
+    key: '/user',
+  },
+  {
+    label: '分类管理',
+    icon: <UnorderedListOutlined />,
+    key: '/category',
+  },
+  {
+    label: '文章管理',
+    icon: <FileTextOutlined />,
+    key: '/article',
+  },
+  {
+    label: '评论管理',
+    icon: <CommentOutlined />,
+    key: '/comment',
+  },
+  {
+    label: '角色管理',
+    icon: <UserSwitchOutlined />,
+    key: '/role',
+  },
+]
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 export const BaseLayout = ({ children }: LayoutProps) => {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [collapsed, setCollapsed] = useState(false)
+  const [selectedKeys, setSelectedKeys] = useState([location.pathname])
+
+  useEffect(() => {
+    setSelectedKeys([location.pathname])
+  }, [location])
+
+  const handleClick = (e: any) => {
+    navigate(e.key)
+  }
 
   return (
     <Layout>
@@ -24,24 +73,9 @@ export const BaseLayout = ({ children }: LayoutProps) => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
+          defaultSelectedKeys={selectedKeys}
+          items={menuItems}
+          onClick={handleClick}
         />
       </Sider>
       <Layout>

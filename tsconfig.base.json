@@ -16,6 +16,15 @@
     "baseUrl": ".",
     "paths": {
       "@nx-blog/admin/layout": ["libs/admin/layout/src/index.ts"],
+      "@nx-blog/admin/modules/article": [
+        "libs/admin/modules/article/src/index.ts"
+      ],
+      "@nx-blog/admin/modules/category": [
+        "libs/admin/modules/category/src/index.ts"
+      ],
+      "@nx-blog/admin/modules/dashboard": [
+        "libs/admin/modules/dashboard/src/index.ts"
+      ],
       "@nx-blog/admin/modules/user": ["libs/admin/modules/user/src/index.ts"],
       "@nx-blog/api-server/decorators": [
         "libs/api-server/decorators/src/index.ts"
