@@ -12,7 +12,7 @@ export default ({ category, onFinish }: Props) => {
 
   useEffect(() => {
     form.resetFields(['code', 'name', 'orderIndex'])
-  }, [category])
+  }, [form, category])
 
   return (
     <Form

@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react'
-import { Button, Table, Space, Popconfirm, message } from 'antd'
-import {
-  Category,
-  CreateCategoryDto,
-  CategoryService,
-} from './category.service'
+import { useState } from 'react'
+import { Button, Table, Space, Popconfirm } from 'antd'
+import { Category, CreateCategoryDto } from './category.service'
 import CategoryModal from './category-modal'
 import CategoryForm from './category-form'
+import { useCategory } from './useCategory'
+import { useModal } from './useModal'
 
 type ModalType = 'create' | 'update'
 
@@ -60,75 +58,26 @@ const columns = (
 ]
 
 export const AdminCategory = () => {
-  const [dataSource, setDataSource] = useState<Category[]>([])
-  const [categoryModalVisible, setCategoryModalVisible] = useState(false)
-  const [modalType, setModalType] = useState<'create' | 'update'>('create')
-  const [modalTitle, setModalTitle] = useState('添加分类')
   const [activeCategory, setActiveCategory] = useState<Category | undefined>()
 
-  const getCategoryList = async () => {
-    const { ok, data } = await CategoryService.getCategoryList()
-    ok && setDataSource(data)
-  }
+  const { categoryList, addCategory, updateCategory, removeCategory } =
+    useCategory()
 
-  useEffect(() => {
-    getCategoryList()
-  }, [])
-
-  useEffect(() => {
-    if (modalType === 'create') {
-      setActiveCategory(undefined)
-      setModalTitle('添加分类')
-    } else {
-      setModalTitle('编辑分类')
-    }
-  }, [modalType])
-
-  const showModal = (type: 'create' | 'update') => {
-    setModalType(type)
-    setCategoryModalVisible(true)
-  }
-
-  const hideModal = () => {
-    setCategoryModalVisible(false)
-  }
-
-  const addCategory = async (category: CreateCategoryDto) => {
-    const { ok, message: msg } = await CategoryService.createCategory(category)
-
-    if (ok) {
-      getCategoryList()
-      setCategoryModalVisible(false)
-      message.success('添加分类成功')
-    } else {
-      message.error(msg)
-    }
-  }
-
-  const updateCategory = async (id: number, category: CreateCategoryDto) => {
-    const { ok, message: msg } = await CategoryService.updateCategory(
-      id,
-      category
-    )
-
-    if (ok) {
-      getCategoryList()
-      setCategoryModalVisible(false)
-      message.success('更新分类成功')
-    } else {
-      message.error(msg)
-    }
-  }
-
-  const removeCategory = async (id: number) => {
-    await CategoryService.removeCategory(id)
-    getCategoryList()
-  }
+  const {
+    modalVisible,
+    setModalVisible,
+    modalType,
+    modalTitle,
+    showModal,
+    hideModal,
+  } = useModal()
 
   const onFinish = (category: CreateCategoryDto) => {
     modalType === 'create'
       ? addCategory(category)
       : activeCategory && updateCategory(activeCategory.id, category)
+
+    setModalVisible(false)
   }
 
   return (
@@ -142,12 +91,12 @@ export const AdminCategory = () => {
       </Button>
       <Table
         columns={columns(showModal, setActiveCategory, removeCategory)}
-        dataSource={dataSource}
+        dataSource={categoryList}
         rowKey={(record: Category) => record.code}
         pagination={false}
       />
       <CategoryModal
-        visible={categoryModalVisible}
+        visible={modalVisible}
         title={modalTitle}
         hideModal={hideModal}
       >
