@@ -4,8 +4,8 @@ import { Article } from './article.service'
 type ModalType = 'create' | 'update'
 
 const modalTitleMap = {
-  create: '添加分类',
-  update: '更新分类',
+  create: '添加文章',
+  update: '更新文章',
 }
 
 export const useModal = () => {
