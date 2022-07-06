@@ -2,7 +2,7 @@ import { $axios } from '@nx-blog/shared/axios'
 
 const api = {
   list: '/admin/category/',
-  detail: (id: number) => `/admin/category/${id}`,
+  detail: (id: number) => `/admin/category/${id}/`,
 }
 
 export interface CreateCategoryDto {

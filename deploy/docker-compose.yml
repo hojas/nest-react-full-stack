@@ -19,7 +19,7 @@ services:
     container_name: nx-blog-api
     build:
       context: .
-      dockerfile: api-server.Dockerfile
+      dockerfile: Dockerfile.api-server
     ports:
       - 127.0.0.1:8080:8080
     env_file:
@@ -41,7 +41,7 @@ services:
     container_name: nx-blog-admin
     build:
       context: .
-      dockerfile: admin.Dockerfile
+      dockerfile: Dockerfile.admin
     ports:
       - 127.0.0.1:3001:3001
     env_file:
@@ -59,7 +59,7 @@ services:
     container_name: nx-blog-frontend
     build:
       context: .
-      dockerfile: frontend.Dockerfile
+      dockerfile: Dockerfile.frontend
     ports:
       - 127.0.0.1:3000:3000
     env_file:

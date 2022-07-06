@@ -18,7 +18,7 @@ export default ({ children, visible, title, hideModal }: Props) => {
         <Button key="close" onClick={hideModal}>
           取消
         </Button>,
-        <Button form="category" type="primary" key="submit" htmlType="submit">
+        <Button form="article" type="primary" key="submit" htmlType="submit">
           提交
         </Button>,
       ]}

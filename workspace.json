@@ -7,6 +7,7 @@
     "admin-layout": "libs/admin/layout",
     "admin-modules-article": "libs/admin/modules/article",
     "admin-modules-category": "libs/admin/modules/category",
+    "admin-modules-comment": "libs/admin/modules/comment",
     "admin-modules-dashboard": "libs/admin/modules/dashboard",
     "admin-modules-user": "libs/admin/modules/user",
     "api-server": "apps/api-server",

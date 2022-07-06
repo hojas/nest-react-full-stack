@@ -1,1 +1,1 @@
-export * from './lib/admin-modules-article'
+export * from './lib/article'

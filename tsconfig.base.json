@@ -22,6 +22,9 @@
       "@nx-blog/admin/modules/category": [
         "libs/admin/modules/category/src/index.ts"
       ],
+      "@nx-blog/admin/modules/comment": [
+        "libs/admin/modules/comment/src/index.ts"
+      ],
       "@nx-blog/admin/modules/dashboard": [
         "libs/admin/modules/dashboard/src/index.ts"
       ],

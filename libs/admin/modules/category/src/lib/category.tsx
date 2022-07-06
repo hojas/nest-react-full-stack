@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, Table, Space, Popconfirm } from 'antd'
+import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Category, CreateCategoryDto } from './category.service'
 import CategoryModal from './category-modal'
 import CategoryForm from './category-form'
@@ -14,19 +15,20 @@ const columns = (
   handleDelete: (id: number) => void
 ) => [
   {
+    title: 'ID',
+    dataIndex: 'id',
+  },
+  {
     title: '名称',
     dataIndex: 'name',
-    key: 'name',
   },
   {
     title: 'CODE',
     dataIndex: 'code',
-    key: 'code',
   },
   {
     title: '排序码',
     dataIndex: 'orderIndex',
-    key: 'orderIndex',
   },
   {
     title: '操作',
@@ -40,6 +42,7 @@ const columns = (
             showModal('update')
           }}
         >
+          <EditOutlined />
           编辑
         </Button>
         <Popconfirm
@@ -49,6 +52,7 @@ const columns = (
           onConfirm={() => handleDelete(record.id)}
         >
           <Button type="primary" danger>
+            <DeleteOutlined />
             删除
           </Button>
         </Popconfirm>
@@ -87,12 +91,13 @@ export const AdminCategory = () => {
         type="primary"
         onClick={() => showModal('create')}
       >
+        <PlusOutlined />
         添加
       </Button>
       <Table
         columns={columns(showModal, setActiveCategory, removeCategory)}
         dataSource={categoryList}
-        rowKey={(record: Category) => record.code}
+        rowKey={(record: Category) => record.id}
         pagination={false}
       />
       <CategoryModal
