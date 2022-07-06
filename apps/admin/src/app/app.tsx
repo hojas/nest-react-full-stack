@@ -5,6 +5,7 @@ import { AdminUser } from '@nx-blog/admin/modules/user'
 import { AdminCategory } from '@nx-blog/admin/modules/category'
 import { AdminArticle } from '@nx-blog/admin/modules/article'
 import { AdminComment } from '@nx-blog/admin/modules/comment'
+import { AdminRole } from '@nx-blog/admin/modules/role'
 
 export default () => (
   <BaseLayout>
@@ -14,6 +15,7 @@ export default () => (
       <Route path="/category" element={<AdminCategory />} />
       <Route path="/article" element={<AdminArticle />} />
       <Route path="/comment" element={<AdminComment />} />
+      <Route path="/role" element={<AdminRole />} />
     </Routes>
   </BaseLayout>
 )

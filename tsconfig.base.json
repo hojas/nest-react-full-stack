@@ -28,6 +28,7 @@
       "@nx-blog/admin/modules/dashboard": [
         "libs/admin/modules/dashboard/src/index.ts"
       ],
+      "@nx-blog/admin/modules/role": ["libs/admin/modules/role/src/index.ts"],
       "@nx-blog/admin/modules/user": ["libs/admin/modules/user/src/index.ts"],
       "@nx-blog/api-server/decorators": [
         "libs/api-server/decorators/src/index.ts"
