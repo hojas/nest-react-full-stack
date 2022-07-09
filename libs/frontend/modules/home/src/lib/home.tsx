@@ -16,6 +16,5 @@ interface Props {
   articleList: Pagination<Article>
 }
 
-export const HomePage: NextPage<Props> = ({ articleList }) => (
-  <>{articleList && <ArticleList articles={articleList.results} />}</>
-)
+export const HomePage: NextPage<Props> = ({ articleList }) =>
+  articleList && <ArticleList articles={articleList.results} />

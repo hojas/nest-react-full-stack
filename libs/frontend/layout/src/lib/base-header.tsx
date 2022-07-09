@@ -8,10 +8,6 @@ const list = [
     extract: true,
   },
   {
-    name: '首页',
-    link: '/',
-  },
-  {
     name: '编程技术',
     link: '/category/programming-technology',
   },
@@ -27,6 +23,7 @@ const List = () => {
   return list.map(item => (
     <li key={item.link}>
       <Link href={item.link}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className={
             'block py-[20px] px-[15px] text-[16px] hover:bg-[#f7f7f7] ' +

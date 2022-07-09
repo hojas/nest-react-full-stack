@@ -32,7 +32,9 @@ export class UserService {
       console.log(`Created admin`)
       console.log(`Email: admin@zwd.xyz`)
       console.log(`Password: 123456`)
-    } catch {}
+    } catch {
+      //
+    }
   }
 
   async findAll(params: {

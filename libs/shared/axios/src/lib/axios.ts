@@ -1,8 +1,9 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const humps = require('humps')
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: process.env['API_BASE'],
   timeout: 3000,
   withCredentials: true,
 })

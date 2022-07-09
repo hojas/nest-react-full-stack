@@ -38,8 +38,6 @@ export class AdminController {
     try {
       return await this.categoryService.create(category)
     } catch (error) {
-      console.log(error)
-      console.log('error CODE', error.code)
       throw new HttpException(
         getCustomErrorMessage(error.code, '分类'),
         HttpStatus.BAD_REQUEST

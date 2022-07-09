@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { format } from 'date-fns'
 import { Article, ArticleService } from '@nx-blog/frontend/services/article'
-import { MarkdownViewer } from '@nx-blog/frontend/ui'
+import { MarkdownViewer } from '@nx-blog/shared/markdown-viewer'
 
 export async function getServerSideProps({ req, query }: NextPageContext) {
   const { host = '' } = req?.headers ?? {}
