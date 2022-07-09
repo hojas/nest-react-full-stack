@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Table, Space, Popconfirm } from 'antd'
+import { Button, Table, Space, Popconfirm, Drawer } from 'antd'
 import { format } from 'date-fns'
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Category } from '@nx-blog/admin/modules/category'
@@ -8,6 +8,7 @@ import ArticleModal from './article-modal'
 import ArticleForm from './article-form'
 import { useArticle } from './useArticle'
 import { useModal } from './useModal'
+import { ArticleContent } from './article-content'
 
 type ModalType = 'create' | 'update'
 
@@ -15,7 +16,8 @@ const columns = (
   categoryList: Category[],
   showModal: (type: ModalType) => void,
   setActiveArticle: (article: Article) => void,
-  handleDelete: (id: number) => void
+  handleDelete: (id: number) => void,
+  showDrawer: () => void
 ) => [
   {
     title: 'ID',
@@ -50,6 +52,16 @@ const columns = (
         >
           <EditOutlined />
           编辑
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setActiveArticle(record)
+            showDrawer()
+          }}
+        >
+          <EditOutlined />
+          编辑内容
         </Button>
         <Popconfirm
           title="确定删除该文章？"
@@ -86,6 +98,11 @@ export const AdminArticle = () => {
     hideModal,
   } = useModal()
 
+  const handleShowAddModal = () => {
+    setActiveArticle(undefined)
+    showModal('create')
+  }
+
   const onFinish = (article: CreateArticleDto) => {
     modalType === 'create'
       ? addArticle(article)
@@ -94,13 +111,20 @@ export const AdminArticle = () => {
     setModalVisible(false)
   }
 
+  const [drawerVisible, setDrawerVisible] = useState(false)
+  const showDrawer = () => setDrawerVisible(true)
+  const handleCloseDrawer = () => setDrawerVisible(false)
+  const handleContentChange = (content: string) => {
+    activeArticle && setActiveArticle({ ...activeArticle, content })
+  }
+  const handleSaveArticleContent = () => {
+    activeArticle && updateArticle(activeArticle.id, activeArticle)
+    handleCloseDrawer()
+  }
+
   return (
     <>
-      <Button
-        className="mb-[10px]"
-        type="primary"
-        onClick={() => showModal('create')}
-      >
+      <Button className="mb-[10px]" type="primary" onClick={handleShowAddModal}>
         <PlusOutlined />
         添加
       </Button>
@@ -109,7 +133,8 @@ export const AdminArticle = () => {
           categoryList,
           showModal,
           setActiveArticle,
-          removeArticle
+          removeArticle,
+          showDrawer
         )}
         dataSource={articleList.results}
         rowKey={(record: Article) => record.id}
@@ -126,6 +151,28 @@ export const AdminArticle = () => {
           onFinish={onFinish}
         />
       </ArticleModal>
+      <Drawer
+        title="编辑文章内容"
+        placement="right"
+        width="90%"
+        visible={drawerVisible}
+        onClose={handleCloseDrawer}
+        extra={
+          <Space>
+            <Button onClick={handleCloseDrawer}>取消</Button>
+            <Button onClick={handleSaveArticleContent} type="primary">
+              保存
+            </Button>
+          </Space>
+        }
+      >
+        {activeArticle && (
+          <ArticleContent
+            content={activeArticle.content}
+            onChange={handleContentChange}
+          />
+        )}
+      </Drawer>
     </>
   )
 }

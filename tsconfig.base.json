@@ -81,6 +81,12 @@
       ],
       "@nx-blog/frontend/ui": ["libs/frontend/ui/src/index.ts"],
       "@nx-blog/shared/axios": ["libs/shared/axios/src/index.ts"],
+      "@nx-blog/shared/markdown-editor": [
+        "libs/shared/markdown-editor/src/index.ts"
+      ],
+      "@nx-blog/shared/markdown-viewer": [
+        "libs/shared/markdown-viewer/src/index.ts"
+      ],
       "@nx-blog/shared/pagination": ["libs/shared/pagination/src/index.ts"]
     }
   },

@@ -69,7 +69,9 @@ export const BaseLayout = ({ children }: LayoutProps) => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="h-[32px] m-[16px] bg-[rgba(255,_255,_255,_0.3)]" />
+        <div className="py-[4px] m-[16px] text-white text-xl text-center">
+          朝闻道
+        </div>
         <Menu
           theme="dark"
           mode="inline"

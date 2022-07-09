@@ -62,8 +62,7 @@ const columns = (
 ]
 
 export const AdminCategory = () => {
-  const [activeCategory, setActiveCategory] = useState<Category | undefined>()
-
+  const [activeCategory, setActiveCategory] = useState<Category>()
   const { categoryList, addCategory, updateCategory, removeCategory } =
     useCategory()
 
@@ -76,6 +75,11 @@ export const AdminCategory = () => {
     hideModal,
   } = useModal()
 
+  const handleShowAddModal = () => {
+    setActiveCategory(undefined)
+    showModal('create')
+  }
+
   const onFinish = (category: CreateCategoryDto) => {
     modalType === 'create'
       ? addCategory(category)
@@ -86,11 +90,7 @@ export const AdminCategory = () => {
 
   return (
     <>
-      <Button
-        className="mb-[10px]"
-        type="primary"
-        onClick={() => showModal('create')}
-      >
+      <Button className="mb-[10px]" type="primary" onClick={handleShowAddModal}>
         <PlusOutlined />
         添加
       </Button>

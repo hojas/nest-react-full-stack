@@ -13,7 +13,7 @@ export default ({ categoryList, article, onFinish }: Props) => {
   const [form] = Form.useForm<CreateArticleDto>()
 
   useEffect(() => {
-    form.resetFields(['title', 'categoryId', 'content'])
+    form.resetFields(['title', 'categoryId'])
   }, [form, article])
 
   return (
@@ -45,13 +45,6 @@ export default ({ categoryList, article, onFinish }: Props) => {
             </Select.Option>
           ))}
         </Select>
-      </Form.Item>
-      <Form.Item
-        label="内容"
-        name="content"
-        rules={[{ required: true, message: '请输入内容' }]}
-      >
-        <Input.TextArea />
       </Form.Item>
     </Form>
   )

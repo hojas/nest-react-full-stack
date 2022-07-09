@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { APP_GUARD } from '@nestjs/core'
-import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler'
+// import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler'
 
 import { RoleModule, RolesGuard } from '@nx-blog/api-server/modules/role'
 import { AuthModule, JwtAuthGuard } from '@nx-blog/api-server/modules/auth'
@@ -12,10 +12,10 @@ import { TagModule } from '@nx-blog/api-server/modules/tag'
 
 @Module({
   imports: [
-    ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 120,
-    }),
+    // ThrottlerModule.forRoot({
+    //   ttl: 60,
+    //   limit: 120,
+    // }),
     RoleModule,
     AuthModule,
     UserModule,
@@ -26,10 +26,10 @@ import { TagModule } from '@nx-blog/api-server/modules/tag'
   ],
   controllers: [],
   providers: [
-    {
-      provide: APP_GUARD,
-      useClass: ThrottlerGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: ThrottlerGuard,
+    // },
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,

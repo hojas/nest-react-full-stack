@@ -35,6 +35,8 @@
     "frontend-services-category": "libs/frontend/services/category",
     "frontend-ui": "libs/frontend/ui",
     "shared-axios": "libs/shared/axios",
+    "shared-markdown-editor": "libs/shared/markdown-editor",
+    "shared-markdown-viewer": "libs/shared/markdown-viewer",
     "shared-pagination": "libs/shared/pagination"
   }
 }
