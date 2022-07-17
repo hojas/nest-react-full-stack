@@ -1,19 +1,29 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faHome,
+  faMicrochip,
+  faLightbulb,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons'
 
 const list = [
   {
-    name: '朝闻道',
+    name: '首页',
     link: '/',
+    icon: () => <FontAwesomeIcon icon={faHome} />,
     extract: true,
   },
   {
     name: '编程技术',
     link: '/category/programming-technology',
+    icon: () => <FontAwesomeIcon icon={faMicrochip} />,
   },
   {
     name: '编程思想',
     link: '/category/thinking-programming',
+    icon: () => <FontAwesomeIcon icon={faLightbulb} />,
   },
 ]
 
@@ -23,13 +33,8 @@ const List = () => {
   return list.map(item => (
     <li key={item.link}>
       <Link href={item.link}>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a
-          className={
-            'block py-[20px] px-[15px] text-[16px] hover:bg-[#f7f7f7] ' +
-            (!item.extract && router.asPath === item.link ? 'bg-[#f0f0f0]' : '')
-          }
-        >
+        <a className={router.asPath === item.link ? 'active' : ''}>
+          {item.icon()}
           {item.name}
         </a>
       </Link>
@@ -37,12 +42,47 @@ const List = () => {
   ))
 }
 
-const BaseHeader = () => (
-  <div className="flex items-center mb-[30px] px-[20px] bg-white shadow-[0px_16px_12px_0px_rgb(0_0_0_/_9%)]">
-    <div className="container mx-auto">
-      <ul className="flex">{List()}</ul>
+export const BaseHeader = () => {
+  return (
+    <div className="navbar bg-base-100">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            {List()}
+          </ul>
+        </div>
+        <Link href="/">
+          <a className="btn btn-ghost normal-case text-xl">朝闻道</a>
+        </Link>
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal p-0">{List()}</ul>
+      </div>
+      <div className="navbar-end">
+        <button className="btn gap-2">
+          <FontAwesomeIcon icon={faHeart} />
+          Hello World
+        </button>
+      </div>
     </div>
-  </div>
-)
-
-export default BaseHeader
+  )
+}

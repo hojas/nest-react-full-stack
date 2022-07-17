@@ -31,5 +31,8 @@
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
     }
-  ]
+  ],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off"
+  }
 }

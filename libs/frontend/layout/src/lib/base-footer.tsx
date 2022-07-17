@@ -1,7 +1,7 @@
-const BaseFooter = () => (
-  <div className="py-[30px] bg-white">
-    <div className="container mx-auto">Copyright © 2022 朝闻道</div>
-  </div>
+export const BaseFooter = () => (
+  <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+    <div>
+      <p>Copyright © 2022 - All right reserved by zwd.xyz</p>
+    </div>
+  </footer>
 )
-
-export default BaseFooter

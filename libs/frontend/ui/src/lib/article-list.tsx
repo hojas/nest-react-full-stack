@@ -1,22 +1,16 @@
-import Link from 'next/link'
+import { Article } from '@nx-blog/frontend/services/article'
+import { ArticleItem } from './article-item'
 
-interface Article {
-  id: number
-  title: string
-}
-
-interface ArticleList {
-  articles: Article[]
-}
-
-export const ArticleList = ({ articles }: ArticleList) => (
-  <div>
+export const ArticleList = ({ articles }: { articles: Article[] }) => (
+  <>
     {articles.map(article => (
-      <div key={article.id}>
-        <Link href={`/article/${article.id}`}>
-          <a className="inline-block py-[10px] text-[16px]">{article.title}</a>
-        </Link>
-      </div>
+      <ArticleItem article={article} key={article.id} />
     ))}
-  </div>
+    <div className="btn-group justify-center">
+      <button className="btn">1</button>
+      <button className="btn btn-active">2</button>
+      <button className="btn">3</button>
+      <button className="btn">4</button>
+    </div>
+  </>
 )

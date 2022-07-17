@@ -31,6 +31,7 @@
     "frontend-modules-article": "libs/frontend/modules/article",
     "frontend-modules-category": "libs/frontend/modules/category",
     "frontend-modules-home": "libs/frontend/modules/home",
+    "frontend-modules-login": "libs/frontend/modules/login",
     "frontend-services-article": "libs/frontend/services/article",
     "frontend-services-category": "libs/frontend/services/category",
     "frontend-ui": "libs/frontend/ui",

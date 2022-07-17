@@ -5,7 +5,7 @@ import { Strategy } from 'passport-jwt'
 import { User } from '@prisma/client'
 
 const cookieExtractor = (req: Request): string =>
-  req && req.cookies ? req.cookies['auth-token'] : null
+  req && req.cookies ? req.cookies['auth_token'] : null
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

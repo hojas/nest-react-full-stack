@@ -1,5 +1,6 @@
-const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
 const { join } = require('path')
+const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
+const daisyui = require('daisyui')
 
 module.exports = {
   content: [
@@ -9,5 +10,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [daisyui],
+  daisyui: {
+    themes: ['dark'],
+  },
 }

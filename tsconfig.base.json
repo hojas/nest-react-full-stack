@@ -73,6 +73,9 @@
       "@nx-blog/frontend/modules/home": [
         "libs/frontend/modules/home/src/index.ts"
       ],
+      "@nx-blog/frontend/modules/login": [
+        "libs/frontend/modules/login/src/index.ts"
+      ],
       "@nx-blog/frontend/services/article": [
         "libs/frontend/services/article/src/index.ts"
       ],

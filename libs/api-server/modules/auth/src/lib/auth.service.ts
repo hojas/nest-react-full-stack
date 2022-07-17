@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   setToken(res: Response, token: string): void {
-    res.cookie('auth-token', token, {
+    res.cookie('auth_token', token, {
       path: '/',
       httpOnly: true,
     })
