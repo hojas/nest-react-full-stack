@@ -1,0 +1,23 @@
+FROM --platform=linux/amd64 node:16.16.0-alpine AS builder
+
+WORKDIR /opt/app
+
+COPY . .
+RUN corepack enable
+RUN pnpm install
+RUN pnpm nx build api-server --prod
+
+
+FROM --platform=linux/amd64 node:16.16.0-alpine
+
+WORKDIR /opt/app
+
+RUN mkdir ./prisma
+COPY --from=builder /opt/app/prisma ./prisma
+COPY --from=builder /opt/app/dist/apps/api-server .
+COPY --from=builder /opt/app/package.json .
+COPY --from=builder /opt/app/pnpm-lock.yaml .
+
+RUN corepack enable && pnpm i --production && pnpm i prisma && pnpm prisma:generate
+
+CMD node ./main.js

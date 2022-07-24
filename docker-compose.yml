@@ -17,11 +17,11 @@ services:
     container_name: nx-blog-api
     build:
       context: .
-      dockerfile: Dockerfile.api-server
+      dockerfile: ./docker/Dockerfile.api-server
     ports:
       - 127.0.0.1:8080:8080
     env_file:
-      - ../.env.production.local
+      - .env
     environment:
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz
@@ -38,11 +38,11 @@ services:
     container_name: nx-blog-admin
     build:
       context: .
-      dockerfile: Dockerfile.admin
+      dockerfile: ./docker/Dockerfile.admin
     ports:
       - 127.0.0.1:3001:3001
     env_file:
-      - ../.env.production.local
+      - .env
     environment:
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz
@@ -55,11 +55,11 @@ services:
     container_name: nx-blog-frontend
     build:
       context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: ./docker/Dockerfile.frontend
     ports:
       - 127.0.0.1:3000:3000
     env_file:
-      - ../.env.production.local
+      - .env
     environment:
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz

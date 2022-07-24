@@ -11,7 +11,7 @@ export default ({ category, onFinish }: Props) => {
   const [form] = Form.useForm<CreateCategoryDto>()
 
   useEffect(() => {
-    form.resetFields(['code', 'name', 'orderIndex'])
+    // form && form.resetFields && form.resetFields(['code', 'name', 'orderIndex'])
   }, [form, category])
 
   return (

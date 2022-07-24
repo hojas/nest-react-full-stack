@@ -1,0 +1,20 @@
+FROM --platform=linux/amd64 node:16.16.0-alpine AS builder
+
+WORKDIR /opt/app
+
+COPY . .
+RUN corepack enable
+RUN pnpm install
+RUN pnpm nx build admin --prod
+
+
+FROM --platform=linux/amd64 node:16.16.0-alpine
+
+WORKDIR /opt/app
+RUN mkdir admin
+COPY --from=builder /opt/app/dist/apps/admin ./admin
+COPY --from=builder /opt/app/apps/admin/src/server.js .
+
+RUN yarn add express
+
+CMD node server.js

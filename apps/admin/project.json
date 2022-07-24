@@ -9,9 +9,9 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/admin",
+        "outputPath": "dist/apps/admin/admin",
         "index": "apps/admin/src/index.html",
-        "baseHref": "/",
+        "baseHref": "/admin/",
         "main": "apps/admin/src/main.tsx",
         "polyfills": "apps/admin/src/polyfills.ts",
         "tsConfig": "apps/admin/tsconfig.app.json",

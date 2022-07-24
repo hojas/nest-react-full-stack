@@ -13,7 +13,7 @@ export default ({ categoryList, article, onFinish }: Props) => {
   const [form] = Form.useForm<CreateArticleDto>()
 
   useEffect(() => {
-    form.resetFields(['title', 'categoryId'])
+    // form && form.resetFields && form.resetFields(['title', 'categoryId'])
   }, [form, article])
 
   return (
