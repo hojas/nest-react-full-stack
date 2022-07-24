@@ -1,5 +1,7 @@
 const { join } = require('path')
 const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
+const typography = require('@tailwindcss/typography')
+const lineClamp = require('@tailwindcss/line-clamp')
 const daisyui = require('daisyui')
 
 module.exports = {
@@ -10,8 +12,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [typography, lineClamp, daisyui],
   daisyui: {
-    themes: ['dark'],
+    themes: ['wireframe'],
   },
 }

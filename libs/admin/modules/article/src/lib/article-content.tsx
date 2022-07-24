@@ -25,12 +25,12 @@ export const ArticleContent = ({ content, onChange }: Props) => {
   return (
     <div className="flex content-between h-[100%]">
       <MarkdownEditor
-        className="w-[50%]"
+        className="w-1/2"
         content={str}
         onChange={handleChange}
       />
       <MarkdownViewer
-        className="w-[50%] p-1 border border-solid border-gray-300"
+        className="w-1/2 p-5 border border-solid border-gray-300 overflow-y-auto"
         content={str}
       />
     </div>

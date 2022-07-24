@@ -1,8 +1,7 @@
 import { Table } from 'antd'
-import { Role } from './role.service'
 import { useRole } from './useRole'
 
-const columns = () => [
+const columns = [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -22,10 +21,10 @@ export const AdminRole = () => {
 
   return (
     <Table
-      columns={columns()}
+      columns={columns}
       dataSource={roleList}
-      rowKey={(record: Role) => record.id}
       pagination={false}
+      rowKey="id"
     />
   )
 }

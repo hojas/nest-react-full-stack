@@ -23,7 +23,7 @@ export default function Document() {
           dangerouslySetInnerHTML={getAnalyticsTag}
         />
       </Head>
-      <body>
+      <body className="bg-[#f7f8f9]">
         <Main />
         <NextScript />
       </body>

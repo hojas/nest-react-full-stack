@@ -5,7 +5,7 @@ import rehypeKatex from 'rehype-katex'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import 'katex/dist/katex.min.css'
 
 interface Props {
@@ -21,11 +21,12 @@ export const MarkdownViewer = ({ className, content }: Props) => (
         const match = /language-(\w+)/.exec(className || '')
         return !inline && match ? (
           <SyntaxHighlighter
-            style={oneLight}
+            style={nightOwl}
             language={match[1]}
             PreTag="div"
             showLineNumbers={true}
             showInlineLineNumbers={true}
+            wrapLongLines={true}
             {...props}
           >
             {String(children).replace(/\n$/, '')}

@@ -20,17 +20,13 @@ export const AdminUser = () => {
   const [dataSource, setDataSource] = useState<User[]>([])
 
   useEffect(() => {
-    UserService.getUserList().then(res => {
-      setDataSource(res.data.results)
-      setPage(res.data.page)
+    UserService.getUserList().then(({ ok, data }) => {
+      if (ok) {
+        setPage(data.page)
+        setDataSource(data.results)
+      }
     })
   }, [page])
 
-  return (
-    <Table
-      columns={columns}
-      dataSource={dataSource}
-      rowKey={(record: User) => record.id}
-    />
-  )
+  return <Table columns={columns} dataSource={dataSource} rowKey="id" />
 }

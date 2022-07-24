@@ -9,6 +9,7 @@ import ArticleForm from './article-form'
 import { useArticle } from './useArticle'
 import { useModal } from './useModal'
 import { ArticleContent } from './article-content'
+import './style.scss'
 
 type ModalType = 'create' | 'update'
 
@@ -152,6 +153,7 @@ export const AdminArticle = () => {
         />
       </ArticleModal>
       <Drawer
+        className="article-content-drawer"
         title="编辑文章内容"
         placement="right"
         width="90%"
@@ -166,12 +168,10 @@ export const AdminArticle = () => {
           </Space>
         }
       >
-        {activeArticle && (
-          <ArticleContent
-            content={activeArticle.content}
-            onChange={handleContentChange}
-          />
-        )}
+        <ArticleContent
+          content={activeArticle?.content || ''}
+          onChange={handleContentChange}
+        />
       </Drawer>
     </>
   )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { To, useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import { ItemType } from 'antd/lib/menu/hooks/useItems'
 import {
@@ -62,7 +62,7 @@ export const BaseLayout = ({ children }: LayoutProps) => {
     setSelectedKeys([location.pathname])
   }, [location])
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: { key: To }) => {
     navigate(e.key)
   }
 

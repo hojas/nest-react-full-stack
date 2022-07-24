@@ -1,26 +1,32 @@
-import { format } from 'date-fns'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-regular-svg-icons'
+import removeMarkdown from 'remove-markdown'
 import { Article } from '@nx-blog/frontend/services/article'
+import { ArticleMeta } from './article-meta'
 
-const formattedDate = (date: string) => format(new Date(date), 'yyyy年MM月dd日')
+const ArticleTitle = ({ title }: { title: string }) => (
+  <h2 className="mb-2 text-base-content text-2xl font-bold">
+    {title}
+  </h2>
+)
+
+const ArticleContent = ({ content }: { content: string }) => (
+  <div className="text-primary-focus line-clamp-2">
+    {removeMarkdown(content)}
+  </div>
+)
 
 export const ArticleItem = ({ article }: { article: Article }) => (
   <Link href={`/article/${article.id}`}>
-    <a className="flex justify-between mb-8 p-4 border-b border-neutral cursor-pointer">
+    <a className="flex justify-between p-5 rounded-box cursor-pointer transition hover:bg-base-200 hover:shadow">
       <div className="flex flex-col justify-between">
-        <div>
-          <h2 className="text-primary text-2xl font-bold">{article.title}</h2>
-          <div className="text-neutral-content">{article.content}</div>
+        <div className="mb-6">
+          <ArticleTitle title={article.title} />
+          <ArticleContent content={article.content} />
         </div>
-        <div className="flex items-center gap-1 text-xs">
-          <FontAwesomeIcon icon={faClock} />
-          <div>{formattedDate(article.createdAt)}</div>
-        </div>
-      </div>
-      <div className="">
-        <img src="https://placeimg.com/100/100/any" alt="" />
+        <ArticleMeta
+          date={article.createdAt}
+          categoryName={article.category.name}
+        />
       </div>
     </a>
   </Link>
