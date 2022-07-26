@@ -1,0 +1,16 @@
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import './styles.scss'
+
+import { BaseLayout } from '@nx-blog/web-layout'
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <BaseLayout>
+      <Head>
+        <title>朝闻道</title>
+      </Head>
+      <Component {...pageProps} />
+    </BaseLayout>
+  )
+}

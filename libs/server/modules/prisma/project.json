@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/server/modules/prisma/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/server/modules/prisma",
+        "tsConfig": "libs/server/modules/prisma/tsconfig.lib.json",
+        "packageJson": "libs/server/modules/prisma/package.json",
+        "main": "libs/server/modules/prisma/src/index.ts",
+        "assets": ["libs/server/modules/prisma/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/modules/prisma/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/modules/prisma"],
+      "options": {
+        "jestConfig": "libs/server/modules/prisma/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

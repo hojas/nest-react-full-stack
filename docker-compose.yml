@@ -17,7 +17,7 @@ services:
     container_name: nx-blog-api
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.api-server
+      dockerfile: ./docker/Dockerfile.server
     ports:
       - 127.0.0.1:8080:8080
     env_file:
@@ -51,11 +51,9 @@ services:
     network_mode: bridge
     networks:
       - nx_blog
-  frontend:
-    container_name: nx-blog-frontend
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile.frontend
+  web:
+    image: hojas/nx-blog-web:latest
+    container_name: nx-blog-web
     ports:
       - 127.0.0.1:3000:3000
     env_file:
