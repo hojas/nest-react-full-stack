@@ -63,6 +63,7 @@ specifiers:
   katex: ^0.16.0
   next: 12.2.3
   nx: 14.4.3
+  passport: ^0.6.0
   passport-jwt: ^4.0.0
   passport-local: ^1.0.0
   prettier: ^2.7.1
@@ -112,6 +113,7 @@ dependencies:
   humps: 2.0.1
   katex: 0.16.0
   next: 12.2.3_ckhwt5v7fywslkplh6p4u2aony
+  passport: 0.6.0
   passport-jwt: 4.0.0
   passport-local: 1.0.0
   react: 18.2.0
