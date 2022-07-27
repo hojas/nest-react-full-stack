@@ -33,7 +33,7 @@ services:
     networks:
       - nx_blog
   admin:
-    image: nx-blog-admin:latest
+    image: hojas/nx-blog-admin:latest
     container_name: nx-blog-admin
     ports:
       - 127.0.0.1:3001:3001
