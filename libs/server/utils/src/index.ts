@@ -1,2 +1,2 @@
-export * from './lib/prisma-errors'
 export * from './lib/get-hash'
+export * from './lib/prisma-errors'

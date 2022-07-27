@@ -10,7 +10,7 @@ import {
   NotFoundException,
 } from '@nestjs/common'
 
-import { Roles } from '@nx-blog/server-decorators'
+import { Roles } from '@nx-blog/server/decorators'
 import { Role } from '@prisma/client'
 import { CreateRoleDto } from './create-role.dto'
 import { RoleService } from './role.service'

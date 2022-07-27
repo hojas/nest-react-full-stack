@@ -8,8 +8,8 @@ import {
 } from '@nestjs/common'
 
 import { User } from '@prisma/client'
-import { Public } from '@nx-blog/server-decorators'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
+import { Public } from '@nx-blog/server/decorators'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
 import { UserService } from './user.service'
 
 @Public()

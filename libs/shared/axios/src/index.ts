@@ -1,1 +1,1 @@
-export { $axios } from './lib/axios'
+export * from './lib/axios'

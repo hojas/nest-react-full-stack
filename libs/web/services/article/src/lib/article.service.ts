@@ -1,6 +1,6 @@
 import { $axios } from '@nx-blog/shared/axios'
 import { Pagination } from '@nx-blog/shared/pagination'
-import { Category } from '@nx-blog/web-services-category'
+import { Category } from '@nx-blog/web/services/category'
 
 const api = {
   list: '/article/',

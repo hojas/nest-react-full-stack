@@ -1,5 +1,5 @@
 {
-  "name": "@nx-blog/server-decorators",
+  "name": "@nx-blog/server/decorators",
   "version": "0.0.1",
   "type": "commonjs"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@nx-blog/server-types",
+  "name": "@nx-blog/server/types",
   "version": "0.0.1",
   "type": "commonjs"
 }

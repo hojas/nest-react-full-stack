@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 
 import { Comment } from '@prisma/client'
-import { PrismaService } from '@nx-blog/server-modules-prisma'
-import { Pagination } from '@nx-blog/server-types'
+import { PrismaService } from '@nx-blog/server/modules/prisma'
+import { Pagination } from '@nx-blog/server/types'
 import { CreateCommentDto } from './create-comment.dto'
 
 type QueryType = {

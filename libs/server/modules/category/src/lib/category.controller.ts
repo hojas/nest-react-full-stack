@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common'
 
-import { Public } from '@nx-blog/server-decorators'
+import { Public } from '@nx-blog/server/decorators'
 import { Category } from '@prisma/client'
 import { CategoryService } from './category.service'
 

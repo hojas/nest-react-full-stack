@@ -1,4 +1,4 @@
-import { Article } from '@nx-blog/web-services-article'
+import { Article } from '@nx-blog/web/services/article'
 import { ArticleItem } from './article-item'
 
 const Divider = ({ index, length }: { index: number; length: number }) =>

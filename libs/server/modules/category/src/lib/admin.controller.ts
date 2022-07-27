@@ -15,9 +15,9 @@ import {
 } from '@nestjs/common'
 import { Category } from '@prisma/client'
 
-import { Roles } from '@nx-blog/server-decorators'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
-import { getCustomErrorMessage } from '@nx-blog/server-utils'
+import { Roles } from '@nx-blog/server/decorators'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
+import { getCustomErrorMessage } from '@nx-blog/server/utils'
 import { CreateCategoryDto } from './create-category.dto'
 import { CategoryService } from './category.service'
 

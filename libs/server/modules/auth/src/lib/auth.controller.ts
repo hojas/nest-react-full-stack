@@ -9,8 +9,8 @@ import {
   Res,
 } from '@nestjs/common'
 
-import { Public } from '@nx-blog/server-decorators'
-import { UserService, CreateUserDto } from '@nx-blog/server-modules-user'
+import { Public } from '@nx-blog/server/decorators'
+import { UserService, CreateUserDto } from '@nx-blog/server/modules/user'
 import { LocalAuthGuard } from './local-auth.guard'
 import { AuthService } from './auth.service'
 

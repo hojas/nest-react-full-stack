@@ -1,2 +1,2 @@
-export * from './lib/category'
 export * from './lib/category.service'
+export * from './lib/category'

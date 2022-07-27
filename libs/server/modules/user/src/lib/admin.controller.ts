@@ -9,9 +9,9 @@ import {
   DefaultValuePipe,
 } from '@nestjs/common'
 
-import { Pagination, PAGE_SIZE } from '@nx-blog/server-types'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
-import { Roles } from '@nx-blog/server-decorators'
+import { Pagination, PAGE_SIZE } from '@nx-blog/server/types'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
+import { Roles } from '@nx-blog/server/decorators'
 
 import { User } from '@prisma/client'
 import { UserService } from './user.service'

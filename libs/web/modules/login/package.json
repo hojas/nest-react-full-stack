@@ -1,4 +1,4 @@
 {
-  "name": "@nx-blog/web-modules-login",
+  "name": "@nx-blog/web/modules/login",
   "version": "0.0.1"
 }

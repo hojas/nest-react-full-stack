@@ -1,6 +1,14 @@
 # NxBlog
 
-This project was generated using [Nx](https://nx.dev).
+A simple blog system build with Nest, React nad Nx.
+
+## Generate an application
+
+Run `nx g @nrwl/react:app my-app` to generate an application.
+
+> You can use any of the plugins above to generate applications as well.
+
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
 ## Generate a library
 

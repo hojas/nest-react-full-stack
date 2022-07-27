@@ -1,5 +1,5 @@
 {
-  "name": "@nx-blog/server-modules-auth",
+  "name": "@nx-blog/server/modules/auth",
   "version": "0.0.1",
   "type": "commonjs"
 }

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 
-import { SharedModule } from '@nx-blog/server-modules-shared'
+import { SharedModule } from '@nx-blog/server/modules/shared'
 import { AdminController } from './admin.controller'
 import { TagService } from './tag.service'
 

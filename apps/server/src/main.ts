@@ -1,5 +1,5 @@
-import { NestFactory } from '@nestjs/core'
 import { Logger } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
 import helmet from 'helmet'
 import * as cookieParser from 'cookie-parser'
 
@@ -15,7 +15,9 @@ async function bootstrap() {
   const port = process.env.PORT || 8080
   await app.listen(port)
 
-  Logger.log(`🚀 Application is running on: http://localhost:${port}/api`)
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${port}/api`
+  )
 }
 
 bootstrap()

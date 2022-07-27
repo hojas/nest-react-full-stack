@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 
-import { SharedModule } from '@nx-blog/server-modules-shared'
+import { SharedModule } from '@nx-blog/server/modules/shared'
 import { CommentController } from './comment.controller'
 import { AdminController } from './admin.controller'
 import { CommentService } from './comment.service'

@@ -9,9 +9,9 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/admin/admin",
+        "outputPath": "dist/apps/admin",
         "index": "apps/admin/src/index.html",
-        "baseHref": "/admin/",
+        "baseHref": "/",
         "main": "apps/admin/src/main.tsx",
         "polyfills": "apps/admin/src/polyfills.ts",
         "tsConfig": "apps/admin/tsconfig.app.json",
@@ -48,8 +48,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "admin:build",
-        "hmr": true,
-        "proxyConfig": "apps/admin/proxy.conf.json"
+        "hmr": true
       },
       "configurations": {
         "development": {

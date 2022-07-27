@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 
 import { User } from '@prisma/client'
-import { getHash } from '@nx-blog/server-utils'
-import { Pagination } from '@nx-blog/server-types'
-import { PrismaService } from '@nx-blog/server-modules-prisma'
+import { getHash } from '@nx-blog/server/utils'
+import { Pagination } from '@nx-blog/server/types'
+import { PrismaService } from '@nx-blog/server/modules/prisma'
 import { CreateUserDto } from './create-user.dto'
 
 @Injectable()

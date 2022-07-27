@@ -15,10 +15,10 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 
-import { Public } from '@nx-blog/server-decorators'
-import { Roles } from '@nx-blog/server-decorators'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
-import { Pagination, PAGE_SIZE } from '@nx-blog/server-types'
+import { Public } from '@nx-blog/server/decorators'
+import { Roles } from '@nx-blog/server/decorators'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
+import { Pagination, PAGE_SIZE } from '@nx-blog/server/types'
 
 import { Comment } from '@prisma/client'
 import { CreateCommentDto } from './create-comment.dto'

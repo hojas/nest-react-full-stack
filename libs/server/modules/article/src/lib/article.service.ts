@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { Article } from '@prisma/client'
-import { Pagination } from '@nx-blog/server-types'
-import { PrismaService } from '@nx-blog/server-modules-prisma'
-import { CategoryService } from '@nx-blog/server-modules-category'
+import { Pagination } from '@nx-blog/server/types'
+import { PrismaService } from '@nx-blog/server/modules/prisma'
+import { CategoryService } from '@nx-blog/server/modules/category'
 import { CreateArticleDto } from './create-article.dto'
 
 type QueryType = {

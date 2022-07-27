@@ -14,9 +14,9 @@ import {
   HttpCode,
 } from '@nestjs/common'
 
-import { Roles } from '@nx-blog/server-decorators'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
-import { Pagination, PAGE_SIZE } from '@nx-blog/server-types'
+import { Roles } from '@nx-blog/server/decorators'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
+import { Pagination, PAGE_SIZE } from '@nx-blog/server/types'
 
 import { Tag } from '@prisma/client'
 import { CreateTagDto } from './create-tag.dto'

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import removeMarkdown from 'remove-markdown'
-import { Article } from '@nx-blog/web-services-article'
+import { Article } from '@nx-blog/web/services/article'
 import { ArticleMeta } from './article-meta'
 
 const ArticleTitle = ({ title }: { title: string }) => (

@@ -15,9 +15,9 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 
-import { Roles } from '@nx-blog/server-decorators'
-import { HttpExceptionFilter } from '@nx-blog/server-filters'
-import { Pagination, PAGE_SIZE } from '@nx-blog/server-types'
+import { Roles } from '@nx-blog/server/decorators'
+import { HttpExceptionFilter } from '@nx-blog/server/filters'
+import { Pagination, PAGE_SIZE } from '@nx-blog/server/types'
 
 import { Article } from '@prisma/client'
 import { ArticleService } from './article.service'

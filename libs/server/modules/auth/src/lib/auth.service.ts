@@ -2,8 +2,8 @@ import { Response } from 'express'
 import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 
-import { getHash } from '@nx-blog/server-utils'
-import { UserService } from '@nx-blog/server-modules-user'
+import { getHash } from '@nx-blog/server/utils'
+import { UserService } from '@nx-blog/server/modules/user'
 
 @Injectable()
 export class AuthService {

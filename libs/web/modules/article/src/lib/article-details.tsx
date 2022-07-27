@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { format } from 'date-fns'
 import { BiCopyright, BiTimeFive, BiLink } from 'react-icons/bi'
-import { Article, ArticleService } from '@nx-blog/web-services-article'
+import { Article, ArticleService } from '@nx-blog/web/services/article'
 import { MarkdownViewer } from '@nx-blog/shared/markdown-viewer'
-import { ArticleMeta } from '@nx-blog/web-ui'
+import { ArticleMeta } from '@nx-blog/web/ui'
 
 export async function getServerSideProps({ req, query }: NextPageContext) {
   const { host = '' } = req?.headers ?? {}

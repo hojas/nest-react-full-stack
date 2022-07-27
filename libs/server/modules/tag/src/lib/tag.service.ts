@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
-import { Pagination } from '@nx-blog/server-types'
-import { PrismaService } from '@nx-blog/server-modules-prisma'
+import { Pagination } from '@nx-blog/server/types'
+import { PrismaService } from '@nx-blog/server/modules/prisma'
 import { Tag } from '@prisma/client'
 import { CreateTagDto } from './create-tag.dto'
 
