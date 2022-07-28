@@ -40,6 +40,7 @@ services:
     env_file:
       - .env.local
     environment:
+      PORT: 3001
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz
       VIRTUAL_PORT: 3001
