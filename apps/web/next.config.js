@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withNx = require('@nrwl/next/plugins/with-nx');
+const withNx = require('@nrwl/next/plugins/with-nx')
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
@@ -10,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-};
+  publicRuntimeConfig: {
+    baiduKey: process.env.NEXT_PUBLIC_BAIDU_TONGJI_KEY,
+  },
+}
 
-module.exports = withNx(nextConfig);
+module.exports = withNx(nextConfig)

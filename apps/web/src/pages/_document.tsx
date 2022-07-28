@@ -1,5 +1,8 @@
+import getConfig from 'next/config'
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
+
+const { publicRuntimeConfig } = getConfig()
 
 // 百度统计
 const getAnalyticsTag = {
@@ -7,7 +10,7 @@ const getAnalyticsTag = {
   var _hmt = _hmt || []
   ;(function () {
     var hm = document.createElement('script')
-    hm.src = 'https://hm.baidu.com/hm.js?${process.env.NEXT_PUBLIC_BAIDU_TONGJI_KEY}'
+    hm.src = 'https://hm.baidu.com/hm.js?${publicRuntimeConfig.baiduKey}'
     var s = document.getElementsByTagName('script')[0]
     s.parentNode.insertBefore(hm, s)
   })()`,
