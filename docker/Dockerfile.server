@@ -17,7 +17,8 @@ COPY --from=builder /opt/app/prisma ./prisma
 COPY --from=builder /opt/app/dist/apps/server .
 COPY --from=builder /opt/app/package.json .
 COPY --from=builder /opt/app/pnpm-lock.yaml .
+COPY ./docker/server-entrypoint.sh .
 
 RUN corepack enable && pnpm i --prod && pnpm i prisma && pnpm prisma:generate
 
-CMD node ./main.js
+CMD ./server-entrypoint.sh
