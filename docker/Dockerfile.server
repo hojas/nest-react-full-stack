@@ -18,6 +18,6 @@ COPY --from=builder /opt/app/dist/apps/server .
 COPY --from=builder /opt/app/package.json .
 COPY --from=builder /opt/app/pnpm-lock.yaml .
 
-RUN corepack enable && pnpm i --production && pnpm i prisma && pnpm prisma:generate && pnpm prisma:migrate
+RUN corepack enable && pnpm i --prod && pnpm i prisma && pnpm prisma:generate
 
 CMD node ./main.js

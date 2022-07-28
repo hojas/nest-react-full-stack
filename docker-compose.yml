@@ -29,6 +29,7 @@ services:
       - db
     links:
       - db
+    command: pnpm run prisma:migrate && node ./main.js
     network_mode: bridge
     networks:
       - nx_blog
