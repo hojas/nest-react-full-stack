@@ -19,7 +19,7 @@ services:
     ports:
       - 127.0.0.1:8080:8080
     env_file:
-      - .env.local
+      - .env
     environment:
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz
@@ -38,7 +38,7 @@ services:
     ports:
       - 127.0.0.1:3001:3001
     env_file:
-      - .env.local
+      - .env
     environment:
       PORT: 3001
       LETSENCRYPT_HOST: www.zwd.xyz
@@ -54,7 +54,7 @@ services:
     ports:
       - 127.0.0.1:3000:3000
     env_file:
-      - .env.local
+      - .env
     environment:
       LETSENCRYPT_HOST: www.zwd.xyz
       VIRTUAL_HOST: www.zwd.xyz

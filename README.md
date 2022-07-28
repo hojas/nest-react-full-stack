@@ -2,6 +2,18 @@
 
 A simple blog system build with Nest, React nad Nx.
 
+## Add env file
+
+```env
+DATABASE_URL="postgresql://nx_blog:nx_blog@db:5432/nx_blog?schema=public&connect_timeout=300"
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES=86400s
+SHA_SECRET=your_sha_secret_key
+
+NX_AXIOS_BASE_URL=/api
+NEXT_PUBLIC_BAIDU_TONGJI_KEY=your_key
+```
+
 ## Generate an application
 
 Run `nx g @nrwl/react:app my-app` to generate an application.
