@@ -2,7 +2,7 @@
   "name": "nx-blog",
   "version": "1.0.0",
   "license": "MIT",
-  "packageManager": "pnpm@7.6.0",
+  "packageManager": "pnpm@7.7.0",
   "scripts": {
     "prisma:generate": "prisma generate",
     "prisma:migrate-dev": "prisma migrate dev --name",
@@ -21,7 +21,7 @@
     "@nestjs/jwt": "^9.0.0",
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.0.7",
-    "@nrwl/next": "14.4.3",
+    "@nrwl/next": "14.5.1",
     "@prisma/client": "^4.1.1",
     "@uiw/codemirror-theme-dracula": "^4.11.4",
     "@uiw/react-codemirror": "^4.11.4",
