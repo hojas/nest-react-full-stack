@@ -10,7 +10,7 @@ JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRES=86400s
 SHA_SECRET=your_sha_secret_key
 
-NX_AXIOS_BASE_URL=/api
+NEXT_PUBLIC_AXIOS_BASE_URL=/api
 NEXT_PUBLIC_BAIDU_TONGJI_KEY=your_key
 ```
 

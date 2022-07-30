@@ -1,4 +1,5 @@
-TAG = $(shell git describe --abbrev=0 --tags)
+# TAG = $(shell git describe --abbrev=0 --tags)
+TAG = v1.0.0
 IMAGE_TAG = $(TAG:v%=%)
 SERVER_IMAGE = hojas/nx-blog-server
 WEB_IMAGE = hojas/nx-blog-web

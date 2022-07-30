@@ -1,20 +1,8 @@
-FROM --platform=linux/amd64 node:16.16.0-alpine AS builder
-
-WORKDIR /opt/app
-
-COPY . .
-RUN corepack enable
-RUN pnpm install
-RUN pnpm nx build web --prod
-
-
 FROM --platform=linux/amd64 node:16.16.0-alpine
 
-# ARG PORT=3000 AXIOS_BASE_URL=/api BAIDU_KEY=null
-# ENV NODE_ENV=production PORT=${PORT} NX_AXIOS_BASE_URL=${AXIOS_BASE_URL} NEXT_PUBLIC_BAIDU_TONGJI_KEY=${BAIDU_KEY}
-
 WORKDIR /opt/app
-COPY --from=builder /opt/app/dist/apps/web .
+
+COPY ./dist/apps/web .
 RUN yarn
 
 CMD yarn start

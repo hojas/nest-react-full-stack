@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
 const humps = require('humps')
 
 const instance = axios.create({
-  baseURL: process.env['NX_AXIOS_BASE_URL'],
+  baseURL: process.env['NEXT_PUBLIC_AXIOS_BASE_URL'] || '/api',
   timeout: 3000,
   withCredentials: true,
 })
