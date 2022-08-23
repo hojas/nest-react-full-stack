@@ -1,7 +1,7 @@
 services:
   db:
     container_name: nx-blog-postgres
-    image: postgres:14.4-alpine
+    image: postgres:14.5-alpine
     ports:
       - 127.0.0.1:5432:5432
     environment:
@@ -14,14 +14,13 @@ services:
     networks:
       - nx_blog
   server:
-    image: hojas/nx-blog-server:latest
+    image: hojas/nx-blog-server
     container_name: nx-blog-server
     ports:
       - 127.0.0.1:8080:8080
     env_file:
       - .env
     environment:
-      LETSENCRYPT_HOST: localhost
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 8080
       VIRTUAL_PATH: /api
@@ -33,7 +32,7 @@ services:
     networks:
       - nx_blog
   admin:
-    image: hojas/nx-blog-admin:latest
+    image: hojas/nx-blog-admin
     container_name: nx-blog-admin
     ports:
       - 127.0.0.1:3001:3001
@@ -41,7 +40,6 @@ services:
       - .env
     environment:
       PORT: 3001
-      LETSENCRYPT_HOST: localhost
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 3001
       VIRTUAL_PATH: /admin
@@ -49,14 +47,13 @@ services:
     networks:
       - nx_blog
   web:
-    image: hojas/nx-blog-web:latest
+    image: hojas/nx-blog-web
     container_name: nx-blog-web
     ports:
       - 127.0.0.1:3000:3000
     env_file:
       - .env
     environment:
-      LETSENCRYPT_HOST: localhost
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 3000
       VIRTUAL_PATH: /
@@ -73,22 +70,7 @@ services:
       - conf:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-      - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    network_mode: bridge
-    networks:
-      - nx_blog
-  acme-companion:
-    container_name: nginx-proxy-acme
-    image: nginxproxy/acme-companion
-    environment:
-      - DEFAULT_EMAIL=cyxhuan9@163.com
-    volumes_from:
-      - nginx-proxy
-    volumes:
-      - certs:/etc/nginx/certs:rw
-      - acme:/etc/acme.sh
-      - /var/run/docker.sock:/var/run/docker.sock:ro
     network_mode: bridge
     networks:
       - nx_blog
@@ -98,8 +80,6 @@ volumes:
   conf:
   vhost:
   html:
-  certs:
-  acme:
 
 networks:
   nx_blog:

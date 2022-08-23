@@ -12,6 +12,7 @@ import {
   CommentOutlined,
   UserSwitchOutlined,
 } from '@ant-design/icons'
+import { AdminLayoutService } from './admin-layout.service'
 
 const { Header, Sider, Content } = Layout
 
@@ -57,6 +58,18 @@ export const BaseLayout = ({ children }: LayoutProps) => {
   const navigate = useNavigate()
   const [collapsed, setCollapsed] = useState(false)
   const [selectedKeys, setSelectedKeys] = useState([location.pathname])
+
+  useEffect(() => {
+    const fn = async () => {
+      const { ok } = await AdminLayoutService.getUser()
+
+      if (!ok) {
+        window.location.href = '/'
+      }
+    }
+
+    fn()
+  }, [])
 
   useEffect(() => {
     setSelectedKeys([location.pathname])

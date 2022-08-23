@@ -1,18 +1,20 @@
 import { Request, Response } from 'express'
+
 import {
-  Controller,
   Body,
-  UseGuards,
+  Controller,
   Get,
   Post,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common'
-
+import { User } from '@prisma/client'
 import { Public } from '@nx-blog/server/decorators'
-import { UserService, CreateUserDto } from '@nx-blog/server/modules/user'
-import { LocalAuthGuard } from './local-auth.guard'
+import { CreateUserDto, UserService } from '@nx-blog/server/modules/user'
+
 import { AuthService } from './auth.service'
+import { LocalAuthGuard } from './local-auth.guard'
 
 @Controller('auth')
 export class AuthController {
@@ -24,7 +26,10 @@ export class AuthController {
   @Public()
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Req() req: Request, @Res() res: Response): Promise<any> {
+  async login(
+    @Req() req: Request,
+    @Res() res: Response
+  ): Promise<Response<{ ok: boolean }>> {
     const { access_token: token } = this.authService.login(req.user)
 
     if (token) {
@@ -36,12 +41,34 @@ export class AuthController {
 
   @Public()
   @Post('register')
-  async register(@Body() user: CreateUserDto): Promise<any> {
+  async register(@Body('user') user: CreateUserDto): Promise<User> {
     return this.userService.create(user)
   }
 
   @Get('user')
   getProfile(@Req() req: Request) {
     return req.user
+  }
+
+  @Post('reset-password')
+  resetPassword(
+    @Req() req: Request,
+    @Body('user')
+    user: {
+      old_password: string
+      new_password: string
+      compare_password: string
+    }
+  ) {
+    const currentUser = req.user as User
+    if (user.new_password !== user.compare_password) {
+      throw new Error('两次输入的密码不同')
+    }
+
+    return this.authService.resetPassword(
+      currentUser.username,
+      user.old_password,
+      user.new_password
+    )
   }
 }

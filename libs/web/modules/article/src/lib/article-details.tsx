@@ -1,8 +1,9 @@
 import type { NextPage, NextPageContext } from 'next'
-import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import { useRouter } from 'next/router'
 import { format } from 'date-fns'
 import { BiCopyright, BiTimeFive, BiLink } from 'react-icons/bi'
+
 import { Article, ArticleService } from '@nx-blog/web/services/article'
 import { MarkdownViewer } from '@nx-blog/shared/markdown-viewer'
 import { ArticleMeta } from '@nx-blog/web/ui'

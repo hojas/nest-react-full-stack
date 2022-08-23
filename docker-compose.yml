@@ -1,7 +1,7 @@
 services:
   db:
     container_name: nx-blog-postgres
-    image: postgres:14.4-alpine
+    image: postgres:14.5-alpine
     ports:
       - 127.0.0.1:5432:5432
     environment:
@@ -14,7 +14,7 @@ services:
     networks:
       - nx_blog
   server:
-    image: hojas/nx-blog-server:latest
+    image: hojas/nx-blog-server
     container_name: nx-blog-server
     ports:
       - 127.0.0.1:8080:8080
@@ -33,7 +33,7 @@ services:
     networks:
       - nx_blog
   admin:
-    image: hojas/nx-blog-admin:latest
+    image: hojas/nx-blog-admin
     container_name: nx-blog-admin
     ports:
       - 127.0.0.1:3001:3001
@@ -49,7 +49,7 @@ services:
     networks:
       - nx_blog
   web:
-    image: hojas/nx-blog-web:latest
+    image: hojas/nx-blog-web
     container_name: nx-blog-web
     ports:
       - 127.0.0.1:3000:3000

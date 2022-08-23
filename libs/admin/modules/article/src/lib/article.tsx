@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, Table, Space, Popconfirm, Drawer } from 'antd'
+import type { DrawerProps } from 'antd'
 import { format } from 'date-fns'
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Category } from '@nx-blog/admin/modules/category'
@@ -30,19 +31,19 @@ const columns = (
   },
   {
     title: '分类',
-    render: (_: any, record: Article) => (
+    render: (_: unknown, record: Article) => (
       <div>{categoryList.find(c => c.id === record.categoryId)?.name}</div>
     ),
   },
   {
     title: '创建时间',
-    render: (_: any, record: Article) => (
+    render: (_: unknown, record: Article) => (
       <div>{format(new Date(record.createdAt), 'yyyy年MM月dd日 HH:mm:ss')}</div>
     ),
   },
   {
     title: '操作',
-    render: (_: any, record: Article) => (
+    render: (_: unknown, record: Article) => (
       <Space size="middle">
         <Button
           type="primary"
@@ -123,6 +124,23 @@ export const AdminArticle = () => {
     handleCloseDrawer()
   }
 
+  const drawerProps = {
+    className: 'article-content-drawer',
+    title: '编辑文章内容',
+    placement: 'right',
+    width: '90%',
+    visible: drawerVisible,
+    onClose: handleCloseDrawer,
+    extra: (
+      <Space>
+        <Button onClick={handleCloseDrawer}>取消</Button>
+        <Button onClick={handleSaveArticleContent} type="primary">
+          保存
+        </Button>
+      </Space>
+    ),
+  } as DrawerProps
+
   return (
     <>
       <Button className="mb-[10px]" type="primary" onClick={handleShowAddModal}>
@@ -152,22 +170,7 @@ export const AdminArticle = () => {
           onFinish={onFinish}
         />
       </ArticleModal>
-      <Drawer
-        className="article-content-drawer"
-        title="编辑文章内容"
-        placement="right"
-        width="90%"
-        visible={drawerVisible}
-        onClose={handleCloseDrawer}
-        extra={
-          <Space>
-            <Button onClick={handleCloseDrawer}>取消</Button>
-            <Button onClick={handleSaveArticleContent} type="primary">
-              保存
-            </Button>
-          </Space>
-        }
-      >
+      <Drawer {...drawerProps}>
         <ArticleContent
           content={activeArticle?.content || ''}
           onChange={handleContentChange}

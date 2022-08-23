@@ -2,6 +2,7 @@ import { $axios } from '@nx-blog/shared/axios'
 
 const api = {
   login: '/auth/login/',
+  user: '/auth/user/',
 }
 
 interface User {
@@ -15,5 +16,9 @@ export class UserService {
       username,
       password,
     })
+  }
+
+  static getUser() {
+    return $axios.get<User>(api.user)
   }
 }

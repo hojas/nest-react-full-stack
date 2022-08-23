@@ -1,9 +1,9 @@
 import { Response } from 'express'
 import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
-
-import { getHash } from '@nx-blog/server/utils'
+import { User } from '@prisma/client'
 import { UserService } from '@nx-blog/server/modules/user'
+import { getHash } from '@nx-blog/server/utils'
 
 @Injectable()
 export class AuthService {
@@ -12,7 +12,10 @@ export class AuthService {
     private jwtService: JwtService
   ) {}
 
-  async validateUser(username: string, password: string): Promise<any> {
+  async validateUser(
+    username: string,
+    password: string
+  ): Promise<Omit<User, 'password'> | undefined> {
     const user = await this.userService.findByEmail(username)
 
     if (user && user.password === getHash(password)) {
@@ -21,11 +24,9 @@ export class AuthService {
 
       return result
     }
-
-    return null
   }
 
-  login(user: any) {
+  login(user: string | object | Buffer) {
     return {
       access_token: this.jwtService.sign(user),
     }
@@ -36,5 +37,9 @@ export class AuthService {
       path: '/',
       httpOnly: true,
     })
+  }
+
+  resetPassword(username: string, oldPassword: string, newPassword: string) {
+    return this.userService.resetPassword(username, oldPassword, newPassword)
   }
 }

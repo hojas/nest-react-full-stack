@@ -24,17 +24,16 @@ instance.interceptors.response.use(
     ok: true,
     data: humps.camelizeKeys(response.data),
   }),
-  async (error: AxiosError) => {
-    const {
-      response = {
-        ok: false,
-        data: {
-          message: '请求失败，请稍后再试',
-        },
-      },
-    } = error
+  async (error: AxiosError<Record<string, any>>) => {
+    const defaultMsg = '请求失败，请稍后再试'
+    const response = error.response
+    const { data } = response || { data: { message: defaultMsg } }
+    data.message = data?.message || defaultMsg
 
-    return response
+    return {
+      ...response,
+      ok: false
+    }
   }
 )
 

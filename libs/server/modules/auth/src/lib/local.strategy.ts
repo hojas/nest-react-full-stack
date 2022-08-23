@@ -12,7 +12,10 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   }
 
   // login with email
-  async validate(username: string, password: string): Promise<User | never> {
+  async validate(
+    username: string,
+    password: string
+  ): Promise<Omit<User, 'password'> | never> {
     const user = await this.authService.validateUser(username, password)
 
     if (!user) {

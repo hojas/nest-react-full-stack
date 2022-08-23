@@ -1,8 +1,0 @@
-FROM --platform=linux/amd64 node:16.16.0-alpine
-
-WORKDIR /opt/app
-
-COPY ./dist/apps/web .
-RUN yarn
-
-CMD yarn start

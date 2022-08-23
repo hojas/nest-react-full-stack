@@ -68,6 +68,9 @@
       ],
       "@nx-blog/web/modules/home": ["libs/web/modules/home/src/index.ts"],
       "@nx-blog/web/modules/login": ["libs/web/modules/login/src/index.ts"],
+      "@nx-blog/web/modules/reset-password": [
+        "libs/web/modules/reset-password/src/index.ts"
+      ],
       "@nx-blog/web/services/article": [
         "libs/web/services/article/src/index.ts"
       ],

@@ -36,6 +36,7 @@
     "web-modules-category": "libs/web/modules/category",
     "web-modules-home": "libs/web/modules/home",
     "web-modules-login": "libs/web/modules/login",
+    "web-modules-reset-password": "libs/web/modules/reset-password",
     "web-services-article": "libs/web/services/article",
     "web-services-category": "libs/web/services/category",
     "web-ui": "libs/web/ui"

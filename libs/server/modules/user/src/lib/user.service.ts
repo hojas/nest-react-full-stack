@@ -12,8 +12,8 @@ export class UserService {
 
   onApplicationBootstrap() {
     // waiting roles created
-    setTimeout(() => {
-      this.createAdmin()
+    setTimeout(async () => {
+      await this.createAdmin()
     }, 1000)
   }
 
@@ -60,32 +60,42 @@ export class UserService {
     }
   }
 
-  async findById(id: number): Promise<User> {
-    const user = await this.prisma.user.findUnique({
+  findById(id: number) {
+    return this.prisma.user.findUnique({
       where: { id },
       include: {
         roles: true,
       },
     })
-
-    return user
   }
 
   // email as username
-  async findByEmail(username: string): Promise<User> {
-    const user = await this.prisma.user.findUnique({
+  findByEmail(username: string) {
+    return this.prisma.user.findUnique({
       where: { username },
       include: {
         roles: true,
       },
     })
-
-    return user
   }
 
-  create(user: CreateUserDto): Promise<User> {
+  create(user: CreateUserDto) {
     return this.prisma.user.create({
       data: user,
+    })
+  }
+
+  async resetPassword(username: string, oldPassword: string, newPassword: string) {
+    const user = await this.findByEmail(username)
+    if (user.password !== getHash(oldPassword)) {
+      throw new Error('密码不正确')
+    }
+
+    return this.prisma.user.update({
+      where: { username },
+      data: {
+        password: getHash(newPassword),
+      },
     })
   }
 }

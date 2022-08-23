@@ -1,15 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 import { UserService } from './login.service'
 
 export const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSetEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const fn = async () => {
+      const { ok } = await UserService.getUser()
+      if (ok) {
+        window.location.href = '/'
+      }
+    }
+
+    fn()
+  }, [])
+
+  const handleSetEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
-  const handleSetPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetPassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
   }
 
@@ -40,7 +51,7 @@ export const LoginPage = () => {
             <span className="label-text">密码</span>
           </label>
           <input
-            type="text"
+            type="password"
             className="input input-bordered"
             onChange={handleSetPassword}
           />
