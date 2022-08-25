@@ -11,7 +11,7 @@ const nextConfig = {
     svgr: false,
   },
   publicRuntimeConfig: {
-    baiduKey: process.env.NEXT_PUBLIC_BAIDU_TONGJI_KEY,
+    baiduKey: process.env.NX_BAIDU_TONGJI_KEY,
   },
 }
 

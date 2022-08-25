@@ -5,7 +5,7 @@ import rehypeKatex from 'rehype-katex'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import 'katex/dist/katex.min.css'
 
 interface Props {

@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -15,8 +17,13 @@
         "main": "apps/admin/src/main.tsx",
         "polyfills": "apps/admin/src/polyfills.ts",
         "tsConfig": "apps/admin/tsconfig.app.json",
-        "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-        "styles": ["apps/admin/src/styles.scss"],
+        "assets": [
+          "apps/admin/src/favicon.ico",
+          "apps/admin/src/assets"
+        ],
+        "styles": [
+          "apps/admin/src/styles.scss"
+        ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -63,14 +70,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/admin/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/admin/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/admin"],
+      "outputs": [
+        "coverage/apps/admin"
+      ],
       "options": {
         "jestConfig": "apps/admin/jest.config.ts",
         "passWithNoTests": true

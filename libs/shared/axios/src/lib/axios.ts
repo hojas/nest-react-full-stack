@@ -3,18 +3,17 @@ import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
 const humps = require('humps')
 
 const instance = axios.create({
-  baseURL: process.env['NEXT_PUBLIC_AXIOS_BASE_URL'] || '/api',
+  // for admin build
+  // baseURL: 'https://www.zwd.xyz/api',
+  baseURL: process.env['NX_AXIOS_BASE_URL'] || '/api',
   timeout: 3000,
   withCredentials: true,
 })
 
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
-  const { data } = config
-
-  if (data) {
-    config.data = humps.decamelizeKeys(data)
+  if (config.data) {
+    config.data = humps.decamelizeKeys(config.data)
   }
-
   return config
 })
 
@@ -24,37 +23,38 @@ instance.interceptors.response.use(
     ok: true,
     data: humps.camelizeKeys(response.data),
   }),
-  async (error: AxiosError<Record<string, any>>) => {
+  async (error: AxiosError<Record<string, unknown>>) => {
     const defaultMsg = '请求失败，请稍后再试'
-    const response = error.response
-    const { data } = response || { data: { message: defaultMsg } }
-    data.message = data?.message || defaultMsg
+    const data = error.response?.data || {}
+    const message = data['message'] || defaultMsg
 
     return {
-      ...response,
-      ok: false
+      ...error.response,
+      ok: false,
+      message,
     }
   }
 )
 
-export interface MyRequestConfig<D = any> extends AxiosRequestConfig<D> {
+export interface MyRequestConfig<D = unknown> extends AxiosRequestConfig<D> {
   showError?: boolean
 }
 
-export interface MyResponse<T = any, D = any> extends AxiosResponse<T, D> {
+export interface MyResponse<T = unknown, D = unknown>
+  extends AxiosResponse<T, D> {
   ok: boolean
   message?: string
 }
 
 export const $axios = {
-  get: <T = any, R = MyResponse<T>, D = any>(
+  get: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     config?: MyRequestConfig<D>
   ): Promise<R> => {
     return instance.get(url, config)
   },
 
-  post: <T = any, R = MyResponse<T>, D = any>(
+  post: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     data?: D,
     config?: MyRequestConfig<D>
@@ -62,7 +62,7 @@ export const $axios = {
     return instance.post(url, data, config)
   },
 
-  put: <T = any, R = MyResponse<T>, D = any>(
+  put: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     data?: D,
     config?: MyRequestConfig<D>
@@ -70,7 +70,7 @@ export const $axios = {
     return instance.put(url, data, config)
   },
 
-  delete: <T = any, R = MyResponse<T>, D = any>(
+  delete: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     config?: MyRequestConfig<D>
   ): Promise<R> => {
