@@ -14,6 +14,22 @@ NEXT_PUBLIC_AXIOS_BASE_URL=/api
 NEXT_PUBLIC_BAIDU_TONGJI_KEY=your_key
 ```
 
+## Build docker images
+
+```shell
+# server app
+$ pnpm nx build server --prod
+$ make server
+
+# web app
+$ pnpm nx build web --prod
+$ make server
+
+# admin app
+$ pnpm nx build admin --prod
+$ make server
+```
+
 ## Generate an application
 
 Run `nx g @nrwl/react:app my-app` to generate an application.
