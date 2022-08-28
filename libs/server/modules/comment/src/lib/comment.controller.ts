@@ -31,13 +31,13 @@ export class CommentController {
 
   @Get()
   findAll(
-    @Query('article_id', ParseIntPipe) article_id: number,
+    @Query('articleId', ParseIntPipe) articleId: number,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
-    @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    page_size: number
+    @Query('pageSize', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
+    pageSize: number
   ): Promise<Pagination<Comment>> {
-    return this.commentService.findAll({ page, page_size }, { article_id })
+    return this.commentService.findAll({ page, pageSize }, { articleId })
   }
 
   @Get(':id')
@@ -57,7 +57,7 @@ export class CommentController {
     @Req() req,
     @Body('comment') comment: CreateCommentDto
   ): Promise<Comment> {
-    comment.author_id = req.user.id
+    comment.authorId = req.user.id
     return this.commentService.create(comment)
   }
 

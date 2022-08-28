@@ -36,7 +36,7 @@ export class RoleService {
   }
 
   findAll(): Promise<Role[]> {
-    return this.prisma.role.findMany({ orderBy: { created_at: 'desc' } })
+    return this.prisma.role.findMany({ orderBy: { createdAt: 'desc' } })
   }
 
   findById(id: number): Promise<Role> {

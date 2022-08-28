@@ -9,7 +9,7 @@ export class CategoryService {
 
   findAll(): Promise<Category[]> {
     return this.prisma.category.findMany({
-      orderBy: { order_index: 'asc' },
+      orderBy: { orderIndex: 'asc' },
     })
   }
 

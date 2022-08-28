@@ -11,17 +11,17 @@ export class TagService {
 
   async findAll({
     page,
-    page_size,
+    pageSize,
   }: Pagination<Tag>): Promise<Pagination<Tag>> {
     const tags = await this.prisma.tag.findMany({
-      skip: (page - 1) * page_size,
-      take: page_size,
-      orderBy: { created_at: 'desc' },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+      orderBy: { createdAt: 'desc' },
     })
 
     return {
       page,
-      page_size,
+      pageSize,
       count: tags.length,
       results: tags,
     }

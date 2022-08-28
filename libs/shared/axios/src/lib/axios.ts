@@ -3,8 +3,6 @@ import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
 const humps = require('humps')
 
 const instance = axios.create({
-  // for admin build
-  // baseURL: 'https://www.zwd.xyz/api',
   baseURL: process.env['NX_AXIOS_BASE_URL'] || '/api',
   timeout: 3000,
   withCredentials: true,
@@ -50,30 +48,22 @@ export const $axios = {
   get: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     config?: MyRequestConfig<D>
-  ): Promise<R> => {
-    return instance.get(url, config)
-  },
+  ): Promise<R> => instance.get(url, config),
 
   post: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     data?: D,
     config?: MyRequestConfig<D>
-  ): Promise<R> => {
-    return instance.post(url, data, config)
-  },
+  ): Promise<R> => instance.post(url, data, config),
 
   put: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     data?: D,
     config?: MyRequestConfig<D>
-  ): Promise<R> => {
-    return instance.put(url, data, config)
-  },
+  ): Promise<R> => instance.put(url, data, config),
 
   delete: <T = unknown, R = MyResponse<T>, D = unknown>(
     url: string,
     config?: MyRequestConfig<D>
-  ): Promise<R> => {
-    return instance.delete(url, config)
-  },
+  ): Promise<R> => instance.delete(url, config),
 }

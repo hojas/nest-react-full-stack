@@ -33,7 +33,7 @@ export class ArticleService {
     const { ok, data } = await $axios.get<Pagination<Article>>(api.list, {
       params: {
         page,
-        category_code: categoryCode,
+        categoryCode: categoryCode,
       },
     })
 

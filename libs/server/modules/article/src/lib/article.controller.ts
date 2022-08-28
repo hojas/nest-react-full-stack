@@ -31,14 +31,14 @@ export class ArticleController {
   @Get()
   @UseFilters(HttpExceptionFilter)
   async findAll(
-    @Query('category_code')
-    category_code: string,
+    @Query('categoryCode')
+    categoryCode: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
-    @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    page_size: number
+    @Query('pageSize', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
+    pageSize: number
   ): Promise<Pagination<Article>> {
-    return this.articleService.findAll({ page, page_size }, { category_code })
+    return this.articleService.findAll({ page, pageSize }, { categoryCode })
   }
 
   @Public()
@@ -58,7 +58,7 @@ export class ArticleController {
     @Req() req,
     @Body('article') article: CreateArticleDto
   ): Promise<Article> {
-    article.author_id = req.user.id
+    article.authorId = req.user.id
     return this.articleService.create(article)
   }
 

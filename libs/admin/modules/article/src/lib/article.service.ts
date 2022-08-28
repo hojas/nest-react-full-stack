@@ -14,7 +14,7 @@ export interface CreateArticleDto {
 
 export interface Article extends CreateArticleDto {
   id: number
-  author_id: number
+  authorId: number
   createdAt: string
 }
 

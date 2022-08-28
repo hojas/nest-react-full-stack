@@ -6,7 +6,7 @@ import { Pagination } from '@nx-blog/server/types'
 import { CreateCommentDto } from './create-comment.dto'
 
 type QueryType = {
-  article_id?: number
+  articleId?: number
 }
 
 @Injectable()
@@ -14,21 +14,21 @@ export class CommentService {
   constructor(private prisma: PrismaService) {}
 
   async findAll(
-    { page, page_size }: Pagination<Comment>,
+    { page, pageSize }: Pagination<Comment>,
     query?: QueryType
   ): Promise<Pagination<Comment>> {
     const where = query
 
     const comments = await this.prisma.comment.findMany({
       where,
-      skip: (page - 1) * page_size,
-      take: page_size,
-      orderBy: { created_at: 'desc' },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+      orderBy: { createdAt: 'desc' },
     })
 
     return {
       page,
-      page_size,
+      pageSize,
       count: comments.length,
       results: comments,
     }
@@ -42,10 +42,10 @@ export class CommentService {
     const data = {
       content: comment.content,
       author: {
-        connect: { id: comment.author_id },
+        connect: { id: comment.authorId },
       },
       article: {
-        connect: { id: comment.article_id },
+        connect: { id: comment.articleId },
       },
     }
 

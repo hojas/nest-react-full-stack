@@ -39,19 +39,19 @@ export class UserService {
 
   async findAll(params: {
     page: number
-    page_size: number
+    pageSize: number
   }): Promise<Pagination<User>> {
-    const { page, page_size } = params
+    const { page, pageSize } = params
 
     const users = await this.prisma.user.findMany({
-      skip: (page - 1) * page_size,
-      take: page_size,
-      orderBy: { created_at: 'desc' },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
+      orderBy: { createdAt: 'desc' },
     })
 
     return {
       page,
-      page_size,
+      pageSize,
       count: users.length,
       results: users.map(user => {
         user.password = undefined

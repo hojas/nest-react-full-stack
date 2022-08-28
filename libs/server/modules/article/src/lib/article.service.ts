@@ -6,12 +6,12 @@ import { CategoryService } from '@nx-blog/server/modules/category'
 import { CreateArticleDto } from './create-article.dto'
 
 type QueryType = {
-  category_code?: string
+  categoryCode?: string
   tags?: string[]
 }
 
 type WhereType = {
-  category_id?: number
+  categoryId?: number
 }
 
 @Injectable()
@@ -22,32 +22,30 @@ export class ArticleService {
   ) {}
 
   async findAll(
-    { page, page_size }: Pagination<Article>,
+    { page, pageSize }: Pagination<Article>,
     query?: QueryType
   ): Promise<Pagination<Article>> {
     const where: WhereType = {}
 
-    if (query && query.category_code) {
-      const category = await this.categoryService.findByCode(
-        query.category_code
-      )
-      where.category_id = category.id
+    if (query && query.categoryCode) {
+      const category = await this.categoryService.findByCode(query.categoryCode)
+      where.categoryId = category.id
     }
 
     const articles = await this.prisma.article.findMany({
       where,
-      skip: (page - 1) * page_size,
-      take: page_size,
+      skip: (page - 1) * pageSize,
+      take: pageSize,
       include: {
         category: true,
         author: true,
       },
-      orderBy: { created_at: 'desc' },
+      orderBy: { createdAt: 'desc' },
     })
 
     return {
       page,
-      page_size,
+      pageSize,
       count: articles.length,
       results: articles,
     }
@@ -64,23 +62,23 @@ export class ArticleService {
   }
 
   create(article: CreateArticleDto): Promise<Article> {
-    article.tag_ids = article.tag_ids || []
+    article.tagIds = article.tagIds || []
 
     const data = {
       title: article.title,
       content: article.content || '',
       category: {
         connect: {
-          id: article.category_id,
+          id: article.categoryId,
         },
       },
       author: {
         connect: {
-          id: article.author_id,
+          id: article.authorId,
         },
       },
       tags: {
-        connect: article.tag_ids.map(id => ({
+        connect: article.tagIds.map(id => ({
           id,
         })),
       },
@@ -90,18 +88,18 @@ export class ArticleService {
   }
 
   update(id: number, article: CreateArticleDto): Promise<Article> {
-    article.tag_ids = article.tag_ids || []
+    article.tagIds = article.tagIds || []
 
     const data = {
       title: article.title,
       content: article.content,
       category: {
         connect: {
-          id: article.category_id,
+          id: article.categoryId,
         },
       },
       tags: {
-        connect: article.tag_ids.map(id => ({
+        connect: article.tagIds.map(id => ({
           id,
         })),
       },

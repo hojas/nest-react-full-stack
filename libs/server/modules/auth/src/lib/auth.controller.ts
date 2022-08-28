@@ -55,20 +55,20 @@ export class AuthController {
     @Req() req: Request,
     @Body('user')
     user: {
-      old_password: string
-      new_password: string
-      compare_password: string
+      oldPassword: string
+      newPassword: string
+      compare_Password: string
     }
   ) {
     const currentUser = req.user as User
-    if (user.new_password !== user.compare_password) {
+    if (user.newPassword !== user.compare_Password) {
       throw new Error('两次输入的密码不同')
     }
 
     return this.authService.resetPassword(
       currentUser.username,
-      user.old_password,
-      user.new_password
+      user.oldPassword,
+      user.newPassword
     )
   }
 }

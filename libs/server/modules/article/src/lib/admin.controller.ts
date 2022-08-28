@@ -32,10 +32,10 @@ export class AdminController {
   findAll(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
-    @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    page_size: number
+    @Query('pageSize', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
+    pageSize: number
   ): Promise<Pagination<Article>> {
-    return this.articleService.findAll({ page, page_size })
+    return this.articleService.findAll({ page, pageSize })
   }
 
   @Post()
@@ -43,7 +43,7 @@ export class AdminController {
     @Req() req,
     @Body('article') article: CreateArticleDto
   ): Promise<Article> {
-    article.author_id = req.user.id
+    article.authorId = req.user.id
     return this.articleService.create(article)
   }
 
