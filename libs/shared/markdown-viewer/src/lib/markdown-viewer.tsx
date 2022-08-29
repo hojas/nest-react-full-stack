@@ -3,9 +3,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import 'katex/dist/katex.min.css'
 
 interface Props {
@@ -21,7 +19,7 @@ export const MarkdownViewer = ({ className, content }: Props) => (
         const match = /language-(\w+)/.exec(className || '')
         return !inline && match ? (
           <SyntaxHighlighter
-            style={nightOwl}
+            style={nightOwl as any}
             language={match[1]}
             PreTag="div"
             showLineNumbers={true}
