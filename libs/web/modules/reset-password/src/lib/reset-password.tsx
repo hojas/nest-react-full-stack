@@ -1,34 +1,12 @@
-import { useState, ChangeEvent } from 'react'
-import { ResetPasswordService } from './reset-password.service'
+import { useResetPassword } from './useResetPassword'
 
 export const ResetPasswordPage = () => {
-  const [oldPassword, setOldPassword] = useState('')
-  const [newPassword, setNewPassword] = useState('')
-  const [comparePassword, setComparePassword] = useState('')
-
-  const handleSetOldPassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setOldPassword(e.target.value)
-  }
-
-  const handleSetNewPassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(e.target.value)
-  }
-
-  const handleSetComparePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setComparePassword(e.target.value)
-  }
-
-  const handleLogin = async () => {
-    const { ok } = await ResetPasswordService.resetPassword({
-      oldPassword,
-      newPassword,
-      comparePassword,
-    })
-
-    if (ok) {
-      window.location.href = '/'
-    }
-  }
+  const {
+    onSetOldPassword,
+    onSetNewPassword,
+    onSetComparePassword,
+    onResetPassword,
+  } = useResetPassword()
 
   return (
     <div className="card max-w-md w-1/2 mx-auto shadow-2xl bg-base-100">
@@ -41,7 +19,7 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={handleSetOldPassword}
+            onChange={onSetOldPassword}
           />
         </div>
         <div className="form-control">
@@ -51,7 +29,7 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={handleSetNewPassword}
+            onChange={onSetNewPassword}
           />
         </div>
         <div className="form-control">
@@ -61,11 +39,11 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={handleSetComparePassword}
+            onChange={onSetComparePassword}
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary" onClick={handleLogin}>
+          <button className="btn btn-primary" onClick={onResetPassword}>
             确认
           </button>
         </div>

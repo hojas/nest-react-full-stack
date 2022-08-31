@@ -12,9 +12,9 @@ interface Props {
 export default ({ categoryList, article, onFinish }: Props) => {
   const [form] = Form.useForm<CreateArticleDto>()
 
-  useEffect(() => {
-    // form && form.resetFields && form.resetFields(['title', 'categoryId'])
-  }, [form, article])
+  // useEffect(() => {
+  //   form && form.resetFields && form.resetFields(['title', 'categoryId'])
+  // }, [form, article])
 
   return (
     <Form

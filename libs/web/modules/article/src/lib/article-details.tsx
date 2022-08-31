@@ -1,12 +1,11 @@
 import type { NextPage, NextPageContext } from 'next'
 import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
-import { format } from 'date-fns'
-import { BiCopyright, BiTimeFive, BiLink } from 'react-icons/bi'
 
 import { Article, ArticleService } from '@nx-blog/web/services/article'
 import { MarkdownViewer } from '@nx-blog/shared/markdown-viewer'
 import { ArticleMeta } from '@nx-blog/web/ui'
+import { ArticleFooter } from './article-footer'
 
 export async function getServerSideProps({ req, query }: NextPageContext) {
   const { host = '' } = req?.headers ?? {}
@@ -22,50 +21,6 @@ interface Props {
   host: string
 }
 
-const ArticlePageFooter = ({
-  host,
-  path,
-  date,
-}: {
-  host: string
-  path: string
-  date: string
-}) => (
-  <div className="mt-10 pt-5 text-sm text-primary-focus border-t grid gap-y-1">
-    <div className="flex items-center gap-1">
-      <BiCopyright />
-      <div>
-        版权声明：自由转载-非商用-非衍生-保持署名（
-        <a
-          className="text-primary-focus"
-          href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        >
-          创意共享3.0许可证
-        </a>
-      </div>
-      ）
-    </div>
-    <div className="flex items-center gap-1">
-      <BiTimeFive />
-      <div>
-        发布日期：
-        {format(new Date(date), 'yyyy年MM月dd日')}
-      </div>
-    </div>
-    <div className="flex items-center gap-1">
-      <BiLink />
-      <div>
-        本文地址：
-        <a className="text-primary-focus" href={host + path}>
-          {host + path}
-        </a>
-      </div>
-    </div>
-  </div>
-)
-
 export const ArticlePage: NextPage<Props> = ({ ok, article, host }) => {
   const router = useRouter()
 
@@ -78,8 +33,7 @@ export const ArticlePage: NextPage<Props> = ({ ok, article, host }) => {
         categoryName={article.category.name}
       />
       <MarkdownViewer content={article.content} />
-      <p>（完）</p>
-      <ArticlePageFooter
+      <ArticleFooter
         host={host}
         path={router.asPath}
         date={article.createdAt}

@@ -1,36 +1,7 @@
-import { useState, useEffect, ChangeEvent } from 'react'
-import { UserService } from './login.service'
+import { useLogin } from './useLogin'
 
 export const LoginPage = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  useEffect(() => {
-    const fn = async () => {
-      const { ok } = await UserService.getUser()
-      if (ok) {
-        window.location.href = '/'
-      }
-    }
-
-    fn()
-  }, [])
-
-  const handleSetEmail = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value)
-  }
-
-  const handleSetPassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value)
-  }
-
-  const handleLogin = async () => {
-    const { ok } = await UserService.login(email, password)
-
-    if (ok) {
-      window.location.href = '/'
-    }
-  }
+  const { onSetEmail, onSetPassword, onLogin } = useLogin()
 
   return (
     <div className="card max-w-md w-1/2 mx-auto shadow-2xl bg-base-100">
@@ -43,7 +14,7 @@ export const LoginPage = () => {
           <input
             type="text"
             className="input input-bordered"
-            onChange={handleSetEmail}
+            onChange={onSetEmail}
           />
         </div>
         <div className="form-control">
@@ -53,11 +24,11 @@ export const LoginPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={handleSetPassword}
+            onChange={onSetPassword}
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary" onClick={handleLogin}>
+          <button className="btn btn-primary" onClick={onLogin}>
             登录
           </button>
         </div>

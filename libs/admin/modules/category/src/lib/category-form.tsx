@@ -10,9 +10,9 @@ interface Props {
 export default ({ category, onFinish }: Props) => {
   const [form] = Form.useForm<CreateCategoryDto>()
 
-  useEffect(() => {
-    // form && form.resetFields && form.resetFields(['code', 'name', 'orderIndex'])
-  }, [form, category])
+  // useEffect(() => {
+  //   form && form.resetFields && form.resetFields(['code', 'name', 'orderIndex'])
+  // }, [form, category])
 
   return (
     <Form

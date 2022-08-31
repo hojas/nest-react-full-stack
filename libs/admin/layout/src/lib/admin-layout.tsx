@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { To, useLocation, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
 import { Layout, Menu } from 'antd'
 import { ItemType } from 'antd/lib/menu/hooks/useItems'
 import {
@@ -12,7 +11,7 @@ import {
   CommentOutlined,
   UserSwitchOutlined,
 } from '@ant-design/icons'
-import { AdminLayoutService } from './admin-layout.service'
+import { useAdminLayout } from './useAdminLayout'
 
 const { Header, Sider, Content } = Layout
 
@@ -54,30 +53,8 @@ interface LayoutProps {
 }
 
 export const BaseLayout = ({ children }: LayoutProps) => {
-  const location = useLocation()
-  const navigate = useNavigate()
   const [collapsed, setCollapsed] = useState(false)
-  const [selectedKeys, setSelectedKeys] = useState([location.pathname])
-
-  useEffect(() => {
-    const fn = async () => {
-      const { ok } = await AdminLayoutService.getUser()
-
-      if (!ok) {
-        window.location.href = '/'
-      }
-    }
-
-    fn()
-  }, [])
-
-  useEffect(() => {
-    setSelectedKeys([location.pathname])
-  }, [location])
-
-  const handleClick = (e: { key: To }) => {
-    navigate(e.key)
-  }
+  const { selectedKeys, onClick } = useAdminLayout()
 
   return (
     <Layout>
@@ -90,7 +67,7 @@ export const BaseLayout = ({ children }: LayoutProps) => {
           mode="inline"
           defaultSelectedKeys={selectedKeys}
           items={menuItems}
-          onClick={handleClick}
+          onClick={onClick}
         />
       </Sider>
       <Layout>
