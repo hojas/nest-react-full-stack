@@ -1,4 +1,6 @@
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import { ResetPasswordService } from './reset-password.service'
 
 export const useResetPassword = () => {
@@ -6,33 +8,24 @@ export const useResetPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [comparePassword, setComparePassword] = useState('')
 
-  const onSetOldPassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setOldPassword(e.target.value)
-  }
-
-  const onSetNewPassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(e.target.value)
-  }
-
-  const onSetComparePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setComparePassword(e.target.value)
-  }
-
+  const router = useRouter()
   const onResetPassword = async () => {
-    const { ok } = await ResetPasswordService.resetPassword({
+    const { ok, message } = await ResetPasswordService.resetPassword(
       oldPassword,
       newPassword,
-      comparePassword,
-    })
+      comparePassword
+    )
     if (ok) {
-      window.location.href = '/'
+      await router.push('/')
+    } else {
+      toast(message)
     }
   }
 
   return {
-    onSetOldPassword,
-    onSetNewPassword,
-    onSetComparePassword,
+    setOldPassword,
+    setNewPassword,
+    setComparePassword,
     onResetPassword,
   }
 }

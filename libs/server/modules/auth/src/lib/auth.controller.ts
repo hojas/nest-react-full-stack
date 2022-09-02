@@ -1,13 +1,14 @@
 import { Request, Response } from 'express'
-
 import {
-  Body,
   Controller,
   Get,
   Post,
   Req,
   Res,
+  Body,
   UseGuards,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common'
 import { User } from '@prisma/client'
 import { Public } from '@nx-blog/server/decorators'
@@ -53,19 +54,19 @@ export class AuthController {
   @Post('reset-password')
   resetPassword(
     @Req() req: Request,
-    @Body('user')
+    @Body()
     user: {
       oldPassword: string
       newPassword: string
-      compare_Password: string
+      comparePassword: string
     }
   ) {
     const currentUser = req.user as User
-    if (user.newPassword !== user.compare_Password) {
-      throw new Error('两次输入的密码不同')
+    if (user.newPassword !== user.comparePassword) {
+      throw new HttpException('两次输入的密码不同', HttpStatus.BAD_REQUEST)
     }
 
-    return this.authService.resetPassword(
+    return this.userService.resetPassword(
       currentUser.username,
       user.oldPassword,
       user.newPassword

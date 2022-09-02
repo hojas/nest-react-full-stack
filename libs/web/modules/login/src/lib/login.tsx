@@ -1,7 +1,7 @@
 import { useLogin } from './useLogin'
 
 export const LoginPage = () => {
-  const { onSetEmail, onSetPassword, onLogin } = useLogin()
+  const { setEmail, setPassword, onLogin } = useLogin()
 
   return (
     <div className="card max-w-md w-1/2 mx-auto shadow-2xl bg-base-100">
@@ -14,7 +14,7 @@ export const LoginPage = () => {
           <input
             type="text"
             className="input input-bordered"
-            onChange={onSetEmail}
+            onChange={e => setEmail(e.target.value)}
           />
         </div>
         <div className="form-control">
@@ -24,7 +24,7 @@ export const LoginPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={onSetPassword}
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
         <div className="form-control mt-6">

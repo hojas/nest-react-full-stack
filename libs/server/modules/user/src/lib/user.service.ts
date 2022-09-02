@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common'
 
 import { User } from '@prisma/client'
 import { getHash } from '@nx-blog/server/utils'
@@ -85,10 +85,20 @@ export class UserService {
     })
   }
 
-  async resetPassword(username: string, oldPassword: string, newPassword: string) {
+  async resetPassword(
+    username: string,
+    oldPassword: string,
+    newPassword: string
+  ) {
     const user = await this.findByEmail(username)
+    if (oldPassword.trim() === '' || newPassword.trim() === '') {
+      throw new HttpException('密码不能为空', HttpStatus.BAD_REQUEST)
+    }
     if (user.password !== getHash(oldPassword)) {
-      throw new Error('密码不正确')
+      throw new HttpException('密码不正确', HttpStatus.BAD_REQUEST)
+    }
+    if (newPassword.length < 8) {
+      throw new HttpException('密码长度不能小于 8', HttpStatus.BAD_REQUEST)
     }
 
     return this.prisma.user.update({

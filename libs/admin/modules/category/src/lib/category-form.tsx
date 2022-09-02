@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Form, Input, InputNumber } from 'antd'
 import { Category, CreateCategoryDto } from './category.service'
 
@@ -9,10 +8,6 @@ interface Props {
 
 export default ({ category, onFinish }: Props) => {
   const [form] = Form.useForm<CreateCategoryDto>()
-
-  // useEffect(() => {
-  //   form && form.resetFields && form.resetFields(['code', 'name', 'orderIndex'])
-  // }, [form, category])
 
   return (
     <Form

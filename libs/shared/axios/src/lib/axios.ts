@@ -1,6 +1,4 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const humps = require('humps')
 
 const instance = axios.create({
   baseURL: process.env['NX_AXIOS_BASE_URL'] || '/api',
@@ -8,18 +6,10 @@ const instance = axios.create({
   withCredentials: true,
 })
 
-instance.interceptors.request.use((config: AxiosRequestConfig) => {
-  if (config.data) {
-    config.data = humps.decamelizeKeys(config.data)
-  }
-  return config
-})
-
 instance.interceptors.response.use(
   (response: AxiosResponse) => ({
-    ...response,
     ok: true,
-    data: humps.camelizeKeys(response.data),
+    data: response.data,
   }),
   async (error: AxiosError<Record<string, unknown>>) => {
     const defaultMsg = '请求失败，请稍后再试'
@@ -27,7 +17,6 @@ instance.interceptors.response.use(
     const message = data['message'] || defaultMsg
 
     return {
-      ...error.response,
       ok: false,
       message,
     }

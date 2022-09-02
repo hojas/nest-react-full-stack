@@ -1,4 +1,6 @@
-import { useState, useEffect, ChangeEvent } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import { UserService } from './login.service'
 
 export const useLogin = () => {
@@ -6,32 +8,27 @@ export const useLogin = () => {
   const [password, setPassword] = useState('')
 
   useEffect(() => {
-    const fn = async () => {
+    ;(async () => {
       const { ok } = await UserService.getUser()
       if (ok) {
         window.location.href = '/'
       }
-    }
-
-    fn()
+    })()
   }, [])
 
-  const onSetEmail = (e: ChangeEvent<HTMLInputElement>) =>
-    setEmail(e.target.value)
-
-  const onSetPassword = (e: ChangeEvent<HTMLInputElement>) =>
-    setPassword(e.target.value)
-
+  const router = useRouter()
   const onLogin = async () => {
-    const { ok } = await UserService.login(email, password)
+    const { ok, message } = await UserService.login(email, password)
     if (ok) {
-      window.location.href = '/'
+      await router.push('/')
+    } else {
+      toast.error(message)
     }
   }
 
   return {
-    onSetEmail,
-    onSetPassword,
+    setEmail,
+    setPassword,
     onLogin,
   }
 }

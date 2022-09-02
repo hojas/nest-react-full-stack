@@ -7,15 +7,12 @@ export const useAdminLayout = () => {
   const [selectedKeys, setSelectedKeys] = useState([location.pathname])
 
   useEffect(() => {
-    const fn = async () => {
+    ;(async () => {
       const { ok } = await AdminLayoutService.getUser()
-
       if (!ok) {
-        window.location.href = '/'
+        // window.location.href = '/'
       }
-    }
-
-    fn()
+    })()
   }, [])
 
   useEffect(() => {

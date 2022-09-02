@@ -2,9 +2,9 @@ import { useResetPassword } from './useResetPassword'
 
 export const ResetPasswordPage = () => {
   const {
-    onSetOldPassword,
-    onSetNewPassword,
-    onSetComparePassword,
+    setOldPassword,
+    setNewPassword,
+    setComparePassword,
     onResetPassword,
   } = useResetPassword()
 
@@ -19,7 +19,7 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={onSetOldPassword}
+            onChange={e => setOldPassword(e.target.value)}
           />
         </div>
         <div className="form-control">
@@ -29,7 +29,7 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={onSetNewPassword}
+            onChange={e => setNewPassword(e.target.value)}
           />
         </div>
         <div className="form-control">
@@ -39,7 +39,7 @@ export const ResetPasswordPage = () => {
           <input
             type="password"
             className="input input-bordered"
-            onChange={onSetComparePassword}
+            onChange={e => setComparePassword(e.target.value)}
           />
         </div>
         <div className="form-control mt-6">

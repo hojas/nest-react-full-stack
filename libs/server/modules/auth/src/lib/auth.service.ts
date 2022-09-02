@@ -38,8 +38,4 @@ export class AuthService {
       httpOnly: true,
     })
   }
-
-  resetPassword(username: string, oldPassword: string, newPassword: string) {
-    return this.userService.resetPassword(username, oldPassword, newPassword)
-  }
 }

@@ -75,7 +75,7 @@ export const AdminCategory = () => {
     hideModal,
   } = useModal()
 
-  const handleShowAddModal = () => {
+  const onShowAddModal = () => {
     setActiveCategory(undefined)
     showModal('create')
   }
@@ -90,7 +90,7 @@ export const AdminCategory = () => {
 
   return (
     <>
-      <Button className="mb-[10px]" type="primary" onClick={handleShowAddModal}>
+      <Button className="mb-[10px]" type="primary" onClick={onShowAddModal}>
         <PlusOutlined />
         添加
       </Button>

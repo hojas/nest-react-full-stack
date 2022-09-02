@@ -4,14 +4,16 @@ const api = {
   resetPassword: '/auth/reset-password/',
 }
 
-interface ResetPasswordUser {
-  oldPassword: string
-  newPassword: string
-  comparePassword: string
-}
-
 export class ResetPasswordService {
-  static resetPassword(user: ResetPasswordUser) {
-    return $axios.post<ResetPasswordUser>(api.resetPassword, { user })
+  static resetPassword(
+    oldPassword: string,
+    newPassword: string,
+    comparePassword: string
+  ) {
+    return $axios.post(api.resetPassword, {
+      oldPassword,
+      newPassword,
+      comparePassword,
+    })
   }
 }
