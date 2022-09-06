@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "admin": "apps/admin",
+    "admin-common": "libs/admin/common",
     "admin-e2e": "apps/admin-e2e",
     "admin-layout": "libs/admin/layout",
     "admin-modules-article": "libs/admin/modules/article",
@@ -30,6 +31,7 @@
     "shared-markdown-viewer": "libs/shared/markdown-viewer",
     "shared-pagination": "libs/shared/pagination",
     "web": "apps/web",
+    "web-common": "libs/web/common",
     "web-e2e": "apps/web-e2e",
     "web-layout": "libs/web/layout",
     "web-modules-article": "libs/web/modules/article",

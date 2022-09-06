@@ -1,58 +1,58 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
+import * as process from 'process'
 
-const instance = axios.create({
-  baseURL: process.env['NX_AXIOS_BASE_URL'] || '/api',
-  timeout: 3000,
-  withCredentials: true,
-})
-
-instance.interceptors.response.use(
-  (response: AxiosResponse) => ({
-    ok: true,
-    data: response.data,
-  }),
-  async (error: AxiosError<Record<string, unknown>>) => {
-    const defaultMsg = '请求失败，请稍后再试'
-    const data = error.response?.data || {}
-    const message = data['message'] || defaultMsg
-
-    return {
-      ok: false,
-      message,
-    }
-  }
-)
-
-export interface MyRequestConfig<D = unknown> extends AxiosRequestConfig<D> {
-  showError?: boolean
-}
-
-export interface MyResponse<T = unknown, D = unknown>
+export interface CustomResponse<T = unknown, D = unknown>
   extends AxiosResponse<T, D> {
   ok: boolean
   message?: string
 }
 
-export const $axios = {
-  get: <T = unknown, R = MyResponse<T>, D = unknown>(
-    url: string,
-    config?: MyRequestConfig<D>
-  ): Promise<R> => instance.get(url, config),
+export const initAxios = (baseURL: string = '/api') => {
+  const instance = axios.create({
+    baseURL,
+    timeout: 3000,
+    withCredentials: true,
+  })
 
-  post: <T = unknown, R = MyResponse<T>, D = unknown>(
-    url: string,
-    data?: D,
-    config?: MyRequestConfig<D>
-  ): Promise<R> => instance.post(url, data, config),
+  instance.interceptors.response.use(
+    (response: AxiosResponse) => ({
+      ok: true,
+      data: response.data,
+    }),
+    async (error: AxiosError<Record<string, unknown>>) => {
+      const defaultMsg = '请求失败，请稍后再试'
+      const data = error.response?.data || {}
+      const message = data['message'] || defaultMsg
 
-  put: <T = unknown, R = MyResponse<T>, D = unknown>(
-    url: string,
-    data?: D,
-    config?: MyRequestConfig<D>
-  ): Promise<R> => instance.put(url, data, config),
+      return {
+        ok: false,
+        data,
+        message,
+      }
+    }
+  )
 
-  delete: <T = unknown, R = MyResponse<T>, D = unknown>(
-    url: string,
-    config?: MyRequestConfig<D>
-  ): Promise<R> => instance.delete(url, config),
+  return {
+    get: <T = unknown, R = CustomResponse<T>, D = unknown>(
+      url: string,
+      config?: AxiosRequestConfig<D>
+    ): Promise<R> => instance.get(url, config),
+
+    post: <T = unknown, R = CustomResponse<T>, D = unknown>(
+      url: string,
+      data?: D,
+      config?: AxiosRequestConfig<D>
+    ): Promise<R> => instance.post(url, data, config),
+
+    put: <T = unknown, R = CustomResponse<T>, D = unknown>(
+      url: string,
+      data?: D,
+      config?: AxiosRequestConfig<D>
+    ): Promise<R> => instance.put(url, data, config),
+
+    delete: <T = unknown, R = CustomResponse<T>, D = unknown>(
+      url: string,
+      config?: AxiosRequestConfig<D>
+    ): Promise<R> => instance.delete(url, config),
+  }
 }

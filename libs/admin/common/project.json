@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/web/layout/src",
+  "sourceRoot": "libs/admin/common/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,16 +8,16 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/web/layout",
-        "tsConfig": "libs/web/layout/tsconfig.lib.json",
-        "project": "libs/web/layout/package.json",
-        "entryFile": "libs/web/layout/src/index.ts",
+        "outputPath": "dist/libs/admin/common",
+        "tsConfig": "libs/admin/common/tsconfig.lib.json",
+        "project": "libs/admin/common/package.json",
+        "entryFile": "libs/admin/common/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "swc",
+        "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/web/layout/README.md",
+            "glob": "libs/admin/common/README.md",
             "input": ".",
             "output": "."
           }
@@ -28,14 +28,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/web/layout/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/admin/common/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/layout"],
+      "outputs": ["coverage/libs/admin/common"],
       "options": {
-        "jestConfig": "libs/web/layout/jest.config.ts",
+        "jestConfig": "libs/admin/common/jest.config.ts",
         "passWithNoTests": true
       }
     }

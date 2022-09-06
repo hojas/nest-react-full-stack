@@ -11,6 +11,7 @@ const nextConfig = {
     svgr: false,
   },
   publicRuntimeConfig: {
+    apiBaseUrl: process.env.NX_AXIOS_BASE_URL,
     baiduKey: process.env.NX_BAIDU_TONGJI_KEY,
   },
 }

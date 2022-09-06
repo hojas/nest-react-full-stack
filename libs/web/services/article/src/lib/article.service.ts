@@ -1,4 +1,4 @@
-import { $axios } from '@nx-blog/shared/axios'
+import { $axios } from '@nx-blog/web/common'
 import { Pagination } from '@nx-blog/shared/pagination'
 import { Category } from '@nx-blog/web/services/category'
 

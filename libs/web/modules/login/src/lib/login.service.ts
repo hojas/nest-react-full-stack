@@ -1,4 +1,4 @@
-import { $axios } from '@nx-blog/shared/axios'
+import { $axios } from '@nx-blog/web/common'
 
 const api = {
   login: '/auth/login/',

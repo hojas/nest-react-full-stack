@@ -14,7 +14,7 @@
         "entryFile": "libs/web/modules/home/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "babel",
+        "compiler": "swc",
         "assets": [
           {
             "glob": "libs/web/modules/home/README.md",

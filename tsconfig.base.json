@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-blog/admin/common": ["libs/admin/common/src/index.ts"],
       "@nx-blog/admin/layout": ["libs/admin/layout/src/index.ts"],
       "@nx-blog/admin/modules/article": [
         "libs/admin/modules/article/src/index.ts"
@@ -61,6 +62,7 @@
         "libs/shared/markdown-viewer/src/index.ts"
       ],
       "@nx-blog/shared/pagination": ["libs/shared/pagination/src/index.ts"],
+      "@nx-blog/web/common": ["libs/web/common/src/index.ts"],
       "@nx-blog/web/layout": ["libs/web/layout/src/index.ts"],
       "@nx-blog/web/modules/article": ["libs/web/modules/article/src/index.ts"],
       "@nx-blog/web/modules/category": [

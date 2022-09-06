@@ -1,6 +1,6 @@
 {
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/web/modules/category/src",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/common/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,16 +8,16 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/web/modules/category",
-        "tsConfig": "libs/web/modules/category/tsconfig.lib.json",
-        "project": "libs/web/modules/category/package.json",
-        "entryFile": "libs/web/modules/category/src/index.ts",
+        "outputPath": "dist/libs/web/common",
+        "tsConfig": "libs/web/common/tsconfig.lib.json",
+        "project": "libs/web/common/package.json",
+        "entryFile": "libs/web/common/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "assets": [
           {
-            "glob": "libs/web/modules/category/README.md",
+            "glob": "libs/web/common/README.md",
             "input": ".",
             "output": "."
           }
@@ -28,14 +28,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/web/modules/category/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/web/common/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/modules/category"],
+      "outputs": ["coverage/libs/web/common"],
       "options": {
-        "jestConfig": "libs/web/modules/category/jest.config.ts",
+        "jestConfig": "libs/web/common/jest.config.ts",
         "passWithNoTests": true
       }
     }
