@@ -11,7 +11,6 @@ export const ArticleFooter = ({
   date: string
 }) => (
   <>
-    <div>（完）</div>
     <div className="mt-10 pt-5 text-sm text-primary-focus border-t grid gap-y-1">
       <div className="flex items-center gap-1">
         <BiCopyright />

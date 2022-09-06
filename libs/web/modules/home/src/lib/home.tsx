@@ -6,7 +6,7 @@ import { ArticleList } from '@nx-blog/web/ui'
 export async function getServerSideProps({ query }: NextPageContext) {
   const { page = 1 } = query
   const articleList = await ArticleService.getArticleList({
-    page: Number(page),
+    page: +page,
   })
 
   return { props: { articleList } }

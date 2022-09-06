@@ -31,11 +31,11 @@ export class ArticleController {
   @Get()
   @UseFilters(HttpExceptionFilter)
   async findAll(
-    @Query('categoryCode')
+    @Query('category_code')
     categoryCode: string,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
-    @Query('pageSize', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
+    @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
     pageSize: number
   ): Promise<Pagination<Article>> {
     return this.articleService.findAll({ page, pageSize }, { categoryCode })

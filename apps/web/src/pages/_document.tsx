@@ -18,7 +18,7 @@ const getAnalyticsTag = {
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="zh-Hans">
       <Head>
         <Script
           id="hmt"

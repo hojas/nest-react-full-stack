@@ -3,4 +3,4 @@ import { initAxios } from '@nx-blog/shared/axios'
 
 const { publicRuntimeConfig } = getConfig()
 
-export const $axios = initAxios(publicRuntimeConfig.baseURL)
+export const $axios = initAxios(publicRuntimeConfig.apiBaseUrl)

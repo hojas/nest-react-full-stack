@@ -57,7 +57,7 @@ export const BaseLayout = ({ children }: LayoutProps) => {
   const { selectedKeys, onClick } = useAdminLayout()
 
   return (
-    <Layout>
+    <Layout className="h-1/1">
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="py-[4px] m-[16px] text-white text-xl text-center">
           朝闻道

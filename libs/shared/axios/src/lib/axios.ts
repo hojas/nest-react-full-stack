@@ -1,5 +1,4 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
-import * as process from 'process'
 
 export interface CustomResponse<T = unknown, D = unknown>
   extends AxiosResponse<T, D> {

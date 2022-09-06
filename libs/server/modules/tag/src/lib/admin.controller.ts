@@ -31,7 +31,7 @@ export class AdminController {
   findAll(
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
-    @Query('pageSize', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
+    @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
     pageSize: number
   ): Promise<Pagination<Tag>> {
     return this.tagService.findAll({ page, pageSize })

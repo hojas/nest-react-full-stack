@@ -29,7 +29,7 @@ export class ArticleService {
 
     if (query && query.categoryCode) {
       const category = await this.categoryService.findByCode(query.categoryCode)
-      where.categoryId = category.id
+      where.categoryId = category ? category.id : 0
     }
 
     const articles = await this.prisma.article.findMany({
