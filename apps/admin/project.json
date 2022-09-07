@@ -13,7 +13,7 @@
         "compiler": "babel",
         "outputPath": "dist/apps/admin",
         "index": "apps/admin/src/index.html",
-        "baseHref": "/admin/",
+        "baseHref": "/",
         "main": "apps/admin/src/main.tsx",
         "polyfills": "apps/admin/src/polyfills.ts",
         "tsConfig": "apps/admin/tsconfig.app.json",

@@ -10,7 +10,7 @@ export const useAdminLayout = () => {
     ;(async () => {
       const { ok } = await AdminLayoutService.getUser()
       if (!ok) {
-        // window.location.href = '/'
+        window.location.href = '/'
       }
     })()
   }, [])

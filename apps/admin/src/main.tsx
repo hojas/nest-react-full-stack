@@ -7,7 +7,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <StrictMode>
-    <BrowserRouter basename="/admin">
+    <BrowserRouter basename="/admin/">
       <App />
     </BrowserRouter>
   </StrictMode>
