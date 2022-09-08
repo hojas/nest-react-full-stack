@@ -10,8 +10,8 @@ JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRES=86400s
 SHA_SECRET=your_sha_secret_key
 
-NEXT_PUBLIC_AXIOS_BASE_URL=/api
-NEXT_PUBLIC_BAIDU_TONGJI_KEY=your_key
+NX_AXIOS_BASE_URL=/api
+NX_BAIDU_TONGJI_KEY=your_key
 ```
 
 ## Build docker images
@@ -23,11 +23,11 @@ $ make server
 
 # web app
 $ pnpm nx build web --prod
-$ make server
+$ make web
 
 # admin app
 $ pnpm nx build admin --prod
-$ make server
+$ make admin
 ```
 
 ## Generate an application
