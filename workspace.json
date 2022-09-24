@@ -27,6 +27,7 @@
     "server-types": "libs/server/types",
     "server-utils": "libs/server/utils",
     "shared-axios": "libs/shared/axios",
+    "shared-comment": "libs/shared/comment",
     "shared-markdown-editor": "libs/shared/markdown-editor",
     "shared-markdown-viewer": "libs/shared/markdown-viewer",
     "shared-pagination": "libs/shared/pagination",

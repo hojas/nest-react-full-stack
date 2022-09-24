@@ -1,0 +1,10 @@
+.markdown-viewer {
+  > :global(pre) {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  > :global(pre > div) {
+    margin: 0 !important;
+  }
+}

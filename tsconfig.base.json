@@ -55,6 +55,7 @@
       "@nx-blog/server/types": ["libs/server/types/src/index.ts"],
       "@nx-blog/server/utils": ["libs/server/utils/src/index.ts"],
       "@nx-blog/shared/axios": ["libs/shared/axios/src/index.ts"],
+      "@nx-blog/shared/comment": ["libs/shared/comment/src/index.ts"],
       "@nx-blog/shared/markdown-editor": [
         "libs/shared/markdown-editor/src/index.ts"
       ],

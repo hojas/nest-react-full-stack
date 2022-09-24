@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { Article, ArticleService } from '@nx-blog/web/services/article'
 import { MarkdownViewer } from '@nx-blog/shared/markdown-viewer'
 import { ArticleMeta } from '@nx-blog/web/ui'
+import { Comment } from '@nx-blog/shared/comment'
 import { ArticleFooter } from './article-footer'
 
 export async function getServerSideProps({ req, query }: NextPageContext) {
@@ -38,6 +39,7 @@ export const ArticlePage: NextPage<Props> = ({ ok, article, host }) => {
         path={router.asPath}
         date={article.createdAt}
       />
+      <Comment />
     </article>
   ) : (
     <ErrorPage statusCode={404} />

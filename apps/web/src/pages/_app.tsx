@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { BaseLayout } from '@nx-blog/web/layout'
-import './styles.css'
+import './styles.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
