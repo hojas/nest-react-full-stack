@@ -78,7 +78,7 @@ const BaseHeaderLeft = () => (
   <div className="navbar-start">
     <MobileDropdown />
     <Link href="/">
-      <a className="btn btn-ghost normal-case text-xl">朝闻道</a>
+      <a className="btn btn-ghost normal-case text-xl">陈远翔前端博客</a>
     </Link>
   </div>
 )

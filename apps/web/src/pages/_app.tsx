@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <BaseLayout>
       <Head>
-        <title>朝闻道</title>
+        <title>陈远翔前端博客</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
