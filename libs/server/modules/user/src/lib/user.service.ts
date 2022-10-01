@@ -21,7 +21,7 @@ export class UserService {
     try {
       await this.prisma.user.create({
         data: {
-          username: 'admin@zwd.xyz',
+          username: 'admin@chenyuanxiang.com',
           password: getHash('123456'),
           roles: {
             connect: [{ code: 'user' }, { code: 'admin' }],
@@ -30,7 +30,7 @@ export class UserService {
       })
 
       console.log(`Created admin`)
-      console.log(`Email: admin@zwd.xyz`)
+      console.log(`Email: admin@chenyuanxiang.com`)
       console.log(`Password: 123456`)
     } catch {
       //
