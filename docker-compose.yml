@@ -1,7 +1,7 @@
 services:
   db:
     container_name: nx-blog-postgres
-    image: postgres:14.5-alpine
+    image: postgres:14-alpine
     ports:
       - 127.0.0.1:5432:5432
     environment:
