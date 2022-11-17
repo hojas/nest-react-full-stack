@@ -10,13 +10,20 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-blog/admin/common": ["libs/admin/common/src/index.ts"],
-      "@nx-blog/admin/layout": ["libs/admin/layout/src/index.ts"],
+      "@nx-blog/admin/common": [
+        "libs/admin/common/src/index.ts"
+      ],
+      "@nx-blog/admin/layout": [
+        "libs/admin/layout/src/index.ts"
+      ],
       "@nx-blog/admin/modules/article": [
         "libs/admin/modules/article/src/index.ts"
       ],
@@ -29,14 +36,24 @@
       "@nx-blog/admin/modules/dashboard": [
         "libs/admin/modules/dashboard/src/index.ts"
       ],
-      "@nx-blog/admin/modules/role": ["libs/admin/modules/role/src/index.ts"],
-      "@nx-blog/admin/modules/user": ["libs/admin/modules/user/src/index.ts"],
-      "@nx-blog/server/decorators": ["libs/server/decorators/src/index.ts"],
-      "@nx-blog/server/filters": ["libs/server/filters/src/index.ts"],
+      "@nx-blog/admin/modules/role": [
+        "libs/admin/modules/role/src/index.ts"
+      ],
+      "@nx-blog/admin/modules/user": [
+        "libs/admin/modules/user/src/index.ts"
+      ],
+      "@nx-blog/server/decorators": [
+        "libs/server/decorators/src/index.ts"
+      ],
+      "@nx-blog/server/filters": [
+        "libs/server/filters/src/index.ts"
+      ],
       "@nx-blog/server/modules/article": [
         "libs/server/modules/article/src/index.ts"
       ],
-      "@nx-blog/server/modules/auth": ["libs/server/modules/auth/src/index.ts"],
+      "@nx-blog/server/modules/auth": [
+        "libs/server/modules/auth/src/index.ts"
+      ],
       "@nx-blog/server/modules/category": [
         "libs/server/modules/category/src/index.ts"
       ],
@@ -46,42 +63,43 @@
       "@nx-blog/server/modules/prisma": [
         "libs/server/modules/prisma/src/index.ts"
       ],
-      "@nx-blog/server/modules/role": ["libs/server/modules/role/src/index.ts"],
+      "@nx-blog/server/modules/role": [
+        "libs/server/modules/role/src/index.ts"
+      ],
       "@nx-blog/server/modules/shared": [
         "libs/server/modules/shared/src/index.ts"
       ],
-      "@nx-blog/server/modules/tag": ["libs/server/modules/tag/src/index.ts"],
-      "@nx-blog/server/modules/user": ["libs/server/modules/user/src/index.ts"],
-      "@nx-blog/server/types": ["libs/server/types/src/index.ts"],
-      "@nx-blog/server/utils": ["libs/server/utils/src/index.ts"],
-      "@nx-blog/shared/axios": ["libs/shared/axios/src/index.ts"],
-      "@nx-blog/shared/comment": ["libs/shared/comment/src/index.ts"],
+      "@nx-blog/server/modules/tag": [
+        "libs/server/modules/tag/src/index.ts"
+      ],
+      "@nx-blog/server/modules/user": [
+        "libs/server/modules/user/src/index.ts"
+      ],
+      "@nx-blog/server/types": [
+        "libs/server/types/src/index.ts"
+      ],
+      "@nx-blog/server/utils": [
+        "libs/server/utils/src/index.ts"
+      ],
+      "@nx-blog/shared/axios": [
+        "libs/shared/axios/src/index.ts"
+      ],
+      "@nx-blog/shared/comment": [
+        "libs/shared/comment/src/index.ts"
+      ],
       "@nx-blog/shared/markdown-editor": [
         "libs/shared/markdown-editor/src/index.ts"
       ],
       "@nx-blog/shared/markdown-viewer": [
         "libs/shared/markdown-viewer/src/index.ts"
       ],
-      "@nx-blog/shared/pagination": ["libs/shared/pagination/src/index.ts"],
-      "@nx-blog/web/common": ["libs/web/common/src/index.ts"],
-      "@nx-blog/web/layout": ["libs/web/layout/src/index.ts"],
-      "@nx-blog/web/modules/article": ["libs/web/modules/article/src/index.ts"],
-      "@nx-blog/web/modules/category": [
-        "libs/web/modules/category/src/index.ts"
-      ],
-      "@nx-blog/web/modules/home": ["libs/web/modules/home/src/index.ts"],
-      "@nx-blog/web/modules/login": ["libs/web/modules/login/src/index.ts"],
-      "@nx-blog/web/modules/reset-password": [
-        "libs/web/modules/reset-password/src/index.ts"
-      ],
-      "@nx-blog/web/services/article": [
-        "libs/web/services/article/src/index.ts"
-      ],
-      "@nx-blog/web/services/category": [
-        "libs/web/services/category/src/index.ts"
-      ],
-      "@nx-blog/web/ui": ["libs/web/ui/src/index.ts"]
+      "@nx-blog/shared/pagination": [
+        "libs/shared/pagination/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

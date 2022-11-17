@@ -60,7 +60,7 @@ export const BaseLayout = ({ children }: LayoutProps) => {
     <Layout className="h-1/1">
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="py-[4px] m-[16px] text-white text-xl text-center">
-          陈远翔前端博客
+          nx-blog
         </div>
         <Menu
           theme="dark"

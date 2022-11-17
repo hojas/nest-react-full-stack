@@ -1,7 +1,7 @@
 services:
   db:
     container_name: nx-blog-postgres
-    image: postgres:14-alpine
+    image: postgres:15.1-alpine
     ports:
       - 127.0.0.1:5432:5432
     environment:
@@ -10,9 +10,6 @@ services:
       POSTGRES_DB: nx_blog
     volumes:
       - postgres-data:/var/lib/postgresql/data
-    network_mode: bridge
-    networks:
-      - nx_blog
   server:
     image: hojas/nx-blog-server
     container_name: nx-blog-server
@@ -29,9 +26,6 @@ services:
       - db
     links:
       - db
-    network_mode: bridge
-    networks:
-      - nx_blog
   admin:
     image: hojas/nx-blog-admin
     container_name: nx-blog-admin
@@ -45,9 +39,6 @@ services:
       VIRTUAL_HOST: www.chenyuanxiang.com
       VIRTUAL_PORT: 3001
       VIRTUAL_PATH: /admin
-    network_mode: bridge
-    networks:
-      - nx_blog
   web:
     image: hojas/nx-blog-web
     container_name: nx-blog-web
@@ -60,9 +51,6 @@ services:
       VIRTUAL_HOST: www.chenyuanxiang.com
       VIRTUAL_PORT: 3000
       VIRTUAL_PATH: /
-    network_mode: bridge
-    networks:
-      - nx_blog
   nginx-proxy:
     image: nginxproxy/nginx-proxy
     container_name: nginx-proxy
@@ -75,9 +63,6 @@ services:
       - html:/usr/share/nginx/html
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    network_mode: bridge
-    networks:
-      - nx_blog
   acme-companion:
     container_name: nginx-proxy-acme
     image: nginxproxy/acme-companion
@@ -89,9 +74,6 @@ services:
       - certs:/etc/nginx/certs:rw
       - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    network_mode: bridge
-    networks:
-      - nx_blog
 
 volumes:
   postgres-data:
@@ -100,8 +82,3 @@ volumes:
   html:
   certs:
   acme:
-
-networks:
-  nx_blog:
-    name: nx_blog
-    driver: bridge

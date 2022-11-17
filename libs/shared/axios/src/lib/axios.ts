@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios'
+import {response} from "express";
 
 export interface CustomResponse<T = unknown, D = unknown>
   extends AxiosResponse<T, D> {
@@ -6,7 +7,7 @@ export interface CustomResponse<T = unknown, D = unknown>
   message?: string
 }
 
-export const initAxios = (baseURL: string = '/api') => {
+export const initAxios = (baseURL = '/api') => {
   const instance = axios.create({
     baseURL,
     timeout: 3000,
@@ -14,9 +15,9 @@ export const initAxios = (baseURL: string = '/api') => {
   })
 
   instance.interceptors.response.use(
-    (response: AxiosResponse) => ({
+    (response: AxiosResponse): CustomResponse => ({
+      ...response,
       ok: true,
-      data: response.data,
     }),
     async (error: AxiosError<Record<string, unknown>>) => {
       const defaultMsg = '请求失败，请稍后再试'
@@ -24,8 +25,8 @@ export const initAxios = (baseURL: string = '/api') => {
       const message = data['message'] || defaultMsg
 
       return {
+        ...response,
         ok: false,
-        data,
         message,
       }
     }

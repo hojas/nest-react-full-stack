@@ -1,3 +1,3 @@
-import { LoginPage } from '@nx-blog/web/modules/login'
+import { LoginPage } from '../components/login'
 
 export default LoginPage

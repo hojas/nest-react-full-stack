@@ -1,3 +1,3 @@
-import { ResetPasswordPage } from '@nx-blog/web/modules/reset-password'
+import { ResetPasswordPage } from '../components/reset-password'
 
 export default ResetPasswordPage
