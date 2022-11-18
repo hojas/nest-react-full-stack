@@ -18,30 +18,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-blog/admin/common": [
-        "libs/admin/common/src/index.ts"
-      ],
-      "@nx-blog/admin/layout": [
-        "libs/admin/layout/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/article": [
-        "libs/admin/modules/article/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/category": [
-        "libs/admin/modules/category/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/comment": [
-        "libs/admin/modules/comment/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/dashboard": [
-        "libs/admin/modules/dashboard/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/role": [
-        "libs/admin/modules/role/src/index.ts"
-      ],
-      "@nx-blog/admin/modules/user": [
-        "libs/admin/modules/user/src/index.ts"
-      ],
       "@nx-blog/server/decorators": [
         "libs/server/decorators/src/index.ts"
       ],
@@ -81,20 +57,20 @@
       "@nx-blog/server/utils": [
         "libs/server/utils/src/index.ts"
       ],
-      "@nx-blog/shared/axios": [
-        "libs/shared/axios/src/index.ts"
+      "@nx-blog/axios": [
+        "libs/axios/src/index.ts"
       ],
-      "@nx-blog/shared/comment": [
-        "libs/shared/comment/src/index.ts"
+      "@nx-blog/comment": [
+        "libs/comment/src/index.ts"
       ],
-      "@nx-blog/shared/markdown-editor": [
-        "libs/shared/markdown-editor/src/index.ts"
+      "@nx-blog/markdown-editor": [
+        "libs/markdown-editor/src/index.ts"
       ],
-      "@nx-blog/shared/markdown-viewer": [
-        "libs/shared/markdown-viewer/src/index.ts"
+      "@nx-blog/markdown-viewer": [
+        "libs/markdown-viewer/src/index.ts"
       ],
-      "@nx-blog/shared/pagination": [
-        "libs/shared/pagination/src/index.ts"
+      "@nx-blog/pagination": [
+        "libs/pagination/src/index.ts"
       ]
     }
   },

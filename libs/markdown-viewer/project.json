@@ -1,0 +1,54 @@
+{
+  "name": "markdown-viewer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/markdown-viewer/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/markdown-viewer",
+        "tsConfig": "libs/markdown-viewer/tsconfig.lib.json",
+        "project": "libs/markdown-viewer/package.json",
+        "entryFile": "libs/markdown-viewer/src/index.ts",
+        "external": [
+          "react/jsx-runtime"
+        ],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/markdown-viewer/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/markdown-viewer/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/markdown-viewer"
+      ],
+      "options": {
+        "jestConfig": "libs/markdown-viewer/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

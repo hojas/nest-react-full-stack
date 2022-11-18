@@ -1,5 +1,5 @@
 import type { NextPage, NextPageContext } from 'next'
-import { Pagination } from '@nx-blog/shared/pagination'
+import { Pagination } from '@nx-blog/pagination'
 import { ArticleService } from '../services/article'
 import { ArticleList } from '../components/article-list'
 

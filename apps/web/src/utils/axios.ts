@@ -1,5 +1,5 @@
 import getConfig from 'next/config'
-import { initAxios } from '@nx-blog/shared/axios'
+import { initAxios } from '@nx-blog/axios'
 
 const { publicRuntimeConfig } = getConfig()
 
