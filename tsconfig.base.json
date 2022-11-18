@@ -18,45 +18,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-blog/server/decorators": [
-        "libs/server/decorators/src/index.ts"
-      ],
-      "@nx-blog/server/filters": [
-        "libs/server/filters/src/index.ts"
-      ],
-      "@nx-blog/server/modules/article": [
-        "libs/server/modules/article/src/index.ts"
-      ],
-      "@nx-blog/server/modules/auth": [
-        "libs/server/modules/auth/src/index.ts"
-      ],
-      "@nx-blog/server/modules/category": [
-        "libs/server/modules/category/src/index.ts"
-      ],
-      "@nx-blog/server/modules/comment": [
-        "libs/server/modules/comment/src/index.ts"
-      ],
-      "@nx-blog/server/modules/prisma": [
-        "libs/server/modules/prisma/src/index.ts"
-      ],
-      "@nx-blog/server/modules/role": [
-        "libs/server/modules/role/src/index.ts"
-      ],
-      "@nx-blog/server/modules/shared": [
-        "libs/server/modules/shared/src/index.ts"
-      ],
-      "@nx-blog/server/modules/tag": [
-        "libs/server/modules/tag/src/index.ts"
-      ],
-      "@nx-blog/server/modules/user": [
-        "libs/server/modules/user/src/index.ts"
-      ],
-      "@nx-blog/server/types": [
-        "libs/server/types/src/index.ts"
-      ],
-      "@nx-blog/server/utils": [
-        "libs/server/utils/src/index.ts"
-      ],
       "@nx-blog/axios": [
         "libs/axios/src/index.ts"
       ],

@@ -12,6 +12,7 @@ specifiers:
   '@nestjs/platform-express': ^9.2.0
   '@nestjs/schematics': ^9.0.3
   '@nestjs/testing': ^9.2.0
+  '@nestjs/throttler': ^3.1.0
   '@nrwl/cli': 15.2.0
   '@nrwl/cypress': 15.2.0
   '@nrwl/eslint-plugin-nx': 15.2.0
@@ -72,14 +73,12 @@ specifiers:
   prisma: ^4.6.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-hook-form: ^7.39.4
   react-icons: ^4.6.0
   react-markdown: ^8.0.3
   react-router-dom: 6.4.3
   react-syntax-highlighter: ^15.5.0
   react-test-renderer: 18.2.0
   react-toastify: ^9.1.1
-  reflect-metadata: ^0.1.13
   regenerator-runtime: 0.13.11
   rehype-katex: ^6.0.2
   remark-gfm: ^3.0.1
@@ -103,6 +102,7 @@ dependencies:
   '@nestjs/jwt': 9.0.0_@nestjs+common@9.2.0
   '@nestjs/passport': 9.0.0_s6va3jdeufsye4wwu25es3p4om
   '@nestjs/platform-express': 9.2.0_pf2fb646rsvo5szivgkaevcpvi
+  '@nestjs/throttler': 3.1.0_v5qdouhazba6t4koo63x35nolu
   '@prisma/client': 4.6.1_prisma@4.6.1
   '@uiw/codemirror-theme-dracula': 4.15.1_v3kbhmj4stolys7brydlafx57e
   '@uiw/react-codemirror': 4.15.1_337uewdiu5ewnd47ohfgo35rhy
@@ -122,13 +122,11 @@ dependencies:
   prisma: 4.6.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-hook-form: 7.39.4_react@18.2.0
   react-icons: 4.6.0_react@18.2.0
   react-markdown: 8.0.3_fan5qbzahqtxlm5dzefqlqx5ia
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
   react-syntax-highlighter: 15.5.0_react@18.2.0
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
-  reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.11
   rehype-katex: 6.0.2
   remark-gfm: 3.0.1
@@ -1688,8 +1686,8 @@ packages:
       '@lezer/markdown': 1.0.2
     dev: false
 
-  /@codemirror/lang-php/6.0.1:
-    resolution: {integrity: sha512-ublojMdw/PNWa7qdN5TMsjmqkNuTBD3k6ndZ4Z0S25SBAiweFGyY68AS3xNcIOlb6DDFDvKlinLQ40vSLqf8xA==}
+  /@codemirror/lang-php/6.0.0:
+    resolution: {integrity: sha512-96CEjq0xEgbzc6bdFPwILPfZ6m8917JRbh2oPszZJABlYxG4Y+eYjtYkUTDb4yuyjQKyigHoeGC6zoIOYA1NWA==}
     dependencies:
       '@codemirror/lang-html': 6.2.0
       '@codemirror/language': 6.3.1
@@ -1755,7 +1753,7 @@ packages:
       '@codemirror/lang-javascript': 6.1.1
       '@codemirror/lang-json': 6.0.1
       '@codemirror/lang-markdown': 6.0.5
-      '@codemirror/lang-php': 6.0.1
+      '@codemirror/lang-php': 6.0.0
       '@codemirror/lang-python': 6.0.4
       '@codemirror/lang-rust': 6.0.1
       '@codemirror/lang-sql': 6.3.3_gu445lycfriim3kznnyeahleva
@@ -2653,6 +2651,19 @@ packages:
       tslib: 2.4.1
     dev: true
 
+  /@nestjs/throttler/3.1.0_v5qdouhazba6t4koo63x35nolu:
+    resolution: {integrity: sha512-u9a5+rci6ybYtJ2is6gZWxE2dMZEpnK0qJ0C1OnchuNCvM21Bg6qym1TB6Uihhci+JfTv6E15WuASLXcIclsbA==}
+    peerDependencies:
+      '@nestjs/common': ^7.0.0 || ^8.0.0 || ^9.0.0
+      '@nestjs/core': ^7.0.0 || ^8.0.0 || ^9.0.0
+      reflect-metadata: ^0.1.13
+    dependencies:
+      '@nestjs/common': 9.2.0_yzt46al3aifnexifjjdb4dxxja
+      '@nestjs/core': 9.2.0_jfowmhmgk7kwjudosrpv7e7liy
+      md5: 2.3.0
+      reflect-metadata: 0.1.13
+    dev: false
+
   /@next/env/13.0.4:
     resolution: {integrity: sha512-N5Z3bdxBzoxrC5bwykDFITzdWuwDteOdZ+7nxixY+I1XpRX8/iQYbw2wuXMdqdfBGm2NNUpAqg8YF2e4oAC2UQ==}
 
@@ -2715,6 +2726,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2723,6 +2735,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -2731,6 +2744,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2739,6 +2753,7 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -3863,6 +3878,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3871,6 +3887,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -3879,6 +3896,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3887,6 +3905,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -4736,8 +4755,8 @@ packages:
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
     dev: true
 
-  /@yarnpkg/parsers/3.0.0-rc.29:
-    resolution: {integrity: sha512-07kAB4mEcZltoMBQqV4Tb8ucCpOQCG6fl4fH/2cmOU8Nh6nZcmvCptIuARC5dd4vfZKI5zUUoK2arR+pOi9PxQ==}
+  /@yarnpkg/parsers/3.0.0-rc.30:
+    resolution: {integrity: sha512-95BoSadF1Qyxeh8BleNxRP8eczG4faqOxIgowwCtZD+Ahihlu5PxI1KG35IXNbR52GR0V5EV+eR94g+4gTPP9g==}
     engines: {node: '>=14.15.0'}
     dependencies:
       js-yaml: 3.14.1
@@ -5637,7 +5656,6 @@ packages:
 
   /charenc/0.0.2:
     resolution: {integrity: sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==}
-    dev: true
 
   /check-more-types/2.24.0:
     resolution: {integrity: sha512-Pj779qHxV2tuapviy1bSZNEL1maXr13bPYpsvSDB68HlYcYuhlDrmGd63i0JHMCLKzc7rUSNIrpdJlhVlNwrxA==}
@@ -6057,7 +6075,6 @@ packages:
 
   /crypt/0.0.2:
     resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==}
-    dev: true
 
   /css-declaration-sorter/6.3.1_postcss@8.4.19:
     resolution: {integrity: sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==}
@@ -8322,7 +8339,6 @@ packages:
 
   /is-buffer/1.1.6:
     resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
-    dev: true
 
   /is-buffer/2.0.5:
     resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
@@ -9992,7 +10008,6 @@ packages:
       charenc: 0.0.2
       crypt: 0.0.2
       is-buffer: 1.1.6
-    dev: true
 
   /mdast-util-definitions/5.1.1:
     resolution: {integrity: sha512-rQ+Gv7mHttxHOBx2dkF4HWTg+EE+UR78ptQWDylzPKaQuVGdG4HIoY3SrS/pCp80nZ04greFvXbVFHT+uf0JVQ==}
@@ -10688,7 +10703,7 @@ packages:
       '@parcel/watcher': 2.0.4
       '@swc/core': 1.3.18
       '@yarnpkg/lockfile': 1.1.0
-      '@yarnpkg/parsers': 3.0.0-rc.29
+      '@yarnpkg/parsers': 3.0.0-rc.30
       '@zkochan/js-yaml': 0.0.6
       axios: 1.1.3
       chalk: 4.1.0
@@ -12290,15 +12305,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-
-  /react-hook-form/7.39.4_react@18.2.0:
-    resolution: {integrity: sha512-B0e78r9kR9L2M4A4AXGbHoA/vyv34sB/n8QWJAw33TFz8f5t9helBbYAeqnbvcQf1EYzJxKX/bGQQh9K+evCyQ==}
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17 || ^18
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /react-icons/4.6.0_react@18.2.0:
     resolution: {integrity: sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g==}
