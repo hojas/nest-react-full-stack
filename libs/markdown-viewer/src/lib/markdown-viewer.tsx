@@ -5,7 +5,6 @@ import rehypeKatex from 'rehype-katex'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import 'katex/dist/katex.min.css'
 
 import style from './style.module.scss'
 

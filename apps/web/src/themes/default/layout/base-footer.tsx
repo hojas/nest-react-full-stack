@@ -2,7 +2,7 @@ export const BaseFooter = () => (
   <footer className="footer footer-center p-5 bg-base-200 gap-2">
     <div>Copyright © 2022 - All Rights Reserved by www.chenyuanxiang.com</div>
     <div className="flex">
-      <span>Developed with Nest and React</span>
+      <span>Powered by Nest and React</span>
       <a
         className="link"
         href="https://github.com/hojas/nx-blog"

@@ -1,3 +1,6 @@
-import { ResetPasswordPage } from '../components/reset-password'
+import { useResetPassword } from '../modules/reset-password/use-reset-password.hook'
+import { ResetPasswordPage } from '../themes'
 
-export default ResetPasswordPage
+const Page = () => ResetPasswordPage(useResetPassword())
+
+export default Page

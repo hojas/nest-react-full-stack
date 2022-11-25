@@ -1,5 +1,4 @@
-import { Pagination } from '@nx-blog/pagination'
-import { $axios } from '../utils/axios'
+import { $axios } from '../../utils/axios'
 
 const api = {
   list: '/article/',

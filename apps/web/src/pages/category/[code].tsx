@@ -1,7 +1,6 @@
-import type { NextPage, NextPageContext } from 'next'
-import { Pagination } from '@nx-blog/pagination'
-import { ArticleService } from '../../services/article'
-import { ArticleList } from '../../components/article-list'
+import type { NextPageContext } from 'next'
+import { ArticleService } from '../../modules/article/article.service'
+import { CategoryPage } from '../../themes'
 
 export async function getServerSideProps({ query }: NextPageContext) {
   const { page = 1, code } = query
@@ -12,12 +11,5 @@ export async function getServerSideProps({ query }: NextPageContext) {
 
   return { props: { articleList } }
 }
-
-interface Props {
-  articleList: Pagination<Article>
-}
-
-const CategoryPage: NextPage<Props> = ({ articleList }) =>
-  articleList && <ArticleList articles={articleList.results} />
 
 export default CategoryPage

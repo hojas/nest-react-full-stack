@@ -1,3 +1,6 @@
-import { LoginPage } from '../components/login'
+import { useLogin } from '../modules/login/use-login.hook'
+import { LoginPage } from '../themes'
 
-export default LoginPage
+const Page = () => LoginPage(useLogin())
+
+export default Page

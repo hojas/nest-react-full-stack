@@ -7,13 +7,15 @@ export const useLogin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const getUser = async () => {
+    const { ok } = await UserService.getUser()
+    if (ok) {
+      window.location.href = '/'
+    }
+  }
+
   useEffect(() => {
-    ;(async () => {
-      const { ok } = await UserService.getUser()
-      if (ok) {
-        window.location.href = '/'
-      }
-    })()
+    getUser()
   }, [])
 
   const router = useRouter()

@@ -1,16 +1,7 @@
 import Link from 'next/link'
-import removeMarkdown from 'remove-markdown'
+import { ArticleTitle } from './article-title'
+import { ArticleContent } from './article-content'
 import { ArticleMeta } from './article-meta'
-
-const ArticleTitle = ({ title }: { title: string }) => (
-  <h2 className="mb-2 text-base-content text-2xl font-bold">{title}</h2>
-)
-
-const ArticleContent = ({ content }: { content: string }) => (
-  <div className="text-primary-focus line-clamp-2">
-    {removeMarkdown(content)}
-  </div>
-)
 
 export const ArticleItem = ({ article }: { article: Article }) => (
   <Link

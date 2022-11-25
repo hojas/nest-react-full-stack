@@ -1,4 +1,4 @@
-import { $axios } from '@nx-blog/web/common'
+import { $axios } from '../../utils/axios'
 
 const api = {
   resetPassword: '/auth/reset-password/',
