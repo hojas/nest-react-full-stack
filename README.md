@@ -11,7 +11,6 @@ JWT_EXPIRES=86400s
 SHA_SECRET=your_sha_secret_key
 
 NX_AXIOS_BASE_URL=/api
-NX_BAIDU_TONGJI_KEY=your_key
 ```
 
 ## Build docker images
