@@ -1,5 +1,5 @@
 {
-  "name": "nx-blog",
+  "name": "nest-react-blog",
   "version": "1.0.0",
   "license": "MIT",
   "packageManager": "pnpm@7.27.0",

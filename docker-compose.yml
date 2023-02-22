@@ -1,18 +1,18 @@
 services:
   db:
-    container_name: nx-blog-postgres
+    container_name: nest-react-blog-postgres
     image: postgres:15.1-alpine
     ports:
       - 127.0.0.1:5432:5432
     environment:
-      POSTGRES_USER: nx_blog
-      POSTGRES_PASSWORD: nx_blog
-      POSTGRES_DB: nx_blog
+      POSTGRES_USER: nest_blog
+      POSTGRES_PASSWORD: nest_blog
+      POSTGRES_DB: nest_blog
     volumes:
       - postgres-data:/var/lib/postgresql/data
   server:
-    image: hojas/nx-blog-server
-    container_name: nx-blog-server
+    image: hojas/nest-react-blog-server
+    container_name: nest-react-blog-server
     ports:
       - 127.0.0.1:8080:8080
     env_file:
@@ -27,8 +27,8 @@ services:
     links:
       - db
   admin:
-    image: hojas/nx-blog-admin
-    container_name: nx-blog-admin
+    image: hojas/nest-react-blog-admin
+    container_name: nest-react-blog-admin
     ports:
       - 127.0.0.1:3001:3001
     env_file:
@@ -40,8 +40,8 @@ services:
       VIRTUAL_PORT: 3001
       VIRTUAL_PATH: /admin
   web:
-    image: hojas/nx-blog-web
-    container_name: nx-blog-web
+    image: hojas/nest-react-blog-web
+    container_name: nest-react-blog-web
     ports:
       - 127.0.0.1:3000:3000
     env_file:

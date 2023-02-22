@@ -1,9 +1,9 @@
 # TAG = $(shell git describe --abbrev=0 --tags)
 TAG = v1.0.0
 IMAGE_TAG = $(TAG:v%=%)
-SERVER_IMAGE = hojas/nx-blog-server
-WEB_IMAGE = hojas/nx-blog-web
-ADMIN_IMAGE = hojas/nx-blog-admin
+SERVER_IMAGE = hojas/nest-react-blog-server
+WEB_IMAGE = hojas/nest-react-blog-web
+ADMIN_IMAGE = hojas/nest-react-blog-admin
 
 server:
 	docker build -t $(SERVER_IMAGE):latest -t $(SERVER_IMAGE):$(IMAGE_TAG) -f docker/server.Dockerfile .

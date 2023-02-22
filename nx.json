@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nx-blog",
+  "npmScope": "nest-react-blog",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",

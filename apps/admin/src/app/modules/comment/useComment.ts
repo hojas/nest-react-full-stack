@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Pagination } from '@nx-blog/pagination'
+import { Pagination } from '@nest-react-blog/pagination'
 import { Comment, CommentService } from './comment.service'
 
 export const useComment = () => {

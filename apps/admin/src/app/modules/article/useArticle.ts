@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { message } from 'antd'
-import { Pagination } from '@nx-blog/pagination'
+import { Pagination } from '@nest-react-blog/pagination'
 import { ArticleService, Article, CreateArticleDto } from './article.service'
 import { CategoryService, Category } from '../category/category.service'
 

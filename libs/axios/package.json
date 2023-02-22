@@ -1,5 +1,5 @@
 {
-  "name": "@nx-blog/axios",
+  "name": "@nest-react-blog/axios",
   "version": "0.0.1",
   "type": "commonjs"
 }

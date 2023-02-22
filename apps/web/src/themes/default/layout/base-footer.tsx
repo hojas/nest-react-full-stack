@@ -5,7 +5,7 @@ export const BaseFooter = () => (
       <span>Powered by Nest and React</span>
       <a
         className="link"
-        href="https://github.com/hojas/nx-blog"
+        href="https://github.com/hojas/nest-react-blog"
         target="_blank"
         rel="noopener noreferrer nofollow"
       >

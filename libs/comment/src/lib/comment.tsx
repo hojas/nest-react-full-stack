@@ -4,7 +4,7 @@ export const Comment = () => {
   return (
     <Giscus
       id="comments"
-      repo="hojas/nx-blog-comments"
+      repo="hojas/nest-react-blog-comments"
       repoId="R_kgDOIDqpxA"
       category="Announcements"
       categoryId="DIC_kwDOIDqpxM4CRmuL"

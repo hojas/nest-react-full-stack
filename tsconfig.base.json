@@ -18,19 +18,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-blog/axios": [
+      "@nest-react-blog/axios": [
         "libs/axios/src/index.ts"
       ],
-      "@nx-blog/comment": [
+      "@nest-react-blog/comment": [
         "libs/comment/src/index.ts"
       ],
-      "@nx-blog/markdown-editor": [
+      "@nest-react-blog/markdown-editor": [
         "libs/markdown-editor/src/index.ts"
       ],
-      "@nx-blog/markdown-viewer": [
+      "@nest-react-blog/markdown-viewer": [
         "libs/markdown-viewer/src/index.ts"
       ],
-      "@nx-blog/pagination": [
+      "@nest-react-blog/pagination": [
         "libs/pagination/src/index.ts"
       ]
     }

@@ -1,4 +1,4 @@
-import { Pagination } from '@nx-blog/pagination'
+import { Pagination } from '@nest-react-blog/pagination'
 import { $axios } from '../../utils/axios'
 
 const api = {

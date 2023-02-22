@@ -1,5 +1,5 @@
 import { $axios } from '../../utils/axios'
-import { Pagination } from '@nx-blog/pagination'
+import { Pagination } from '@nest-react-blog/pagination'
 
 const api = {
   user: '/admin/user/',

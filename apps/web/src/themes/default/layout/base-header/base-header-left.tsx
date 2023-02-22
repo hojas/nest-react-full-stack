@@ -5,7 +5,7 @@ export const BaseHeaderLeft = ({ navbarList }) => (
   <div className="navbar-start">
     <MobileDropdown navbarList={navbarList} />
     <Link className="btn btn-ghost normal-case text-xl" href="/">
-      nx-blog
+      nest-react-blog
     </Link>
   </div>
 )

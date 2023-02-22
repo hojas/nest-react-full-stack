@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
-import { MarkdownEditor } from '@nx-blog/markdown-editor'
-import { MarkdownViewer } from '@nx-blog/markdown-viewer'
+import { MarkdownEditor } from '@nest-react-blog/markdown-editor'
+import { MarkdownViewer } from '@nest-react-blog/markdown-viewer'
 
 interface Props {
   content: string

@@ -1,3 +1,3 @@
-import { initAxios } from '@nx-blog/axios'
+import { initAxios } from '@nest-react-blog/axios'
 
 export const $axios = initAxios()

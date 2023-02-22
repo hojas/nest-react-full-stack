@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { MarkdownViewer } from '@nx-blog/markdown-viewer'
-import { Comment } from '@nx-blog/comment'
+import { MarkdownViewer } from '@nest-react-blog/markdown-viewer'
+import { Comment } from '@nest-react-blog/comment'
 import { ArticleMeta } from '../components/article-item/article-meta'
 import { ArticleFooter } from '../components/article/article-footer'
 

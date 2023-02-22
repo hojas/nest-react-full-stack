@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <BaseLayout>
       <Head>
-        <title>nx-blog</title>
+        <title>nest-react-blog</title>
       </Head>
       <Component {...pageProps} />
       <ToastContainer />

@@ -60,7 +60,7 @@ export const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
     <Layout className="h-full">
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="py-[4px] m-[16px] text-white text-xl text-center">
-          nx-blog
+          nest-react-blog
         </div>
         <Menu
           theme="dark"
