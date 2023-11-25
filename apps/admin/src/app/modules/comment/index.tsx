@@ -5,7 +5,7 @@ import { Comment } from './comment.service'
 import { useComment } from './useComment'
 
 const columns = (
-  setActiveComment: (category: Comment) => void,
+  setActiveComment: (topic: Comment) => void,
   handleDelete: (id: number) => void
 ) => [
   {

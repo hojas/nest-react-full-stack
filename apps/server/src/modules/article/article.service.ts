@@ -2,23 +2,23 @@ import { Injectable } from '@nestjs/common'
 import { Article } from '@prisma/client'
 import { Pagination } from '../../types/pagination'
 import { PrismaService } from '../prisma/prisma.service'
-import { CategoryService } from '../category/category.service'
+import { TopicService } from '../topic/topic.service'
 import { CreateArticleDto } from './create-article.dto'
 
 type QueryType = {
-  categoryCode?: string
+  topicCode?: string
   tags?: string[]
 }
 
 type WhereType = {
-  categoryId?: number
+  topicId?: number
 }
 
 @Injectable()
 export class ArticleService {
   constructor(
     private prisma: PrismaService,
-    private categoryService: CategoryService
+    private topicService: TopicService
   ) {}
 
   async findAll(
@@ -27,9 +27,9 @@ export class ArticleService {
   ): Promise<Pagination<Article>> {
     const where: WhereType = {}
 
-    if (query && query.categoryCode) {
-      const category = await this.categoryService.findByCode(query.categoryCode)
-      where.categoryId = category ? category.id : 0
+    if (query && query.topicCode) {
+      const topic = await this.topicService.findByCode(query.topicCode)
+      where.topicId = topic ? topic.id : 0
     }
 
     const articles = await this.prisma.article.findMany({
@@ -37,7 +37,7 @@ export class ArticleService {
       skip: (page - 1) * pageSize,
       take: pageSize,
       include: {
-        category: true,
+        topic: true,
         author: true,
       },
       orderBy: { createdAt: 'desc' },
@@ -55,7 +55,7 @@ export class ArticleService {
     return this.prisma.article.findUnique({
       where: { id },
       include: {
-        category: true,
+        topic: true,
         author: true,
       },
     })
@@ -67,9 +67,9 @@ export class ArticleService {
     const data = {
       title: article.title,
       content: article.content || '',
-      category: {
+      topic: {
         connect: {
-          id: article.categoryId,
+          id: article.topicId,
         },
       },
       author: {
@@ -93,9 +93,9 @@ export class ArticleService {
     const data = {
       title: article.title,
       content: article.content,
-      category: {
+      topic: {
         connect: {
-          id: article.categoryId,
+          id: article.topicId,
         },
       },
       tags: {

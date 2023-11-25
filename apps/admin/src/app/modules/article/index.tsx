@@ -3,7 +3,7 @@ import { Button, Table, Space, Popconfirm, Drawer } from 'antd'
 import type { DrawerProps } from 'antd'
 import { format } from 'date-fns'
 import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import { Category } from '../category/category.service'
+import { Topic } from '../topic/topic.service'
 import { Article, CreateArticleDto } from './article.service'
 import ArticleModal from './article-modal'
 import ArticleForm from './article-form'
@@ -15,7 +15,7 @@ import './style.scss'
 type ModalType = 'create' | 'update'
 
 const columns = (
-  categoryList: Category[],
+  topicList: Topic[],
   showModal: (type: ModalType) => void,
   setActiveArticle: (article: Article) => void,
   handleDelete: (id: number) => void,
@@ -32,7 +32,7 @@ const columns = (
   {
     title: '分类',
     render: (_: unknown, record: Article) => (
-      <div>{categoryList.find(c => c.id === record.categoryId)?.name}</div>
+      <div>{topicList.find(c => c.id === record.topicId)?.name}</div>
     ),
   },
   {
@@ -84,7 +84,7 @@ const columns = (
 export const AdminArticle = () => {
   const [activeArticle, setActiveArticle] = useState<Article>()
   const {
-    categoryList,
+    topicList,
     articleList,
     addArticle,
     updateArticle,
@@ -149,7 +149,7 @@ export const AdminArticle = () => {
       </Button>
       <Table
         columns={columns(
-          categoryList,
+          topicList,
           showModal,
           setActiveArticle,
           removeArticle,
@@ -165,7 +165,7 @@ export const AdminArticle = () => {
         hideModal={hideModal}
       >
         <ArticleForm
-          categoryList={categoryList}
+          topicList={topicList}
           article={activeArticle}
           onFinish={onFinish}
         />

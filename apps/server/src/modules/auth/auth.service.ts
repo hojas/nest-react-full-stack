@@ -26,7 +26,7 @@ export class AuthService {
     }
   }
 
-  login(user: string | object | Buffer) {
+  login(user: User) {
     return {
       access_token: this.jwtService.sign(user),
     }

@@ -32,7 +32,7 @@ export class AuthController {
     @Req() req: Request,
     @Res() res: Response
   ): Promise<Response<{ ok: boolean }>> {
-    const { access_token: token } = this.authService.login(req.user)
+    const { access_token: token } = this.authService.login(req.user as User)
 
     if (token) {
       this.authService.setToken(res, token)

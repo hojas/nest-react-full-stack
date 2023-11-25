@@ -35,7 +35,7 @@ model User {
   comments  Comment[]
 }
 
-model Category {
+model Topic {
   id         Int       @id @default(autoincrement())
   name       String    @unique @db.VarChar
   code       String    @unique @db.VarChar
@@ -49,13 +49,13 @@ model Article {
   id           Int       @id @default(autoincrement())
   title        String    @db.VarChar
   content      String
-  categoryId   Int
+  topicId      Int
   authorId     Int
   likeCount    Int       @default(0)
   collectCount Int       @default(0)
   createdAt    DateTime  @default(now()) @db.Timestamp(6)
   updatedAt    DateTime  @default(now()) @updatedAt @db.Timestamp(6)
-  category     Category  @relation(fields: [categoryId], references: [id])
+  topic        Topic     @relation(fields: [topicId], references: [id])
   author       User      @relation(fields: [authorId], references: [id])
   tags         Tag[]
   comments     Comment[]

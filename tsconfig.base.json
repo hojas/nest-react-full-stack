@@ -10,33 +10,16 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nest-react-blog/axios": [
-        "libs/axios/src/index.ts"
-      ],
-      "@nest-react-blog/comment": [
-        "libs/comment/src/index.ts"
-      ],
-      "@nest-react-blog/markdown-editor": [
-        "libs/markdown-editor/src/index.ts"
-      ],
-      "@nest-react-blog/markdown-viewer": [
-        "libs/markdown-viewer/src/index.ts"
-      ],
-      "@nest-react-blog/pagination": [
-        "libs/pagination/src/index.ts"
-      ]
+      "@nest-react-blog/axios": ["libs/axios/src/index.ts"],
+      "@nest-react-blog/markdown-editor": ["libs/markdown-editor/src/index.ts"],
+      "@nest-react-blog/markdown-viewer": ["libs/markdown-viewer/src/index.ts"],
+      "@nest-react-blog/pagination": ["libs/pagination/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

@@ -1,4 +1,3 @@
-import 'rxjs'
 import {
   Injectable,
   ExecutionContext,

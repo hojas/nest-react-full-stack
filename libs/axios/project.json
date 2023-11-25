@@ -5,38 +5,28 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/axios",
         "main": "libs/axios/src/index.ts",
         "tsConfig": "libs/axios/tsconfig.lib.json",
-        "assets": [
-          "libs/axios/*.md"
-        ]
+        "assets": ["libs/axios/*.md"]
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/axios/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/axios/**/*.ts", "libs/axios/package.json"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/axios"
-      ],
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "jestConfig": "libs/axios/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/libs/axios"
       }
     }
   },

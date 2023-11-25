@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import { message } from 'antd'
 import { Pagination } from '@nest-react-blog/pagination'
 import { ArticleService, Article, CreateArticleDto } from './article.service'
-import { CategoryService, Category } from '../category/category.service'
+import { TopicService, Topic } from '../topic/topic.service'
 
 export const useArticle = () => {
-  const [categoryList, setCategoryList] = useState<Category[]>([])
+  const [topicList, setTopicList] = useState<Topic[]>([])
 
   useEffect(() => {
-    CategoryService.getCategoryList().then(({ ok, data }) => {
-      ok && setCategoryList(data)
+    TopicService.getTopicList().then(({ ok, data }) => {
+      ok && setTopicList(data)
     })
   }, [])
 
@@ -61,7 +61,7 @@ export const useArticle = () => {
   }
 
   return {
-    categoryList,
+    topicList,
     articleList,
     addArticle,
     updateArticle,

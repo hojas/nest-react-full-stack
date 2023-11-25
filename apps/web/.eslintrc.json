@@ -1,12 +1,18 @@
 {
   "extends": [
-    "plugin:@nrwl/nx/react-typescript",
+    "plugin:@nx/react-typescript",
     "next",
     "next/core-web-vitals",
     "../../.eslintrc.json"
   ],
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": ["!**/*", ".next/**/*"],
   "overrides": [
+    {
+      "files": ["*.*"],
+      "rules": {
+        "@next/next/no-html-link-for-pages": "off"
+      }
+    },
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
@@ -20,12 +26,12 @@
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      }
     }
-  ],
-  "rules": {
-    "@next/next/no-html-link-for-pages": "off"
-  },
-  "env": {
-    "jest": true
-  }
+  ]
 }

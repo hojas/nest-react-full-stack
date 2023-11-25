@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { Layout, Menu } from 'antd'
 import { ItemType } from 'antd/es/menu/hooks/useItems'
 import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
   DashboardOutlined,
   UserOutlined,
   UnorderedListOutlined,
@@ -13,7 +11,7 @@ import {
 } from '@ant-design/icons'
 import { useBaseLayout } from './useBaseLayout'
 
-const { Header, Sider, Content } = Layout
+const { Header, Sider, Content, Footer } = Layout
 
 const menuItems: ItemType[] = [
   {
@@ -29,7 +27,7 @@ const menuItems: ItemType[] = [
   {
     label: '分类管理',
     icon: <UnorderedListOutlined />,
-    key: '/category',
+    key: '/topic',
   },
   {
     label: '文章管理',
@@ -57,10 +55,14 @@ export const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
   const { selectedKeys, onClick } = useBaseLayout()
 
   return (
-    <Layout className="h-full">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+    <Layout className="min-h-screen">
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
         <div className="py-[4px] m-[16px] text-white text-xl text-center">
-          nest-react-blog
+          Admin
         </div>
         <Menu
           theme="dark"
@@ -71,19 +73,13 @@ export const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
         />
       </Sider>
       <Layout>
-        <Header className="flex items-center !p-0 !bg-white">
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className:
-                'trigger p-[0_24px] text-2xl leading-[64px] cursor-pointer transition-colors duration-300',
-              onClick: () => setCollapsed(!collapsed),
-            }
-          )}
-        </Header>
-        <Content className="m-[24px_16px] p-[24px] bg-white">
-          {children}
+        <Header className="p-0 bg-white" />
+        <Content className="m-[16px]">
+          <div className="p-[24px] bg-white">{children}</div>
         </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          nest-react-blog ©2023 Created by hojas
+        </Footer>
       </Layout>
     </Layout>
   )

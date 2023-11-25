@@ -1,14 +1,16 @@
-import { StrictMode } from 'react'
-import * as ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './app/app'
+import { StrictMode } from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+import App from './app/app';
 
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
 root.render(
   <StrictMode>
     <BrowserRouter basename="/admin">
-      <App />
+      <App/>
     </BrowserRouter>
-  </StrictMode>
-)
+  </StrictMode>,
+);

@@ -1,19 +1,19 @@
 // import { useEffect } from 'react'
 import { Form, Input, Select } from 'antd'
-import { Category } from '../category/category.service'
+import { Topic } from '../topic/topic.service'
 import { Article, CreateArticleDto } from './article.service'
 
 interface Props {
-  categoryList: Category[]
+  topicList: Topic[]
   article?: Article
   onFinish: (article: CreateArticleDto) => void
 }
 
-export default ({ categoryList, article, onFinish }: Props) => {
+export default ({ topicList, article, onFinish }: Props) => {
   const [form] = Form.useForm<CreateArticleDto>()
 
   // useEffect(() => {
-  //   form && form.resetFields && form.resetFields(['title', 'categoryId'])
+  //   form && form.resetFields && form.resetFields(['title', 'topicId'])
   // }, [form, article])
 
   return (
@@ -35,13 +35,13 @@ export default ({ categoryList, article, onFinish }: Props) => {
       </Form.Item>
       <Form.Item
         label="分类"
-        name="categoryId"
+        name="topicId"
         rules={[{ required: true, message: '请选择分类' }]}
       >
         <Select>
-          {categoryList.map(category => (
-            <Select.Option key={category.id} value={category.id}>
-              {category.name}
+          {topicList.map(topic => (
+            <Select.Option key={topic.id} value={topic.id}>
+              {topic.name}
             </Select.Option>
           ))}
         </Select>

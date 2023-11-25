@@ -9,7 +9,7 @@ const api = {
 export interface CreateArticleDto {
   title: string
   content: string
-  categoryId: number
+  topicId: number
 }
 
 export interface Article extends CreateArticleDto {

@@ -1,16 +1,17 @@
-const { join } = require('path')
-const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
-const typography = require('@tailwindcss/typography')
-const lineClamp = require('@tailwindcss/line-clamp')
-const daisyui = require('daisyui')
+const { join } = require('node:path')
+const { createGlobPatternsForDependencies } = require('@nx/react/tailwind')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    join(__dirname, 'src/**/*.{ts,tsx}'),
+    join(
+      __dirname,
+      '{src,pages,components,app,themes}/**/*!(*.stories|*.spec).{ts,tsx,html}',
+    ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
-  plugins: [typography, lineClamp, daisyui],
-  daisyui: {
-    themes: ['wireframe'],
+  theme: {
+    extend: {},
   },
+  plugins: [],
 }

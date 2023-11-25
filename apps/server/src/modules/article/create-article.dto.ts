@@ -1,7 +1,7 @@
 export class CreateArticleDto {
   title: string
   content: string
-  categoryId: number
+  topicId: number
   authorId: number
   tagIds: number[]
 }

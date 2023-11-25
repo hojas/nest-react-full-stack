@@ -5,54 +5,61 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
       "options": {
         "target": "node",
         "compiler": "tsc",
         "outputPath": "dist/apps/server",
         "main": "apps/server/src/main.ts",
         "tsConfig": "apps/server/tsconfig.app.json",
-        "assets": ["apps/server/src/assets"]
+        "assets": [
+          "apps/server/src/assets"
+        ],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/server/webpack.config.js"
       },
       "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "fileReplacements": [
-            {
-              "replace": "apps/server/src/environments/environment.ts",
-              "with": "apps/server/src/environments/environment.prod.ts"
-            }
-          ]
-        }
+        "development": {},
+        "production": {}
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
       "options": {
         "buildTarget": "server:build"
       },
       "configurations": {
+        "development": {
+          "buildTarget": "server:build:development"
+        },
         "production": {
           "buildTarget": "server:build:production"
         }
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/server/**/*.ts"]
+        "lintFilePatterns": [
+          "apps/server/**/*.ts"
+        ]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/server"],
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
-        "jestConfig": "apps/server/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/server/jest.config.ts"
       }
     }
   },

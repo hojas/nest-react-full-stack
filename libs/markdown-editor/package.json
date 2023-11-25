@@ -1,4 +1,18 @@
 {
   "name": "@nest-react-blog/markdown-editor",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@codemirror/lang-markdown": "^6.2.2",
+    "@codemirror/language-data": "^6.3.1",
+    "@uiw/codemirror-theme-dracula": "^4.21.20",
+    "@uiw/react-codemirror": "^4.21.20"
+  }
 }
