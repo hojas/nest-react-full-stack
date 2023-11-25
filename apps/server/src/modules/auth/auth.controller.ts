@@ -7,8 +7,6 @@ import {
   Res,
   Body,
   UseGuards,
-  HttpException,
-  HttpStatus,
 } from '@nestjs/common'
 import { User } from '@prisma/client'
 import { Public } from '../../decorators/jwt.decorator'
@@ -22,7 +20,7 @@ import { LocalAuthGuard } from './local-auth.guard'
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
   ) {}
 
   @Public()
@@ -30,7 +28,7 @@ export class AuthController {
   @Post('login')
   async login(
     @Req() req: Request,
-    @Res() res: Response
+    @Res() res: Response,
   ): Promise<Response<{ ok: boolean }>> {
     const { access_token: token } = this.authService.login(req.user as User)
 
@@ -59,18 +57,13 @@ export class AuthController {
     user: {
       oldPassword: string
       newPassword: string
-      comparePassword: string
-    }
+    },
   ) {
     const currentUser = req.user as User
-    if (user.newPassword !== user.comparePassword) {
-      throw new HttpException('两次输入的密码不同', HttpStatus.BAD_REQUEST)
-    }
-
     return this.userService.resetPassword(
       currentUser.username,
       user.oldPassword,
-      user.newPassword
+      user.newPassword,
     )
   }
 }

@@ -1,32 +1,40 @@
-export const LoginPage = ({ setEmail, setPassword, onLogin }) => (
-  <div className="card max-w-md w-1/2 mx-auto shadow-2xl bg-base-100">
-    <div className="card-body">
-      <div className="text-3xl font-bold text-center">登录</div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text">邮箱</span>
-        </label>
-        <input
-          type="text"
-          className="input input-bordered"
-          onChange={e => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text">密码</span>
-        </label>
-        <input
-          type="password"
-          className="input input-bordered"
-          onChange={e => setPassword(e.target.value)}
-        />
-      </div>
-      <div className="form-control mt-6">
-        <button className="btn btn-primary" onClick={onLogin}>
-          登录
-        </button>
-      </div>
-    </div>
-  </div>
-)
+import { Card, Form, Button } from 'react-bootstrap'
+
+export function LoginPage({
+  setEmail,
+  setPassword,
+  onLogin,
+}: {
+  setEmail: (email: string) => void
+  setPassword: (password: string) => void
+  onLogin: () => void
+}) {
+  return (
+    <Card className="w-1/3 my-10 mx-auto">
+      <Card.Header className="text-center">登录</Card.Header>
+      <Card.Body>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>邮箱</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="输入邮箱"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>密码</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="输入密码"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="button" onClick={onLogin}>
+            登录
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
+  )
+}

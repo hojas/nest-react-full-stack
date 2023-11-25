@@ -11,7 +11,7 @@ export function BaseHeader() {
       data-bs-theme="light"
     >
       <Container>
-        <Navbar.Brand href="/">Blog</Navbar.Brand>
+        <Navbar.Brand href="/">朝闻道</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
