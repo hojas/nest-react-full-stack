@@ -1,3 +1,4 @@
 node_modules
 dist
-.nx
+.nx/cache
+.next
