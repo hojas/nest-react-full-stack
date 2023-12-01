@@ -18,12 +18,12 @@ services:
       dockerfile: server.Dockerfile
     restart: always
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8081:8080
     env_file:
       - .env.production
     environment:
       VIRTUAL_HOST: www.zwd.xyz
-      VIRTUAL_PORT: 8080
+      VIRTUAL_PORT: 8081
       VIRTUAL_PATH: /api
     depends_on:
       - db

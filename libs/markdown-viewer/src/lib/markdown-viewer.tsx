@@ -1,9 +1,8 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown, { ExtraProps } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-
 import { default as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
@@ -21,7 +20,11 @@ export const MarkdownViewer = ({ className, content }: Props) => {
     <ReactMarkdown
       className={'markdown-body' + className}
       components={{
-        code(props) {
+        code(
+          props: React.ClassAttributes<HTMLElement> &
+            React.HTMLAttributes<HTMLElement> &
+            ExtraProps,
+        ) {
           const { children, className } = props
           const match = /language-(\w+)/.exec(className || '')
           return match ? (
