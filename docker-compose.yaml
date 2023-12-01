@@ -36,7 +36,7 @@ services:
       dockerfile: admin.Dockerfile
     restart: always
     ports:
-      - 4200:80
+      - 127.0.0.1:4200:80
     env_file:
       - .env.production
     environment:
