@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { default as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 import 'github-markdown-css/github-markdown-light.css'
@@ -22,7 +22,7 @@ export const MarkdownViewer = ({ className, content }: Props) => {
       className={'markdown-body' + className}
       components={{
         code(props) {
-          const { children, className, node, ...rest } = props
+          const { children, className } = props
           const match = /language-(\w+)/.exec(className || '')
           return match ? (
             <SyntaxHighlighter
@@ -32,7 +32,6 @@ export const MarkdownViewer = ({ className, content }: Props) => {
               wrapLongLines={true}
               showLineNumbers={true}
               showInlineLineNumbers={true}
-              {...rest}
             >
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
