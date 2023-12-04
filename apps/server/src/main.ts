@@ -12,7 +12,7 @@ async function bootstrap() {
   app.use(cookieParser())
   app.setGlobalPrefix('api')
 
-  const port = process.env.PORT || 8080
+  const port = process.env.API_PORT || 8080
   await app.listen(port)
 
   Logger.log(`🚀 Application is running on: http://localhost:${port}/api`)
