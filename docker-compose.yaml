@@ -11,6 +11,8 @@ services:
       POSTGRES_DB: nest_blog
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - nginx-proxy
   server:
     container_name: nest-react-blog-server
     build:
@@ -30,6 +32,8 @@ services:
       - db
     links:
       - db
+    networks:
+      - nginx-proxy
   admin:
     container_name: nest-react-blog-admin
     build:
@@ -45,6 +49,8 @@ services:
       VIRTUAL_HOST: www.zwd.xyz
       VIRTUAL_PORT: 4200
       VIRTUAL_PATH: /admin
+    networks:
+      - nginx-proxy
   web:
     container_name: nest-react-blog-web
     build:
@@ -60,6 +66,12 @@ services:
       VIRTUAL_HOST: www.zwd.xyz
       VIRTUAL_PORT: 3000
       VIRTUAL_PATH: /
+    networks:
+      - nginx-proxy
 
 volumes:
   postgres-data:
+
+networks:
+  nginx-proxy:
+    external: true
