@@ -10,9 +10,9 @@
     }
   },
   "dependencies": {
-    "@codemirror/lang-markdown": "^6.2.2",
+    "@codemirror/lang-markdown": "^6.2.3",
     "@codemirror/language-data": "^6.3.1",
-    "@uiw/codemirror-theme-dracula": "^4.21.20",
-    "@uiw/react-codemirror": "^4.21.20"
+    "@uiw/codemirror-theme-dracula": "^4.21.21",
+    "@uiw/react-codemirror": "^4.21.21"
   }
 }
