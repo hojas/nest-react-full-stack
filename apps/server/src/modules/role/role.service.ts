@@ -8,8 +8,8 @@ import { CreateRoleDto } from './create-role.dto'
 export class RoleService {
   constructor(private prisma: PrismaService) {}
 
-  onApplicationBootstrap() {
-    return this.initRoles()
+  async onApplicationBootstrap() {
+    await this.initRoles()
   }
 
   async initRoles(): Promise<void> {

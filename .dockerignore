@@ -1,5 +1,7 @@
-node_modules
-dist
+**/node_modules
+**/dist
+.git
+npm-debug.log
 .nx/cache
 .next
 .env
