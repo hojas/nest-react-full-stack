@@ -28,30 +28,30 @@ export const initAxios = (baseURL = '/api') => {
         ok: false,
         message,
       }
-    }
+    },
   )
 
   return {
     get: <T = unknown, R = CustomResponse<T>, D = unknown>(
       url: string,
-      config?: AxiosRequestConfig<D>
+      config?: AxiosRequestConfig<D>,
     ): Promise<R> => instance.get(url, config),
 
     post: <T = unknown, R = CustomResponse<T>, D = unknown>(
       url: string,
       data?: D,
-      config?: AxiosRequestConfig<D>
+      config?: AxiosRequestConfig<D>,
     ): Promise<R> => instance.post(url, data, config),
 
     put: <T = unknown, R = CustomResponse<T>, D = unknown>(
       url: string,
       data?: D,
-      config?: AxiosRequestConfig<D>
+      config?: AxiosRequestConfig<D>,
     ): Promise<R> => instance.put(url, data, config),
 
     delete: <T = unknown, R = CustomResponse<T>, D = unknown>(
       url: string,
-      config?: AxiosRequestConfig<D>
+      config?: AxiosRequestConfig<D>,
     ): Promise<R> => instance.delete(url, config),
   }
 }

@@ -5,20 +5,10 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:swc",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/axios",
-        "main": "libs/axios/src/index.ts",
-        "tsConfig": "libs/axios/tsconfig.lib.json",
-        "assets": ["libs/axios/*.md"]
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/axios/**/*.ts", "libs/axios/package.json"]
+        "outputPath": "dist/libs/axios"
       }
     },
     "test": {
@@ -27,6 +17,13 @@
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/axios"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/axios/**/*.ts", "libs/axios/package.json"]
       }
     }
   },
