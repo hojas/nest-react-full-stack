@@ -7,8 +7,8 @@ import { BaseLayout } from '../themes'
 import './global.css'
 
 export const metadata = {
-  title: '朝闻道',
-  description: '朝闻道',
+  title: 'blog',
+  description: 'blog',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

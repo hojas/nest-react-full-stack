@@ -24,8 +24,7 @@ services:
     env_file:
       - .env.production
     environment:
-      LETSENCRYPT_HOST: www.zwd.xyz
-      VIRTUAL_HOST: www.zwd.xyz
+      VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 8081
       VIRTUAL_PATH: /api
     depends_on:
@@ -45,8 +44,7 @@ services:
     env_file:
       - .env.production
     environment:
-      LETSENCRYPT_HOST: www.zwd.xyz
-      VIRTUAL_HOST: www.zwd.xyz
+      VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 4200
       VIRTUAL_PATH: /admin
     networks:
@@ -62,8 +60,7 @@ services:
     env_file:
       - .env.production
     environment:
-      LETSENCRYPT_HOST: www.zwd.xyz
-      VIRTUAL_HOST: www.zwd.xyz
+      VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 3000
       VIRTUAL_PATH: /
     networks:

@@ -1,12 +1,12 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/admin',
-
   base: '/admin/',
+  root: __dirname,
+  cacheDir: '../../node_modules/.vite/apps/admin',
 
   server: {
     port: 4200,
@@ -25,6 +25,14 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
 
+  build: {
+    outDir: '../../dist/apps/admin',
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
+
   test: {
     globals: true,
     cache: {
@@ -32,5 +40,11 @@ export default defineConfig({
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/admin',
+      provider: 'v8',
+    },
   },
-});
+})

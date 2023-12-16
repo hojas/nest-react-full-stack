@@ -23,8 +23,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "web:build",
-        "dev": true,
-        "port": 3000
+        "dev": true
       },
       "configurations": {
         "development": {
@@ -52,10 +51,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
-      }
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": []
