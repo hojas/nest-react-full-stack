@@ -8,6 +8,8 @@ A simple blog system built with Nest, React and Nx.
 
 ![admin](./screenshots/admin.jpg)
 
+### Web
+
 ![web](./screenshots/web.jpg)
 
 ## Run with docker-compose
