@@ -36,7 +36,7 @@ A simple blog system built with Nest, React and Nx.
 
 ## Run with docker-compose
 
-1. Create .env.production file
+### 1. Create .env.production file
 
 ```env
 DATABASE_URL="postgresql://nest_blog:nest_blog@db:5432/nest_blog?schema=public&connect_timeout=300"
@@ -48,7 +48,13 @@ VITE_API_BASE_URL=http://localhost:4200/api
 WEB_API_BASE_URL=http://localhost:8080/api
 ```
 
-2. Run with docker-compose in production mode
+### 2. Run [nginx-proxy](https://github.com/hojas/nginx-proxy) first
+
+### 3. Run with docker-compose in production mode
+
+Set your Domain in docker-compose.yaml if you need.
+
+```yml
 
 ```shell
 $ docker-compose up -d

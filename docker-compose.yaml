@@ -24,6 +24,8 @@ services:
     env_file:
       - .env.production
     environment:
+      # LETSENCRYPT_HOST: your_domain
+      # VIRTUAL_HOST: your_domain
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 8081
       VIRTUAL_PATH: /api
@@ -44,6 +46,8 @@ services:
     env_file:
       - .env.production
     environment:
+      # LETSENCRYPT_HOST: your_domain
+      # VIRTUAL_HOST: your_domain
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 4200
       VIRTUAL_PATH: /admin
@@ -60,6 +64,8 @@ services:
     env_file:
       - .env.production
     environment:
+      # LETSENCRYPT_HOST: your_domain
+      # VIRTUAL_HOST: your_domain
       VIRTUAL_HOST: localhost
       VIRTUAL_PORT: 3000
       VIRTUAL_PATH: /
