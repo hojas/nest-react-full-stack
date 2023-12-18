@@ -12,6 +12,20 @@ A simple blog system built with Nest, React and Nx.
 
 ![web](./screenshots/web.jpg)
 
+## Tech Stack
+
+1. Nx
+2. Nest
+3. Postgresql
+4. Prisma
+5. React
+6. Next
+7. Bootstrap
+8. Ant Design
+9. Tailwind CSS
+10. Vite
+11. Docker
+
 ## Features
 
 1. User management

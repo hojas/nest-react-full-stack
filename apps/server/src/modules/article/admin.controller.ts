@@ -33,7 +33,7 @@ export class AdminController {
     @Query('page', new DefaultValuePipe(1), ParseIntPipe)
     page: number,
     @Query('page_size', new DefaultValuePipe(PAGE_SIZE), ParseIntPipe)
-    pageSize: number
+    pageSize: number,
   ): Promise<Pagination<Article>> {
     return this.articleService.findAll({ page, pageSize })
   }
@@ -41,7 +41,7 @@ export class AdminController {
   @Post()
   create(
     @Req() req,
-    @Body('article') article: CreateArticleDto
+    @Body('article') article: CreateArticleDto,
   ): Promise<Article> {
     article.authorId = req.user.id
     return this.articleService.create(article)
@@ -62,7 +62,7 @@ export class AdminController {
   @UseFilters(HttpExceptionFilter)
   async update(
     @Param('id', ParseIntPipe) id: number,
-    @Body('article') article: CreateArticleDto
+    @Body('article') article: CreateArticleDto,
   ): Promise<Article> {
     const res = await this.articleService.update(id, article)
     if (res) {
