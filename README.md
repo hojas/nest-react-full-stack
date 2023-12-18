@@ -12,6 +12,14 @@ A simple blog system built with Nest, React and Nx.
 
 ![web](./screenshots/web.jpg)
 
+## Features
+
+1. User management
+2. Role management
+3. Topic management
+4. Article management
+5. Comment management
+
 ## Run with docker-compose
 
 1. Create .env.production file
