@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { ToastContainer } from 'react-toastify'
-import 'katex/dist/katex.min.css'
+// import 'katex/dist/katex.min.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { BaseLayout } from '../themes'

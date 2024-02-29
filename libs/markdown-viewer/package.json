@@ -10,14 +10,11 @@
     }
   },
   "dependencies": {
-    "github-markdown-css": "^5.5.0",
+    "github-markdown-css": "^5.5.1",
     "react-markdown": "^9.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "rehype-katex": "^7.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0"
-  },
-  "devDependencies": {
-    "@types/react-syntax-highlighter": "^15.5.11"
   }
 }

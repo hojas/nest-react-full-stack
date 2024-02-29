@@ -1,1 +1,1 @@
-export * from './lib/markdown-viewer'
+export * from './lib/markdown-viewer';

@@ -1,13 +1,21 @@
-const { composePlugins, withNx } = require('@nx/webpack')
 
-// Nx plugins for webpack.
-module.exports = composePlugins(
-  withNx({
-    target: 'node',
-  }),
-  (config) => {
-    // Update the webpack config as needed here.
-    // e.g. `config.plugins.push(new MyPlugin())`
-    return config
+const { NxWebpackPlugin } = require('@nx/webpack');
+const { join } = require('path');
+
+module.exports = {
+  output: {
+    path: join(__dirname, '../../dist/apps/server'),
   },
-)
+  plugins: [
+    new NxWebpackPlugin({
+      target: 'node',
+      compiler: 'tsc',
+      main: './src/main.ts',
+      tsConfig: './tsconfig.app.json',
+      assets: ["./src/assets"],
+      optimization: false,
+      outputHashing: 'none',
+    })
+  ],
+};
+

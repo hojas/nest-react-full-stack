@@ -1,7 +1,7 @@
-import { pagination } from './pagination'
+import { pagination } from './pagination';
 
 describe('pagination', () => {
   it('should work', () => {
-    expect(pagination()).toEqual('pagination')
-  })
-})
+    expect(pagination()).toEqual('pagination');
+  });
+});
