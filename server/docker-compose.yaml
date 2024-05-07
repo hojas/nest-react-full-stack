@@ -1,0 +1,44 @@
+services:
+  postgres:
+    container_name: nest-react-full-stack-postgres
+    image: postgres:16.2-alpine
+    restart: always
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      POSTGRES_USER: nest_blog
+      POSTGRES_PASSWORD: nest_blog
+      POSTGRES_DB: nest_blog
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - nginx-proxy
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest-react-full-stack-server
+    container_name: nest-react-full-stack-server
+    restart: always
+    ports:
+      - 127.0.0.1:8081:8081
+    env_file:
+      - .env.production.local
+    environment:
+      LETSENCRYPT_HOST: ${DOMAIN}
+      VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 8081
+      VIRTUAL_PATH: /api
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - nginx-proxy
+
+volumes:
+  postgres-data:
+
+networks:
+  nginx-proxy:
+    external: true

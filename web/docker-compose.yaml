@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    imge: nest-react-full-stack-web
+    container_name: nest-react-full-stack-web
+    restart: always
+    ports:
+      - 127.0.0.1:3000:3000
+    env_file:
+      - .env
+    environment:
+      LETSENCRYPT_HOST: ${DOMAIN}
+      VIRTUAL_HOST: ${DOMAIN}
+      VIRTUAL_PORT: 3000
+      VIRTUAL_PATH: /
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true

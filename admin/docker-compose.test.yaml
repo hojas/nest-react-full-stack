@@ -1,0 +1,15 @@
+services:
+  admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest-react-full-stack-admin
+    container_name: nest-react-full-stack-admin
+    restart: always
+    ports:
+      - 127.0.0.1:4200:4200
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_PORT: 4200
+      VIRTUAL_PATH: /admin

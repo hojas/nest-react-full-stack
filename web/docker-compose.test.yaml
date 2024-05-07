@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nest-react-full-stack-web
+    container_name: nest-react-full-stack-web
+    restart: always
+    ports:
+      - 127.0.0.1:3000:3000
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_PORT: 3000
+      VIRTUAL_PATH: /

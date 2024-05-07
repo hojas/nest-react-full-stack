@@ -1,8 +1,0 @@
-{
-  "name": "markdown-viewer",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/markdown-viewer/src",
-  "projectType": "library",
-  "tags": [],
-  "targets": {}
-}
