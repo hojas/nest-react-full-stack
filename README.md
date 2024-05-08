@@ -1,6 +1,6 @@
 # nest-react-full-stack
 
-A simple blog system built with Nest and React.
+Nestjs and React full-stack application.
 
 ## Screenshots
 
