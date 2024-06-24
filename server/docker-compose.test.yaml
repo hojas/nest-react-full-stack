@@ -1,7 +1,7 @@
 services:
   postgres:
     container_name: nest-react-full-stack-postgres
-    image: postgres:16.2-alpine
+    image: postgres:16.3-alpine
     restart: always
     ports:
       - 127.0.0.1:5432:5432

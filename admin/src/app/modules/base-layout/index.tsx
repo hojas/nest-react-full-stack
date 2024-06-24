@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Layout, Menu } from 'antd'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
+import type { ItemType } from 'antd/es/menu/hooks/useItems'
 import {
-  DashboardOutlined,
-  UserOutlined,
-  UnorderedListOutlined,
-  FileTextOutlined,
   CommentOutlined,
+  DashboardOutlined,
+  FileTextOutlined,
+  UnorderedListOutlined,
+  UserOutlined,
   UserSwitchOutlined,
 } from '@ant-design/icons'
 import { useBaseLayout } from './useBaseLayout'
@@ -59,7 +59,7 @@ export const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
       <Sider
         collapsible
         collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
+        onCollapse={value => setCollapsed(value)}
       >
         <div className="py-[4px] m-[16px] text-white text-xl text-center">
           Admin
